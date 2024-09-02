@@ -5,7 +5,7 @@ https://practice.expandtesting.com/notes/api/api-docs/#/Users/post_users_login
 
 3- Using Pojo Classes for storing all Request and Response Parameters for every Endpoint with the help of Jackson Library for deserializing Json Responses into Pojo Class Objects
 
-4- Prepare Request Body Data Statically from Mocking Server containing static test data & Dynamically using TimeStamp for generating dynamic test data 
+4- Prepare Request Body Data Statically from Mocking Server (Json Server) containing static test data & Dynamically using TimeStamp for generating dynamic test data 
 
 5- Read Request Body as Object from Pojo Class of Request & Perform Dynamic Validations on Response data against The Input Test Data stored on Pojo Class of Request whether the data is Static or Dynamic
 
