@@ -7,25 +7,25 @@ public class RandomDataGenerator {
 
     public static String generateName()
     {
-      String currentTime = new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date());
-      return "Test" + currentTime;
+      String currentTime = new SimpleDateFormat("HHmmssSSS").format(new Date());
+      return "test" + currentTime;
     }
 
     public static String generateInteger()
     {
-        return new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date());
+        return new SimpleDateFormat("HHmmssSSS").format(new Date());
     }
 
     public static String generateEmail()
     {
-        String currentTime = new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date());
-        return "Test" + currentTime + "@gmail.com";
+        String currentTime = new SimpleDateFormat("HHmmssSSS").format(new Date());
+        return "test" + currentTime + "@gmail.com";
     }
 
     public static String generateStrongPassword()
     {
         String currentTime = new SimpleDateFormat("yyyyMMdd").format(new Date());
-        return "Test" + "@%^" + currentTime;
+        return "test" + "@%^" + currentTime;
     }
 
 

@@ -1,19 +1,20 @@
 package utils;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import io.restassured.RestAssured;
 import io.restassured.http.Header;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
-
+import static utils.JsonManager.*;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class ApiManager {
 
-    public static Response MakeRequest(String requestType,String endpoint,Map requestBody,String contentType)
-    {
+    public static Response MakeRequest(String requestType,String endpoint,Object requestBody,String contentType) throws JsonProcessingException {
         RequestSpecification request = RestAssured.given();
         Response response = null;
 
@@ -21,13 +22,15 @@ public class ApiManager {
         {
             if (contentType.equalsIgnoreCase("application/json"))
             {
-                JSONObject object = new JSONObject(requestBody);
-                request = request.contentType(contentType).body(object.toString());
+                request = request.contentType(contentType).body(requestBody);
             }
 
             else if (contentType.equalsIgnoreCase("application/x-www-form-urlencoded"))
             {
-                request = request.contentType(contentType).formParams(requestBody);
+                JsonMapper mapper = new JsonMapper();
+                String jsonString = mapper.writeValueAsString(requestBody);
+                Map map = convertJsonStringToMap(jsonString);
+                request = request.contentType(contentType + "; charset=utf-8").formParams(map);
             }
         }
 
@@ -49,9 +52,8 @@ public class ApiManager {
         return response;
     }
 
-    public static Response MakeAuthRequest(String requestType,String endpoint,Map requestBody,String contentType,
-                                           String authType,String authUser,String authPass, String token)
-    {
+    public static Response MakeAuthRequest(String requestType,String endpoint,Object requestBody,String contentType,
+                                           String authType,String authUser,String authPass, String token) throws JsonProcessingException {
         RequestSpecification request = RestAssured.given();
         Response response = null;
 
@@ -59,17 +61,17 @@ public class ApiManager {
         {
             if (contentType.equalsIgnoreCase("application/json"))
             {
-                JSONObject object = new JSONObject(requestBody);
-                request = request.contentType(contentType).body(object.toString());
+                request = request.contentType(contentType).body(requestBody);
             }
 
             else if (contentType.equalsIgnoreCase("application/x-www-form-urlencoded"))
             {
-                request = request.contentType(contentType).formParams(requestBody);
+                JsonMapper mapper = new JsonMapper();
+                String jsonString = mapper.writeValueAsString(requestBody);
+                Map map = convertJsonStringToMap(jsonString);
+                request = request.contentType(contentType + "; charset=utf-8").formParams(map);
             }
         }
-
-
 
         if(authType.equalsIgnoreCase("BasicAuth"))
         {
@@ -84,6 +86,11 @@ public class ApiManager {
         else if(authType.equalsIgnoreCase("CookieAuth"))
         {
             request = request.header("Cookie","token="+token);
+        }
+
+        else if(authType.equalsIgnoreCase("X-Auth-Token"))
+        {
+            request = request.header("x-auth-token",token);
         }
 
         switch (requestType)
@@ -140,6 +147,10 @@ public class ApiManager {
         else if(authType.equalsIgnoreCase("CookieAuth"))
         {
             request = request.header("Cookie","token="+token);
+        }
+        else if(authType.equalsIgnoreCase("X-Auth-Token"))
+        {
+            request = request.header("x-auth-token",token);
         }
 
         response = request.when().get(endpoint);

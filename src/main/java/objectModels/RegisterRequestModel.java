@@ -1,21 +1,21 @@
 package objectModels;
 import static utils.ApiManager.*;
+import static utils.RandomDataGenerator.*;
 
 import static utils.PropertiesManager.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import pojoClasses.RegisterRequestPojo;
 import pojoClasses.RegisterResponsePojo;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class RegisterRequestModel {
 
     //Variables
-    String mockServerBaseURL = getPropertiesValue("baseUrlMockServer");
-    String notesAPIEndpoint = getPropertiesValue("baseUrlApi")+"users/register";
+    String mockServerUrl = getPropertiesValue("baseUrlMockServer")+"Users/";
+    String registerEndpoint = getPropertiesValue("baseUrlApi")+"users/register";
     String responseBodyAsString;
     Response response;
     JsonMapper mapper;
@@ -24,10 +24,11 @@ public class RegisterRequestModel {
     RegisterRequestPojo requestObject;
     RegisterResponsePojo responseObject;
 
-    //Method to get Request Body inputs from Mock Server
-    public RegisterRequestModel getRequestInputsFromMockServer(int userID) throws JsonProcessingException {
+    @Step("prepareRegistrationRequestFromMockServer")
+    //Method to get Request Body inputs from Mock Server Statically
+    public RegisterRequestModel prepareRegistrationRequestFromMockServer(int userID) throws JsonProcessingException {
         response =
-                GetRequest(mockServerBaseURL +userID,null);
+                GetRequest(mockServerUrl +userID,null);
         responseBodyAsString = getResponseBody(response);
 
         mapper = new JsonMapper();
@@ -35,15 +36,22 @@ public class RegisterRequestModel {
         return this;
     }
 
-    //Method to Execute Registration Request
-    public RegisterResponseModel registerUser() throws JsonProcessingException {
+    @Step("prepareRegistrationRequestWithRandomValues")
+    //Method to set Request Body inputs from TimeStamp Dynamically
+    public RegisterRequestModel prepareRegistrationRequestWithRandomValues(){
+        requestObject = RegisterRequestPojo.builder()
+                .name(generateName())
+                .email(generateEmail())
+                .password(generateStrongPassword())
+                .build();
+        return this;
+    }
 
-        Map map = new HashMap<>();
-        map.put("name",requestObject.getName());
-        map.put("email",requestObject.getEmail());
-        map.put("password",requestObject.getPassword());
+    @Step("registerNewUser")
+    //Method to Execute Registration Request
+    public RegisterResponseModel registerNewUser() throws JsonProcessingException {
         response =
-                MakeRequest("Post",notesAPIEndpoint,map,"application/json");
+                MakeRequest("Post", registerEndpoint,requestObject, "application/json");
 
         responseBodyAsString = getResponseBody(response);
         mapper = new JsonMapper();
@@ -51,4 +59,15 @@ public class RegisterRequestModel {
         responseObject = mapper.readValue(responseBodyAsString, RegisterResponsePojo.class);
         return new RegisterResponseModel(requestObject,responseObject);
     }
+
+    //Facade Method
+    @Step("register")
+    public LoginRequestModel register() throws JsonProcessingException {
+        prepareRegistrationRequestWithRandomValues().registerNewUser().getNewUserCredentials();
+        return new LoginRequestModel(
+                requestObject.getEmail(),
+                requestObject.getPassword(),
+                responseObject.getData().getId());
+    }
+
 }

@@ -9,18 +9,28 @@ import org.testng.annotations.Test;
 public class Register {
 
     @Test
-    public void registerNewUser() throws JsonProcessingException {
+    public void registerNewUserByStaticDataFromMockServer() throws JsonProcessingException {
 
-        String userID = new RegisterRequestModel()
-                .getRequestInputsFromMockServer(4)
-                .registerUser()
+        new RegisterRequestModel()
+                .prepareRegistrationRequestFromMockServer(4)
+                .registerNewUser()
                 .validateStatusFromResponse()
                 .validateMassageFromResponse()
                 .validateSuccessFromResponse()
                 .validateNameFromResponse()
-                .validateEmailFromResponse()
-                .getUserIDFromResponse();
+                .validateEmailFromResponse();
+    }
 
-        System.out.println(userID);
+    @Test
+    public void registerNewUserByDynamicDataFromTimeStamp() throws JsonProcessingException {
+
+       new RegisterRequestModel()
+                .prepareRegistrationRequestWithRandomValues()
+                .registerNewUser()
+                .validateStatusFromResponse()
+                .validateMassageFromResponse()
+                .validateSuccessFromResponse()
+                .validateNameFromResponse()
+                .validateEmailFromResponse();
     }
 }

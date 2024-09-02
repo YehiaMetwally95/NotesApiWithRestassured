@@ -2,9 +2,11 @@ package pojoClasses;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class RegisterResponsePojo {
     //variables
     private boolean success;
@@ -14,6 +16,7 @@ public class RegisterResponsePojo {
 
     @Getter
     @Setter
+    @ToString
     public class Data {
         private String id;
         private String name;
