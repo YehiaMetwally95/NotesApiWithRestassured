@@ -1,4 +1,4 @@
-name: E2E API Tests
+name: E2E Facade Tests Ubuntu
 
 on:
   workflow_dispatch:
@@ -49,5 +49,5 @@ jobs:
       - name: Upload Allure Report
         uses: actions/upload-artifact@v4
         with:
-          name: Allure Report Ubuntu
+          name: Allure Report Facade Ubuntu
           path: "target/site/allure-maven-plugin"
