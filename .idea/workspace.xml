@@ -5,47 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="Test">
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/CreateNewNote/CreateNewNote.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/CreateNewUser/CreateNewUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/UpdateNote/UpdateNote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/E2ERegression.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/E2ERegression.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-report/data/suites.csv" beforeDir="false" afterPath="$PROJECT_DIR$/allure-report/data/suites.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteResponseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/GetNoteRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/GetNoteRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/GetNoteResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/GetNoteResponseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/LoginRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/LoginRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/LoginResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/LoginResponseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/RegisterRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/RegisterRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/RegisterResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/RegisterResponseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteStatusRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteStatusResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteResponseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pojoClasses/CreateNoteRequestPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojoClasses/CreateNoteRequestPojo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pojoClasses/LoginRequestPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojoClasses/LoginRequestPojo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pojoClasses/RegisterRequestPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojoClasses/RegisterRequestPojo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pojoClasses/UpdateNoteStatusRequestPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojoClasses/UpdateNoteRequestPojo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pojoClasses/UpdateNoteStatusResponsePojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojoClasses/UpdateNoteResponsePojo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ActionBot.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/AlertsActions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ApiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ApiManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/BrowserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/BrowserFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DeleteDirectoryFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/DeleteDirectoryFiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DropdownActions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ImportStaticMethods" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ImportStaticMethods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/JDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/JDBCManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/JsonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/JsonManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/PropertiesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/PropertiesManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/RandomDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/RandomDataGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Screenshot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Screenshot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ScrollActions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/TestNGListners.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Waits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Waits.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Configurations.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Configurations.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testcases/CreateNote.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testcases/Login.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testcases/Register.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testcases/UpdateNoteStatus.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +28,6 @@
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -287,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725251509410</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Test">
+      <option name="closed" value="true" />
+      <created>1729291654177</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1729291654178</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
