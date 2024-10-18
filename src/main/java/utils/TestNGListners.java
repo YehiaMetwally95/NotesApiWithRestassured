@@ -1,11 +1,15 @@
 package utils;
 
+import lombok.SneakyThrows;
 import org.testng.*;
 
+import java.io.File;
 import java.io.IOException;
 
+import static utils.DeleteDirectoryFiles.deleteFiles;
+
 public class TestNGListners implements ITestListener , IInvokedMethodListener , ISuiteListener {
-    String propertiesFilePath = "src/main/resources/Configurations.properties";
+    static String propertiesFilePath = "src/main/resources/Configurations.properties";
 
     public void onTestStart(ITestResult result) {
         // not implemented
@@ -21,17 +25,20 @@ public class TestNGListners implements ITestListener , IInvokedMethodListener , 
         // not implemented
     }
 
-    public void onStart(ITestContext context) {
+    @SneakyThrows
+    public void onStart (ISuite suite) {
+        //Load Properties File
         PropertiesManager.filePath = propertiesFilePath;
         try {
-            PropertiesManager.loadPropertiesIntoSystem();
+            PropertiesManager.loadProperties();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
 
-    public void onFinish(ITestContext context) {
-        // not implemented
+        //Clear Allure Results before Every Run
+        File file1 = new File("allure-results");
+        deleteFiles(file1);
+
     }
 
     public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {

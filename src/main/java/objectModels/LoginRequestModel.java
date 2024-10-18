@@ -7,8 +7,8 @@ import io.restassured.response.Response;
 import pojoClasses.LoginRequestPojo;
 import pojoClasses.LoginResponsePojo;
 
-import static utils.ApiManager.MakeRequest;
-import static utils.ApiManager.getResponseBody;
+import static utils.ApiManager.*;
+import static utils.ApiManager.logResponseBody;
 import static utils.PropertiesManager.getPropertiesValue;
 
 public class LoginRequestModel {
@@ -19,22 +19,21 @@ public class LoginRequestModel {
     Response response;
     JsonMapper mapper;
 
+    //Variables from RegisterModel
     String userEmail;
     String userPassword;
-    String userID;
 
     //ObjectsFromPojoClasses
     LoginRequestPojo requestObject;
     LoginResponsePojo responseObject;
 
     //Constructor to pass Registration Data into Login Model
-    public LoginRequestModel(String email, String password, String id) {
+    public LoginRequestModel(String email, String password) {
         this.userEmail = email;
         this.userPassword = password;
-        this.userID = id;
     }
 
-    @Step("prepareLoginRequest")
+    @Step("Prepare Login Request")
     //Method to get Request Body of Login from Registration Results
     public LoginRequestModel prepareLoginRequest()
     {
@@ -45,23 +44,30 @@ public class LoginRequestModel {
         return this;
     }
 
-    @Step("loginWithExistingUser")
+    @Step("Send Login Request")
     //Method to Execute Login Request
-    public LoginResponseModel loginWithExistingUser() throws JsonProcessingException {
+    public LoginResponseModel sendLoginRequest() throws JsonProcessingException {
 
         response =
-                MakeRequest("Post", loginEndpoint,requestObject, "application/json");
+                MakeRequest("Post", loginEndpoint, requestObject, "application/x-www-form-urlencoded");
 
         responseBodyAsString = getResponseBody(response);
         mapper = new JsonMapper();
 
         responseObject = mapper.readValue(responseBodyAsString, LoginResponsePojo.class);
-        return new LoginResponseModel(requestObject,responseObject,userID);
+
+        logRequestBody(requestObject);
+        logResponseBody(responseObject);
+        return new LoginResponseModel(requestObject, responseObject);
     }
 
-    //Facade Method
-    @Step("login")
-    public CreateNoteRequestModel login() throws JsonProcessingException {
-        return prepareLoginRequest().loginWithExistingUser().getAuthTokenForNotes();
+   //Facade Method
+    @Step("Login With Existing User")
+    public LoginResponseModel loginWithExistingUser() throws JsonProcessingException {
+        return
+                new LoginRequestModel(userEmail,userPassword)
+                        .prepareLoginRequest()
+                        .sendLoginRequest()
+                        .validateTokenExists();
     }
 }

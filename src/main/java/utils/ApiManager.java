@@ -1,21 +1,27 @@
 package utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.http.Header;
+import io.restassured.parsing.Parser;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
-import static utils.JsonManager.*;
+
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import static utils.Screenshot.logApiRequestsToAllureReport;
+
 public class ApiManager {
 
     public static Response MakeRequest(String requestType,String endpoint,Object requestBody,String contentType) throws JsonProcessingException {
-        RequestSpecification request = RestAssured.given();
+        RestAssured.registerParser("text/html", Parser.JSON);
+        RequestSpecification request = RestAssured.given().filter(logApiRequestsToAllureReport());
         Response response = null;
 
         if(contentType != null)
@@ -27,9 +33,11 @@ public class ApiManager {
 
             else if (contentType.equalsIgnoreCase("application/x-www-form-urlencoded"))
             {
-                JsonMapper mapper = new JsonMapper();
-                String jsonString = mapper.writeValueAsString(requestBody);
-                Map map = convertJsonStringToMap(jsonString);
+                //convert requestObject to Map
+                Gson gson = new Gson();
+                String json = gson.toJson(requestBody);
+                Map<String, Object> map = gson.fromJson(json, new TypeToken<Map<String, Object>>() {}.getType());
+
                 request = request.contentType(contentType + "; charset=utf-8").formParams(map);
             }
         }
@@ -54,7 +62,8 @@ public class ApiManager {
 
     public static Response MakeAuthRequest(String requestType,String endpoint,Object requestBody,String contentType,
                                            String authType,String authUser,String authPass, String token) throws JsonProcessingException {
-        RequestSpecification request = RestAssured.given();
+        RestAssured.registerParser("text/html", Parser.JSON);
+        RequestSpecification request = RestAssured.given().filter(logApiRequestsToAllureReport());
         Response response = null;
 
         if(contentType != null)
@@ -66,9 +75,10 @@ public class ApiManager {
 
             else if (contentType.equalsIgnoreCase("application/x-www-form-urlencoded"))
             {
-                JsonMapper mapper = new JsonMapper();
-                String jsonString = mapper.writeValueAsString(requestBody);
-                Map map = convertJsonStringToMap(jsonString);
+                //convert requestObject to Map
+                Gson gson = new Gson();
+                String json = gson.toJson(requestBody);
+                Map<String, Object> map = gson.fromJson(json, new TypeToken<Map<String, Object>>() {}.getType());
                 request = request.contentType(contentType + "; charset=utf-8").formParams(map);
             }
         }
@@ -115,7 +125,7 @@ public class ApiManager {
 
     public static Response GetRequest(String endpoint,Map queryParameters)
     {
-        RequestSpecification request = RestAssured.given();
+        RequestSpecification request = RestAssured.given().filter(logApiRequestsToAllureReport());
         Response response = null;
 
         if (queryParameters != null)
@@ -128,7 +138,7 @@ public class ApiManager {
     public static Response GetAuthRequest(String endpoint,Map queryParameters,
                                           String authType,String authUser,String authPass, String token)
     {
-        RequestSpecification request = RestAssured.given();
+        RequestSpecification request = RestAssured.given().filter(logApiRequestsToAllureReport());
         Response response = null;
 
         if (queryParameters != null)
@@ -176,9 +186,15 @@ public class ApiManager {
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////
-    public static void logResponseBody(Response response)
+    public static void logResponseBody(Object response)
     {
-        response.then().log().body();
+        System.out.println(response.toString());
+        System.out.println("*********************************************\n");
+    }
+
+    public static void logRequestBody(Object request)
+    {
+        System.out.println(request.toString());
         System.out.println("*********************************************");
     }
 

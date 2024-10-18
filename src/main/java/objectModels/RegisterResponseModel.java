@@ -12,9 +12,6 @@ public class RegisterResponseModel {
     RegisterResponsePojo responseObject;
 
     //Variables
-    boolean expectedSuccess = true;
-    int expectedStatus = 201;
-    String expectedMassage = "User account created successfully";
 
     //Constructor to pass the response from Request Model to Response Model
     public RegisterResponseModel(RegisterRequestPojo requestObject , RegisterResponsePojo responseObject) {
@@ -24,20 +21,20 @@ public class RegisterResponseModel {
 
     //Validation Methods
     @Step("validateMassageFromResponse")
-    public RegisterResponseModel validateMassageFromResponse() {
-        Assert.assertEquals(responseObject.getMessage(),expectedMassage);
+    public RegisterResponseModel validateMassageFromResponse(String message) {
+        Assert.assertEquals(responseObject.getMessage(),message);
         return this;
     }
 
     @Step("validateStatusFromResponse")
-    public RegisterResponseModel validateStatusFromResponse() {
-        Assert.assertEquals(responseObject.getStatus(),expectedStatus);
+    public RegisterResponseModel validateStatusFromResponse(String statusCode) {
+        Assert.assertEquals(responseObject.getStatus(),Integer.parseInt(statusCode));
         return this;
     }
 
     @Step("validateSuccessFromResponse")
-    public RegisterResponseModel validateSuccessFromResponse() {
-        Assert.assertEquals(responseObject.isSuccess(),expectedSuccess);
+    public RegisterResponseModel validateSuccessFromResponse(String successFlag) {
+        Assert.assertEquals(responseObject.isSuccess(),Boolean.parseBoolean(successFlag));
         return this;
     }
 
@@ -54,19 +51,21 @@ public class RegisterResponseModel {
     }
 
     //Getter Methods
-    @Step("getUserID")
-    public String getUserID()
-    {
-        return responseObject.getData().getId();
+    public RegisterRequestPojo getRequestPojoObject() {
+        return requestObject;
     }
 
-    @Step("getNewUserCredentials")
+    public RegisterResponsePojo getResponsePojoObject() {
+        return responseObject;
+    }
+
     //Get Needed Data from Registration Model and pass it to Login Model
+    @Step("Get New User Credentials")
     public LoginRequestModel getNewUserCredentials() {
 
         return new LoginRequestModel(
                 requestObject.getEmail(),
-                requestObject.getPassword(),
-                responseObject.getData().getId());
+                requestObject.getPassword()
+        );
     }
 }

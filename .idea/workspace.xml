@@ -5,154 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="Test">
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/CreateNewNote/CreateNewNote.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/CreateNewUser/CreateNewUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/UpdateNote/UpdateNote.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/025e2be9-1318-4b7b-b198-833070d137c6-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/05ce80fc-8d53-486f-84aa-8f0677826e7e-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/065346ac-b7c9-47fa-8fb0-f64fc381d9c5-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/07e1d60e-6fe9-4c7a-9307-410f36ed6d0c-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/12c4a628-308a-4386-95e1-c91bfef2b92c-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/14bf6749-7575-4e1c-a592-c89b0f92dae0-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/15a20389-43b3-40b8-8690-e2edb6d32e1b-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/163a9fc2-37e9-4cd7-b77d-c71bdc644bb5-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/16a1f96e-4353-4faa-a545-2f623b8d1bad-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/1b92056a-6f4b-4376-a415-715277bebe7f-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/228ef01a-e37d-494b-ba5a-4a2e91b15312-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/22b01589-e004-4f19-9296-3f3f00767020-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/230452a3-1be1-4c5a-8e6b-f32520519cc1-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/232bd5b0-2118-4da1-a471-433fc6fe8aae-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/25e72947-f2ad-4c7d-856b-6f610bfd55f8-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/25f58605-3a59-494b-a3d5-803858cecca0-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/274d5277-2c35-434c-a566-27d77ac1556e-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/2800ead9-d9fd-46d8-b9bd-1ced9802be76-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/28c2fcb9-bb5d-41ed-85fc-f2ffd13195dd-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/28ca4223-1f7f-4cf1-b2ed-3936b3dd99bb-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/2ab03ef0-0668-4ef8-b3e3-495e3aafb74a-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/2d98457d-b316-428a-b393-56d36d8e5491-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/303b6ac0-6964-4bfa-9873-8ab36e224cb8-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/33baceb1-aaff-4493-a0a2-3344aea9ecfc-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/34b706c1-788f-421c-9d8f-d49001f0a27b-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/35fc9d3e-9224-460f-94e2-766b092e0c4b-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/375146ed-5277-4cc7-8a6d-0f5a99abcb2c-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/381cad05-c810-4fc1-8431-2c6c659e207c-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/3871f748-7734-4299-8272-95f214265e57-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/3acf5b8a-07b5-4bc6-8394-00d5f917b177-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/3b61f719-74ec-44d6-b784-87ace62fa18c-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/3e992a6e-fa13-4a86-bbe2-06bfa461cad3-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/404642b9-fbaa-4c4a-9098-20514f997700-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/41bd8223-06d5-4b86-b424-f8b38f9250c0-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/43add97b-9697-4065-9c14-97d900128582-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/4791387c-dccd-4a06-b61a-db5b0e16ceb7-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/47f5b8b4-7198-4ec0-9b8e-197ac5aa2f94-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/4839dd22-9a02-457d-85fa-8ecd29d34116-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/490e9c4c-4388-4e2e-83bd-065b19e98f06-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/521c5ae7-0a1e-4ad3-8a5b-0f70557906aa-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/53dddf5b-48ac-420b-9cd8-b57fb7b81fa4-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/552b2ac1-959c-4c06-9dfb-0bb892b7851d-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/554fed7c-ce54-48ce-8e15-1ac3d0ad577a-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/56fb3eee-e9d1-4d82-8260-15e11f7aeafa-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/576042c5-2bbf-44ae-b3af-34cd99f356bb-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/5918f229-384b-429a-bc55-69ce54cca956-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/5f5aab7c-b4b2-4be9-bcb7-c21edb6d057e-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/60aac50e-df15-45b7-a2eb-149f91415936-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/64faf9e9-4997-4b05-95bd-8bb87d623d61-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/6551f233-4503-47de-9162-bdf5834793f2-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/6881cf91-3144-4d6f-a007-87bef651cefc-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/691fcc51-6cb4-4f5a-8fdf-5db212fc49e8-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/696893d1-9857-445f-8589-693e019e37a1-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/6c18b396-74b2-4187-a369-0f55ffab312f-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/6f485b88-f874-442f-a15b-6c18dcbf2889-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/6fa00644-7b2e-4156-bc30-5d27c9dda9a5-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/71a8bafd-5099-439a-a977-2a412bd5b45b-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/725b3699-a885-4f99-989e-1e1e90fcb859-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/729d1925-d05f-4a8e-bbde-9e5e36d01a6e-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/735c392f-eca6-4d56-bdbe-f5f577aab07b-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/77926e5e-c82d-41da-a4cb-eaf327b6a137-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/790c6632-2b86-44cd-a055-a2b44e51e7c2-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/7d3567eb-6b9d-4dc4-bc2e-20a14907abd4-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/7fd71e91-7faf-4a1a-8f58-2e7682805711-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/818492d5-349e-4fd8-add1-9354aaddd36c-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/870dd59e-2cd8-45f0-b9a0-eabc225d2863-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/87511139-38eb-49de-a8b8-bae0c5a366c7-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/8bb1a7d4-7434-454e-94f2-877bd52aec45-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/8dd0ab57-4103-4725-9760-03a87847e06a-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/901e907c-02ac-476c-9ce5-942e21da79c4-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/91e65c59-a9e3-4bd7-9baf-fbf158b12aba-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/947a4bb9-d7fb-4cb5-a5d0-fcdc59400a27-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/962905e2-0c11-4ce7-b1d9-0355c6aea1c4-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/965357bb-209b-47d2-b767-3c28dbaffd80-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/99d57d78-25fd-4a6c-af41-5b4df11ffad7-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/9d469d47-d758-4400-bc81-cd8600583a72-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/9dafcb7e-e4e8-44e5-8c6b-743e46e144f5-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/9f3debf0-917b-45a3-94a9-f1351845058d-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/a3469a84-4b69-4239-ae58-7bf4430a9f73-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/a6e366f8-141f-4c20-8dd6-669f54f4f2c0-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/a778004e-4a33-4ebd-991b-9f30f387f9cb-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/a806a908-a966-47c1-9092-8f6723768455-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/ab1df858-bf8d-4437-bcfc-97a945e0d0ad-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/af52eacc-e2a4-4af5-934d-3610218248b5-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/b000634c-e3fa-47aa-8db5-65ecff06e25e-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/b268dda1-7101-4ea6-81b0-9e0e2a541b3b-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/b298fd2e-7bb3-4692-8769-a417b8833664-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/b4a28048-8007-4299-8453-fe277ec4d5ad-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/b68c08af-ba40-4a5e-9ec1-2bbaddba003b-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/b7a3fed4-6e8d-4754-93cc-f9724a826c89-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/b9fc91f8-81cd-49e2-90d0-64303de47039-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/ba42ce4d-edf4-4a32-966f-133277f8a961-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/bb3e514a-177c-41c4-bb36-0f3f31f9a0f5-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/bb4a3ceb-1a4f-47f8-8c71-21767b70ba82-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/bc06be2c-c100-4fa9-8d6b-55225cc4beeb-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/bc3b0ea7-ed7d-4670-8af9-a388210f4069-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/c2afd2a6-241d-4f1f-a5f2-2345a264d70e-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/c35b4716-26eb-4d9e-b0c6-c1454c2d0d4b-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/c47e3939-5021-494c-88b8-6ee949b24bc6-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/c5223804-1df0-4c61-bbd1-9533066bb1ad-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/c5f4effb-e3f3-4218-aa6d-47b68c13c327-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/c723a908-1122-455a-8d49-e6f004251e2d-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/c82731ca-7e5c-4cc2-91ee-5ec96fef0579-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/c852e2a3-e5a1-4fc8-8440-33983dd711c9-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/ca8cc93b-d8ec-4a9a-b63c-253352bb6f2e-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/ce482378-693b-41a5-8f47-69210387db25-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/cef19060-21fd-4192-bee8-0b19923957e5-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/cf82f085-da31-4411-9e0b-f98fc621a0f3-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/d0066964-c96b-4181-a080-c2d7380e047b-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/d735d22b-aebc-4564-a8c2-59a67f83f645-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/d848c15a-d36e-4ce9-ba2a-e4c2550b2ae4-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/da32a379-980e-450e-8812-e5f8eb7701fc-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/dc58323d-a1c9-4237-81fd-cb46d16ff3c2-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/dcabf267-3854-400d-9847-fc1badedaf68-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/df01ca63-0778-4a01-8e5f-45d04a33a71f-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/e0836a09-0937-4941-9a9d-64ae46324860-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/e2bd2421-342e-41ab-88b8-c0a08109dc3f-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/e80d02b7-00de-4717-8b41-87983708adaf-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/e8749508-1be5-466c-80af-9780f2377c7a-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/e94f6d77-77cd-4acb-8056-e2a8c2cf0c54-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/e9c85e80-8278-47e7-8a55-4a5f1b4705b6-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/eb5a3b5a-b63e-4800-ab0b-3fb76f374ece-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/ebbfd6a6-ad15-4b1a-b1da-1ad8f0dfda4f-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/ebd337c0-df8d-4e36-bc20-cab5a321c47b-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/ef11bf5d-e88f-4e71-a167-60fed5839f93-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/f015ecb1-d04a-4589-a317-969bb5cc84e5-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/f0aa881f-955f-4f2a-9b4c-1ab7751e438b-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/f3b4cadc-d657-4749-9f6b-577587f51fba-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/f4ed0cd6-821d-4553-9aaa-b25e65854d23-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/f52f0710-34fe-45f3-897a-f93ec245a520-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/f5b9ffbe-b68c-4215-a5f5-ef298562dded-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/f7de1179-d40d-4550-b07d-a7eff7901c29-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/f935bae5-add3-4d92-bd68-e62205dfdcd1-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/fad9efb9-baf0-4ee2-8574-09769d7fd7ed-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/fc12cadc-2b33-4312-a4fd-9f8c6c97e6cb-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/ff91b33d-731e-4db5-8651-a56805c1ebb7-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-report/data/suites.csv" beforeDir="false" afterPath="$PROJECT_DIR$/allure-report/data/suites.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/GetNoteRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/GetNoteRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/GetNoteResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/GetNoteResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/LoginRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/LoginRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/LoginResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/LoginResponseModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/RegisterRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/RegisterRequestModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/RegisterResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/RegisterResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteStatusRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteStatusResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pojoClasses/CreateNoteRequestPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojoClasses/CreateNoteRequestPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pojoClasses/LoginRequestPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojoClasses/LoginRequestPojo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pojoClasses/RegisterRequestPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojoClasses/RegisterRequestPojo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pojoClasses/RegisterResponsePojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojoClasses/RegisterResponsePojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pojoClasses/UpdateNoteStatusRequestPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojoClasses/UpdateNoteRequestPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pojoClasses/UpdateNoteStatusResponsePojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojoClasses/UpdateNoteResponsePojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ActionBot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/AlertsActions.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/ApiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ApiManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/BrowserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/BrowserFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DeleteDirectoryFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/DeleteDirectoryFiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DropdownActions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ImportStaticMethods" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ImportStaticMethods" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/JDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/JDBCManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/JsonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/JsonManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/PropertiesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/PropertiesManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/RandomDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/RandomDataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Screenshot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Screenshot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ScrollActions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/TestNGListners.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Waits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Waits.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Configurations.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Configurations.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/lineartests/Test1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testcases/CreateNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testcases/CreateNote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testcases/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testcases/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testcases/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testcases/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testcases/CreateNote.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testcases/Login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testcases/Register.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testcases/UpdateNoteStatus.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,19 +67,20 @@
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "YehiaMetwally95"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;YehiaMetwally95&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/YehiaMetwally95/NotesApiWithRestassured",
-    "accountId": "8e0ad561-fc41-4f51-bc0c-601cdc47f971"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/YehiaMetwally95/NotesApiWithRestassured&quot;,
+    &quot;accountId&quot;: &quot;8e0ad561-fc41-4f51-bc0c-601cdc47f971&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$MAVEN_REPOSITORY$/org/testng/testng/7.10.2/testng-7.10.2-sources.jar!/org/testng/internal/invokers/MethodRunner.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/testng/testng/7.10.2/testng-7.10.2-sources.jar!/org/testng/internal/invokers/TestInvoker.java" root0="SKIP_INSPECTION" />
@@ -202,8 +96,18 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Docker.resources.json-server: Compose Deployment.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TestNG.CreateNewNote.createNewNoteByDynamicRandomData.executor": "Run",
+    "TestNG.CreateNewNote.createNewNoteByStaticDataFromJsonFile.executor": "Run",
+    "TestNG.CreateNewNote.executor": "Run",
+    "TestNG.CreateNewNoteFacade.createNewNote.executor": "Run",
+    "TestNG.CreateNewNoteFacade.executor": "Run",
+    "TestNG.CreateNewUser.createNewUserByDynamicRandomData.executor": "Run",
+    "TestNG.CreateNewUser.createNewUserByStaticDataFromJsonFile.executor": "Run",
+    "TestNG.CreateNewUser.createNewUserThenLogin.executor": "Run",
+    "TestNG.CreateNewUserFacade.createNewUserWithDynamicRandomData.executor": "Run",
     "TestNG.CreateNote.createNewNode.executor": "Run",
     "TestNG.CreateNote.createNewNodeWithFacadeDesign.executor": "Run",
     "TestNG.Login.loginWithExistingUser.executor": "Run",
@@ -217,71 +121,55 @@
     "TestNG.Test1.PostwithRequestBodyfromPojoAsContentTypeIsJson.executor": "Run",
     "TestNG.Test1.testmethod1.executor": "Run",
     "TestNG.Test1.testmethod2.executor": "Run",
+    "TestNG.UpdateNote.executor": "Run",
+    "TestNG.UpdateNote.updateExistingNote.executor": "Run",
+    "TestNG.UpdateNoteFacade.updateExistingNote.executor": "Run",
     "TestNG.UpdateNoteStatus.executor": "Run",
     "TestNG.UpdateNoteStatus.updateNoteStatus.executor": "Run",
     "TestNG.UpdateNoteStatus.updateNoteStatusWithFacadeDesign.executor": "Run",
+    "TestNG.UpdateUserPassword.changeUserPassword.executor": "Run",
+    "TestNG.UpdateUserPasswordFacade.executor": "Run",
+    "TestNG.UpdateUserPasswordFacade.updateUserPassword.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Yehia.Metwally/OneDrive/yehia/Desktop/AutomatestProject/facade-design-pattern",
+    "last_opened_file_path": "D:/AutomatestProject/NotesAPI/src/main/resources",
     "onboarding.tips.debug.path": "C:/Users/Yehia.Metwally/OneDrive/yehia/Desktop/AutomatestProject/NotesAPI/src/main/java/io/github/YehiaMetwally95/Main.java",
-    "project.structure.last.edited": "Problems",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="objectModels" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\AutomatestProject\NotesAPI\src\main\resources" />
+      <recent name="D:\AutomatestProject\NotesAPI\target\allure-results" />
+      <recent name="D:\AutomatestProject\NotesAPI\src\main\java" />
+      <recent name="D:\AutomatestProject\NotesAPI\src\main\java\utils" />
       <recent name="C:\Users\Yehia.Metwally\OneDrive\yehia\Desktop\AutomatestProject\NotesAPI\src\main\java\utils" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\AutomatestProject\NotesAPI\src\test\resources\Test_Data_Json_Files" />
+      <recent name="D:\AutomatestProject\NotesAPI" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="utils" />
+    </key>
   </component>
-  <component name="RunManager" selected="TestNG.UpdateNoteStatus">
-    <configuration name="CreateNote.createNewNode" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="NotesAPI" />
+  <component name="RunManager" selected="TestNG.CreateNewUserFacade.createNewUserWithDynamicRandomData">
+    <configuration name="CreateNewNoteFacade" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="YehiaProject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="testcases.*" />
+          <option name="PATTERN" value="tests.CreateNewNote.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="testcases" />
-      <option name="MAIN_CLASS_NAME" value="testcases.CreateNote" />
-      <option name="METHOD_NAME" value="createNewNode" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CreateNote.createNewNodeWithFacadeDesign" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="NotesAPI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testcases.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="testcases" />
-      <option name="MAIN_CLASS_NAME" value="testcases.CreateNote" />
-      <option name="METHOD_NAME" value="createNewNodeWithFacadeDesign" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UpdateNoteStatus" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="NotesAPI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testcases.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="testcases" />
-      <option name="MAIN_CLASS_NAME" value="testcases.UpdateNoteStatus" />
+      <option name="PACKAGE_NAME" value="tests.CreateNewNote" />
+      <option name="MAIN_CLASS_NAME" value="tests.CreateNewNote.CreateNewNoteFacade" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -289,17 +177,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UpdateNoteStatus.updateNoteStatus" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="NotesAPI" />
+    <configuration name="CreateNewNoteFacade.createNewNote" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="YehiaProject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="testcases.*" />
+          <option name="PATTERN" value="tests.CreateNewNote.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="testcases" />
-      <option name="MAIN_CLASS_NAME" value="testcases.UpdateNoteStatus" />
-      <option name="METHOD_NAME" value="updateNoteStatus" />
+      <option name="PACKAGE_NAME" value="tests.CreateNewNote" />
+      <option name="MAIN_CLASS_NAME" value="tests.CreateNewNote.CreateNewNoteFacade" />
+      <option name="METHOD_NAME" value="createNewNote" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -307,31 +195,70 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UpdateNoteStatus.updateNoteStatusWithFacadeDesign" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="NotesAPI" />
+    <configuration name="CreateNewUserFacade.createNewUserWithDynamicRandomData" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="YehiaProject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="testcases.*" />
+          <option name="PATTERN" value="tests.CreateNewUser.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="testcases" />
-      <option name="MAIN_CLASS_NAME" value="testcases.UpdateNoteStatus" />
-      <option name="METHOD_NAME" value="updateNoteStatusWithFacadeDesign" />
+      <option name="PACKAGE_NAME" value="tests.CreateNewUser" />
+      <option name="MAIN_CLASS_NAME" value="tests.CreateNewUser.CreateNewUserFacade" />
+      <option name="METHOD_NAME" value="createNewUserWithDynamicRandomData" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="UpdateUserPasswordFacade" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="YehiaProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.UpdateUserPassword.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.UpdateUserPassword" />
+      <option name="MAIN_CLASS_NAME" value="tests.UpdateUserPassword.UpdateUserPasswordFacade" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UpdateUserPasswordFacade.updateUserPassword" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="YehiaProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.UpdateUserPassword.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.UpdateUserPassword" />
+      <option name="MAIN_CLASS_NAME" value="tests.UpdateUserPassword.UpdateUserPasswordFacade" />
+      <option name="METHOD_NAME" value="updateUserPassword" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.UpdateNoteStatus" />
-        <item itemvalue="TestNG.CreateNote.createNewNode" />
-        <item itemvalue="TestNG.UpdateNoteStatus.updateNoteStatus" />
-        <item itemvalue="TestNG.UpdateNoteStatus.updateNoteStatusWithFacadeDesign" />
-        <item itemvalue="TestNG.CreateNote.createNewNodeWithFacadeDesign" />
+        <item itemvalue="TestNG.CreateNewUserFacade.createNewUserWithDynamicRandomData" />
+        <item itemvalue="TestNG.CreateNewNoteFacade" />
+        <item itemvalue="TestNG.CreateNewNoteFacade.createNewNote" />
+        <item itemvalue="TestNG.UpdateUserPasswordFacade" />
+        <item itemvalue="TestNG.UpdateUserPasswordFacade.updateUserPassword" />
       </list>
     </recent_temporary>
   </component>
@@ -352,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725197518611</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Test">
+      <option name="closed" value="true" />
+      <created>1725251509410</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1725251509410</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

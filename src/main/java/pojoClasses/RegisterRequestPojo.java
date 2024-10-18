@@ -1,6 +1,7 @@
 package pojoClasses;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 import lombok.extern.jackson.Jacksonized;
@@ -13,11 +14,7 @@ import objectModels.RegisterRequestModel;
 @Builder
 public class RegisterRequestPojo {
     //variables
-    private String name;
-    private String email;
-    private String password;
-
-    @JsonIgnore
-    private String id;
-
+    @JsonProperty("Name") private String name;
+    @JsonProperty("Email") private String email;
+    @JsonProperty("Password") private String password;
 }

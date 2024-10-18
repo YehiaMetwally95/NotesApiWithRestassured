@@ -1,0 +1,77 @@
+package objectModels;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import io.qameta.allure.Step;
+import io.restassured.response.Response;
+import pojoClasses.ChangePasswordRequestPojo;
+import pojoClasses.ChangePasswordResponsePojo;
+
+import static utils.ApiManager.*;
+import static utils.PropertiesManager.getPropertiesValue;
+import static utils.RandomDataGenerator.generateStrongPassword;
+
+public class ChangePasswordRequestModel {
+    //Variables
+    String changePasswordEndpoint = getPropertiesValue("baseUrlApi")+"users/change-password";
+    String responseBodyAsString;
+    Response response;
+    JsonMapper mapper;
+
+    //Variables from LoginModel
+    String userEmail;
+    String userPassword;
+    String token;
+
+    //ObjectsFromPojoClasses
+    ChangePasswordRequestPojo requestObject;
+    ChangePasswordResponsePojo responseObject;
+
+    //Constructor to pass Login Data into ChangePassword Model
+    public ChangePasswordRequestModel(String token, String email,String password) {
+        this.userEmail = email;
+        this.userPassword = password;
+        this.token = token;
+    }
+
+    @Step("Prepare ChangePassword Request")
+    //Method to get Request Body of ChangePassword from Login Results
+    public ChangePasswordRequestModel prepareChangePasswordRequestWithRandomPassword()
+    {
+        requestObject = ChangePasswordRequestPojo.builder()
+                .currentPassword(userPassword)
+                .newPassword(generateStrongPassword())
+                .build();
+        return this;
+    }
+
+    @Step("Send ChangePassword Request")
+    //Method to Execute ChangePassword Request
+    public ChangePasswordResponseModel sendChangePasswordRequest() throws JsonProcessingException {
+
+        response =
+                MakeAuthRequest("Post", changePasswordEndpoint,requestObject,
+                        "application/json","X-Auth-Token",
+                        null,null,token);
+        responseBodyAsString = getResponseBody(response);
+        mapper = new JsonMapper();
+
+        responseObject = mapper.readValue(responseBodyAsString, ChangePasswordResponsePojo.class);
+
+        logRequestBody(requestObject);
+        logResponseBody(responseObject);
+        return new ChangePasswordResponseModel(requestObject, responseObject,userEmail);
+    }
+
+    //Facade Method
+    @Step("Change User Password")
+    public String changeUserPassword() throws JsonProcessingException {
+        return prepareChangePasswordRequestWithRandomPassword()
+                .sendChangePasswordRequest()
+                .getUserCredentialsWithNewPassword()
+                .prepareLoginRequest()
+                .sendLoginRequest()
+                .validateTokenExists()
+                .getPassword();
+    }
+}

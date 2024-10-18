@@ -26,54 +26,82 @@ public class JsonManager {
         this.filePath = filePath;
     }
 
-    //Method to get JsonFile and convert it to JsonObject
-    private JSONObject getJsonFile() throws IOException, ParseException {
-        //pass the path of test data json file
-        File filename = new File(filePath);
-        //convert the json file to string
-        String jsonString = FileUtils.readFileToString(filename, "UTF8");
-        //parse the json string into object (Deserialization)
-        Object obj = new JSONParser().parse(jsonString);
-        //return the object as Json Object
-        return (JSONObject) obj;
+    //Method to Get JsonData by jsonPath
+    public String getData(String jsonPath) throws IOException, ParseException {
+        String[] arrofSTG = jsonPath.split("\\.");
+        if (arrofSTG[0].contains("["))
+        {
+            String[] arrofSTG_2 = (arrofSTG[0]).split("\\[");
+            String [] arrofSTG_3 = (arrofSTG_2[1]).split("]");
+            int index = Integer.parseInt(arrofSTG_3[0]);
+
+            JSONArray array = (JSONArray) readJsonFile().get(arrofSTG_2[0]);
+            Object object = (array).get(index);
+            if (arrofSTG.length==2) {
+                object = (array).get(index);
+                object = ((JSONObject) object).get(arrofSTG[1]);
+            }
+            if (arrofSTG.length==3) {
+                object = ((JSONObject) object).get(arrofSTG[2]);
+            }
+            return object.toString();
+        }
+
+        else
+        {
+            Object object = readJsonFile().get(arrofSTG[0]);
+            if (arrofSTG.length==2) {
+
+                object = ((JSONObject) object).get(arrofSTG[1]);
+            }
+            else if (arrofSTG.length==3) {
+
+                object = ((JSONObject) object).get(arrofSTG[2]);
+            }
+            return object.toString();
+        }
     }
 
-    //Method to Get JsonData by Input
-    public String getTestData(String key) throws IOException, ParseException {
-        String[] arrofSTG = key.split("\\.");
-        Object object = getJsonFile().get(arrofSTG[0]);
-        if (arrofSTG.length==2) {
-            object = ((JSONObject) object).get(arrofSTG[1]);
-        }
-        if (arrofSTG.length==3) {
-            object = ((JSONObject) object).get(arrofSTG[2]);
-        }
-        return (String) object;
-    }
+    //Method to Get JsonData by jsonPath
+    public Object getDataAsObject(String jsonPath) throws IOException, ParseException {
+        String[] arrofSTG = jsonPath.split("\\.");
+        if (arrofSTG[0].contains("["))
+        {
+            String[] arrofSTG_2 = (arrofSTG[0]).split("\\[");
+            String [] arrofSTG_3 = (arrofSTG_2[1]).split("]");
+            int index = Integer.parseInt(arrofSTG_3[0]);
 
-    //Method to Get JsonData by Input
-    public String getTestDataInsideArray(String key) throws IOException, ParseException {
-        String[] arrofSTG = key.split("\\.");
-        String[] arrofSTG_2 = (arrofSTG[0]).split("\\[");
-        String [] arrofSTG_3 = (arrofSTG_2[1]).split("]");
-        int index = Integer.parseInt(arrofSTG_3[0]);
+            JSONArray array = (JSONArray) readJsonFile().get(arrofSTG_2[0]);
+            Object object = null;
+            if (arrofSTG.length==2) {
+                object = (array).get(index);
+                object = ((JSONObject) object).get(arrofSTG[1]);
+            }
+            if (arrofSTG.length==3) {
+                object = ((JSONObject) object).get(arrofSTG[2]);
+            }
+            return object;
+        }
 
-        JSONArray array = (JSONArray) getJsonFile().get(arrofSTG_2[0]);
-        Object object = null;
-        if (arrofSTG.length==2) {
-            object = (array).get(index);
-            object = ((JSONObject) object).get(arrofSTG[1]);
+        else
+        {
+            Object object = readJsonFile().get(arrofSTG[0]);
+            if (arrofSTG.length==2) {
+
+                object = ((JSONObject) object).get(arrofSTG[1]);
+            }
+            else if (arrofSTG.length==3) {
+
+                object = ((JSONObject) object).get(arrofSTG[2]);
+            }
+            return object;
         }
-        if (arrofSTG.length==3) {
-            object = ((JSONObject) object).get(arrofSTG[2]);
-        }
-        return (String) object;
     }
 
     //Method to Set JsonData by Input
-    public void setTestData(String key, String value) throws IOException, ParseException {
+    public JsonManager setData(String key, String value) throws IOException, ParseException {
         String[] arrofSTG = key.split("\\.");
-        Object object = getJsonFile();
+        Object object = readJsonFile();
         Object object2;
         if (arrofSTG.length==1) {
             ((JSONObject)object).put(arrofSTG[0],value);
@@ -88,11 +116,23 @@ public class JsonManager {
             ((JSONObject) object3).put(arrofSTG[2], value);
         }
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String formattedJson = gson.toJson(object);
-        createJsonFile(formattedJson,filePath);
+        createJsonFile(object,filePath);
+        return this;
     }
 
+    //Method to read JsonFile and convert it to JsonObject
+    public JSONObject readJsonFile() throws IOException, ParseException {
+        //pass the path of test data json file
+        File filename = new File(filePath);
+        //convert the json file to string
+        String jsonString = FileUtils.readFileToString(filename, "UTF8");
+        //parse the json string into object (Deserialization)
+        Object obj = new JSONParser().parse(jsonString);
+        //return the object as Json Object
+        return (JSONObject) obj;
+    }
+
+    //Method to Create JsonFile from Object
     public static void createJsonFile(Object object , String jsonFilePath) throws IOException {
         FileWriter file = new FileWriter(jsonFilePath);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -101,12 +141,27 @@ public class JsonManager {
         file.close();
     }
 
+    //Method to Combine multiple JsonObjects then write them to JsonFile as a Combined Object
+    public static void setJsonFileFromMultipleJsonObjects(JSONObject[] arr,String jsonFilePath) throws IOException {
+        JSONObject total = new JSONObject();
+        for (int i = 0;i<arr.length;i++)
+        {
+            total.putAll(arr[i]);
+        }
+
+        System.out.println(total.toJSONString());
+        //Write the Pretty Format of Parent JSON Array into the JSON File
+        createJsonFile(total,jsonFilePath);
+    }
+
+    //Method to Convert Map to Json Object
     public static org.json.JSONObject convertMaptoJsonObject(Map map)
     {
         org.json.JSONObject object = new org.json.JSONObject(map);
         return  object;
     }
 
+    //Method to Convert Json String to Map
     public static  Map<String, Object> convertJsonStringToMap(String jsonString) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         Map<String, Object> map

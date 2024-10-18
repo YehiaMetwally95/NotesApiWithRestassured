@@ -7,32 +7,126 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
-
-import static utils.PropertiesManager.getPropertiesValue;
 
 public class BrowserFactory {
 
-    public static WebDriver openBrowser()
-    {
-        WebDriver driver = null;
-        switch (getPropertiesValue("browserType"))
+    private static String browserType = System.getProperty("browserType");
+    private static String isHeadless = System.getProperty("isHeadless");
+    private static String isMaximized = System.getProperty("isMaximized");
+    private static String executionType = System.getProperty("executionType");
+    private static String remoteExecutionHost = System.getProperty("remoteExecutionHost");
+    private static String remoteExecutionPort = System.getProperty("remoteExecutionPort");
+
+    public static WebDriver openBrowser(String browserType) throws MalformedURLException {
+        RemoteWebDriver driver = null;
+
+        if (executionType.equalsIgnoreCase("Local"))
         {
-            case "Chrome" :
-                driver= new ChromeDriver(BrowserFactory.getChromeOptions());
-                break;
+            switch (browserType)
+            {
+                case "Chrome" :
+                    driver = new ChromeDriver(getChromeOptions());
+                    break;
 
-            case "Firefox" :
-                driver= new FirefoxDriver(BrowserFactory.getFireFoxOptions());
-                break;
+                case "Firefox" :
+                    driver = new FirefoxDriver(getFireFoxOptions());
+                    break;
 
-            case "Edge" :
-                driver= new EdgeDriver(BrowserFactory.getEdgeOptions());
+                case "Edge" :
+                    driver = new EdgeDriver(getEdgeOptions());
+                    break;
+                default:
+                    System.out.println("Wrong driver name");
+            }
+        }
 
-                break;
-            default:
-                System.out.println("Wrong driver name");
+        else if (executionType.equalsIgnoreCase("Remote"))
+        {
+            switch (browserType)
+            {
+                case "Chrome" :
+                    driver = new RemoteWebDriver(
+                            new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
+                            ,getChromeOptions());
+                    driver.setFileDetector(new LocalFileDetector());
+                    break;
+
+                case "Firefox" :
+                    driver = new RemoteWebDriver(
+                            new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
+                            ,getFireFoxOptions());
+                    driver.setFileDetector(new LocalFileDetector());
+                    break;
+
+                case "Edge" :
+                    driver = new RemoteWebDriver(
+                            new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
+                            ,getEdgeOptions());
+                    driver.setFileDetector(new LocalFileDetector());
+                    break;
+                default:
+                    System.out.println("Wrong driver name");
+            }
+        }
+        return driver;
+    }
+
+    public static WebDriver openBrowser() throws MalformedURLException {
+        RemoteWebDriver driver = null;
+
+        if (executionType.equalsIgnoreCase("Local"))
+        {
+            switch (browserType)
+            {
+                case "Chrome" :
+                    driver = new ChromeDriver(getChromeOptions());
+                    break;
+
+                case "Firefox" :
+                    driver = new FirefoxDriver(getFireFoxOptions());
+                    break;
+
+                case "Edge" :
+                    driver = new EdgeDriver(getEdgeOptions());
+                    break;
+                default:
+                    System.out.println("Wrong driver name");
+            }
+        }
+
+        else if (executionType.equalsIgnoreCase("Remote"))
+        {
+            switch (browserType)
+            {
+                case "Chrome" :
+                    driver = new RemoteWebDriver(
+                            new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
+                            ,getChromeOptions());
+                    driver.setFileDetector(new LocalFileDetector());
+                    break;
+
+                case "Firefox" :
+                    driver = new RemoteWebDriver(
+                            new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
+                            ,getFireFoxOptions());
+                    driver.setFileDetector(new LocalFileDetector());
+                    break;
+
+                case "Edge" :
+                    driver = new RemoteWebDriver(
+                            new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
+                            ,getEdgeOptions());
+                    driver.setFileDetector(new LocalFileDetector());
+                    break;
+                default:
+                    System.out.println("Wrong driver name");
+            }
         }
         return driver;
     }
@@ -42,11 +136,11 @@ public class BrowserFactory {
         ChromeOptions option = new ChromeOptions();
         option.addArguments("--disable-infobars");
         option.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
-
-        if (getPropertiesValue("windowMaximized").equalsIgnoreCase("true"))
+        if (isMaximized.equalsIgnoreCase("true"))
             option.addArguments("--start-maximized");
-        if (getPropertiesValue("headless").equalsIgnoreCase("true"))
+        if (isHeadless.equalsIgnoreCase("true"))
             option.addArguments("--headless");
+
         return option;
     }
 
@@ -55,26 +149,21 @@ public class BrowserFactory {
         EdgeOptions option = new EdgeOptions();
         option.addArguments("--disable-infobars");
         option.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
-        option.addArguments("--guest");
-
-        if (getPropertiesValue("windowMaximized").equalsIgnoreCase("true"))
+        if (isMaximized.equalsIgnoreCase("true"))
             option.addArguments("--start-maximized");
-        if (getPropertiesValue("headless").equalsIgnoreCase("true"))
+        if (isHeadless.equalsIgnoreCase("true"))
             option.addArguments("--headless");
+
         return option;
     }
 
     public static FirefoxOptions getFireFoxOptions()
     {
         FirefoxOptions option = new FirefoxOptions();
-        if (getPropertiesValue("windowMaximized").equalsIgnoreCase("false"))
+        if (isMaximized.equalsIgnoreCase("true"))
             option.addArguments("--start-minimized");
-        if (getPropertiesValue("headless").equalsIgnoreCase("true"))
+        if (isHeadless.equalsIgnoreCase("true"))
             option.addArguments("--headless");
         return option;
     }
-
-
-
-
 }

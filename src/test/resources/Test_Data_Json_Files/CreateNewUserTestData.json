@@ -1,0 +1,30 @@
+{
+  "Messages": {
+    "Register": "User account created successfully",
+    "Login": "Login successful"
+  },
+
+  "StatusCode": {
+    "Register": "201",
+    "Login": "200"
+  },
+
+  "SuccessFlag": {
+    "Register": "true",
+    "Login": "true"
+  },
+
+  "RegisterDataInputs":[
+    {
+      "Name": "Ahmed",
+      "Email": "ahmedwww@gmail.com",
+      "Password": "StrongPass123"
+    },
+    {
+      "Name": "Mostafa",
+      "Email": "mostafa590911@gmail.com",
+      "Password": "StrongPass@@@"
+    }
+  ]
+}
+

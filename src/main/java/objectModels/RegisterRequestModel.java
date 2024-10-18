@@ -14,7 +14,6 @@ import pojoClasses.RegisterResponsePojo;
 public class RegisterRequestModel {
 
     //Variables
-    String mockServerUrl = getPropertiesValue("baseUrlMockServer")+"Users/";
     String registerEndpoint = getPropertiesValue("baseUrlApi")+"users/register";
     String responseBodyAsString;
     Response response;
@@ -24,50 +23,61 @@ public class RegisterRequestModel {
     RegisterRequestPojo requestObject;
     RegisterResponsePojo responseObject;
 
-    @Step("prepareRegistrationRequestFromMockServer")
+    @Step("Prepare Registration Request Statically From Json File")
     //Method to get Request Body inputs from Mock Server Statically
-    public RegisterRequestModel prepareRegistrationRequestFromMockServer(int userID) throws JsonProcessingException {
-        response =
-                GetRequest(mockServerUrl +userID,null);
-        responseBodyAsString = getResponseBody(response);
-
+    public RegisterRequestModel prepareRegisterRequestFromJsonFile(String userData) throws JsonProcessingException {
         mapper = new JsonMapper();
-        requestObject = mapper.readValue(responseBodyAsString, RegisterRequestPojo.class);
+        requestObject = mapper.readValue(userData, RegisterRequestPojo.class);
         return this;
     }
 
-    @Step("prepareRegistrationRequestWithRandomValues")
+    @Step("Prepare Registration Request Dynamically With Random Values")
     //Method to set Request Body inputs from TimeStamp Dynamically
-    public RegisterRequestModel prepareRegistrationRequestWithRandomValues(){
+    public RegisterRequestModel prepareRegisterRequestWithRandomValues(){
         requestObject = RegisterRequestPojo.builder()
-                .name(generateName())
-                .email(generateEmail())
+                .name(generateUniqueName())
+                .email(generateUniqueEmail())
                 .password(generateStrongPassword())
                 .build();
         return this;
     }
 
-    @Step("registerNewUser")
+    @Step("Send Register Request")
     //Method to Execute Registration Request
-    public RegisterResponseModel registerNewUser() throws JsonProcessingException {
+    public RegisterResponseModel sendRegisterRequest() throws JsonProcessingException {
         response =
-                MakeRequest("Post", registerEndpoint,requestObject, "application/json");
+                MakeRequest("Post", registerEndpoint,requestObject, "application/x-www-form-urlencoded");
 
         responseBodyAsString = getResponseBody(response);
         mapper = new JsonMapper();
 
         responseObject = mapper.readValue(responseBodyAsString, RegisterResponsePojo.class);
+
+        logRequestBody(requestObject);
+        logResponseBody(responseObject);
         return new RegisterResponseModel(requestObject,responseObject);
     }
 
-    //Facade Method
-    @Step("register")
-    public LoginRequestModel register() throws JsonProcessingException {
-        prepareRegistrationRequestWithRandomValues().registerNewUser().getNewUserCredentials();
-        return new LoginRequestModel(
-                requestObject.getEmail(),
-                requestObject.getPassword(),
-                responseObject.getData().getId());
+    //Facade Methods
+    @Step("Register new User And Login")
+    public LoginResponseModel registerNewUserWithRandomData() throws JsonProcessingException {
+
+        return prepareRegisterRequestWithRandomValues()
+                .sendRegisterRequest()
+                .getNewUserCredentials()
+                .prepareLoginRequest()
+                .sendLoginRequest()
+                .validateTokenExists();
     }
 
+    @Step("Register new User And Login")
+    public LoginResponseModel registerNewUser(String userJsonObject) throws JsonProcessingException {
+
+        return prepareRegisterRequestFromJsonFile(userJsonObject)
+                .sendRegisterRequest()
+                .getNewUserCredentials()
+                .prepareLoginRequest()
+                .sendLoginRequest()
+                .validateTokenExists();
+    }
 }

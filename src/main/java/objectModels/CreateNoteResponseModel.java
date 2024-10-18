@@ -12,9 +12,6 @@ public class CreateNoteResponseModel {
     CreateNoteResponsePojo responseObject;
 
     //Variables
-    boolean expectedSuccess = true;
-    int expectedStatus = 200;
-    String expectedMassage = "Successful Request";
     String token;
 
     //Constructor to pass the response from Request Model to Response Model
@@ -27,37 +24,64 @@ public class CreateNoteResponseModel {
     }
 
     @Step("validateMassageFromResponse")
-    //Validation Methods
-    public CreateNoteResponseModel validateMassageFromResponse() {
-        Assert.assertEquals(responseObject.getMessage(),expectedMassage);
+    public CreateNoteResponseModel validateMassageFromResponse(String message) {
+        Assert.assertEquals(responseObject.getMessage(),message);
         return this;
     }
 
     @Step("validateStatusFromResponse")
-    public CreateNoteResponseModel validateStatusFromResponse() {
-        Assert.assertEquals(responseObject.getStatus(),expectedStatus);
+    public CreateNoteResponseModel validateStatusFromResponse(String statusCode) {
+        Assert.assertEquals(responseObject.getStatus(),Integer.parseInt(statusCode));
         return this;
     }
 
     @Step("validateSuccessFromResponse")
-    public CreateNoteResponseModel validateSuccessFromResponse() {
-        Assert.assertEquals(responseObject.isSuccess(),expectedSuccess);
+    public CreateNoteResponseModel validateSuccessFromResponse(String successFlag) {
+        Assert.assertEquals(responseObject.isSuccess(),Boolean.parseBoolean(successFlag));
         return this;
     }
 
-    @Step("getNoteID")
-    //Getter Methods
-    public String getNoteID()
-    {
-        return responseObject.getData().getId();
+    @Step("Validate Description From Response")
+    public CreateNoteResponseModel validateDescriptionFromResponse() {
+        Assert.assertEquals(responseObject.getData().getDescription()
+                ,requestObject.getDescription());
+        return this;
     }
 
-    @Step("getNoteIdForUpdate")
-    //Get Needed Token & Note ID from CreateNote Model and pass it to UpdateNote Model
-    public UpdateNoteStatusRequestModel getNoteIdForUpdate()
+    @Step("Validate Title From Response")
+    public CreateNoteResponseModel validateTitleFromResponse() {
+        Assert.assertEquals(responseObject.getData().getTitle()
+                ,requestObject.getTitle());
+        return this;
+    }
+
+    @Step("Validate Category From Response")
+    public CreateNoteResponseModel validateCategoryFromResponse() {
+        Assert.assertEquals(responseObject.getData().getCategory()
+                ,requestObject.getCategory());
+        return this;
+    }
+
+    @Step("Validate NoteStatus From Response")
+    public CreateNoteResponseModel validateNoteStatusFromResponse() {
+        Assert.assertEquals(responseObject.getData().isCompleted()
+                ,requestObject.isCompleted());
+        return this;
+    }
+
+    //Getter Methods
+    public CreateNoteRequestPojo getRequestPojoObject() {
+        return requestObject;
+    }
+
+    public CreateNoteResponsePojo getResponsePojoObject() {
+        return responseObject;
+    }
+
+    @Step("Get Note ID")
+    //Get Needed Token & Note ID from CreateNote Model and pass it to GetNote Model
+    public GetNoteRequestModel getNoteId()
     {
-       return new UpdateNoteStatusRequestModel(
-                responseObject.getData().getId(),
-                token);
+       return new GetNoteRequestModel(responseObject.getData().getId(),token);
     }
 }

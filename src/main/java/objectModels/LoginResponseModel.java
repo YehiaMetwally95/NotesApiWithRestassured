@@ -12,62 +12,69 @@ public class LoginResponseModel {
     LoginResponsePojo responseObject;
 
     //Variables
-    boolean expectedSuccess = true;
-    int expectedStatus = 200;
-    String expectedMassage = "Login successful";
-    String expectedID;
 
     //Constructor to pass the response from Request Model to Response Model
-    //Constructor to pass userID from Registration Model into Login Model
-    public LoginResponseModel(LoginRequestPojo requestObject, LoginResponsePojo responseObject,
-                              String userID) {
+    public LoginResponseModel(LoginRequestPojo requestObject, LoginResponsePojo responseObject) {
         this.requestObject = requestObject;
         this.responseObject = responseObject;
-        this.expectedID = userID;
     }
 
     //Validation Methods
-    @Step("validateMassageFromResponse")
-    public LoginResponseModel validateMassageFromResponse() {
-        Assert.assertEquals(responseObject.getMessage(),expectedMassage);
+    @Step("validate Massage From Response")
+    public LoginResponseModel validateMassageFromResponse(String message) {
+        Assert.assertEquals(responseObject.getMessage(),message);
         return this;
     }
 
-    @Step("validateStatusFromResponse")
-    public LoginResponseModel validateStatusFromResponse(){
-        Assert.assertEquals(responseObject.getStatus(),expectedStatus);
+    @Step("validate Status From Response")
+    public LoginResponseModel validateStatusFromResponse(String statusCode){
+        Assert.assertEquals(responseObject.getStatus(),Integer.parseInt(statusCode));
         return this;
     }
 
-    @Step("validateSuccessFromResponse")
-    public LoginResponseModel validateSuccessFromResponse() {
-        Assert.assertEquals(responseObject.isSuccess(),expectedSuccess);
+    @Step("validate Success From Response")
+    public LoginResponseModel validateSuccessFromResponse(String successFlag) {
+        Assert.assertEquals(responseObject.isSuccess(),Boolean.parseBoolean(successFlag));
         return this;
     }
 
-    @Step("validateUserIDFromResponse")
-    public LoginResponseModel validateUserIDFromResponse() {
-        Assert.assertEquals(responseObject.getData().getId(),expectedID);
-        return this;
-    }
-
-    @Step("validateTokenExists")
+    @Step("Validate TokenExists ")
     public LoginResponseModel validateTokenExists() {
         Assert.assertFalse(responseObject.getData().getToken().isEmpty());
         return this;
     }
 
-    @Step("getToken")
     //Getter Methods
-    public String getToken()
-    {
-        return responseObject.getData().getToken();
+    public LoginRequestPojo getRequestPojoObject() {
+        return requestObject;
     }
 
-    @Step("getAuthTokenForNotes")
+    public LoginResponsePojo getResponsePojoObject() {
+        return responseObject;
+    }
+
+    @Step("Get Password")
+    //Get Password from Request
+    public String getPassword()
+    {
+        return requestObject.getPassword();
+    }
+
     //Get Needed Token from Login Model and pass it to Note Model
-    public CreateNoteRequestModel getAuthTokenForNotes()
+    @Step("Navigate to CreateNote")
+    public CreateNoteRequestModel navigateToCreateNote()
     {
         return new CreateNoteRequestModel(responseObject.getData().getToken());
+    }
+
+    //Get Needed Token and UserCredentials from Login Model and pass it to ChangePassword Model
+    @Step("Navigate to ChangePassword")
+    public ChangePasswordRequestModel navigateToChangePassword()
+    {
+        return new ChangePasswordRequestModel(
+                responseObject.getData().getToken(),
+                responseObject.getData().getEmail(),
+                requestObject.getPassword()
+        );
     }
 }

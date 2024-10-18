@@ -1,0 +1,40 @@
+{
+  "Messages": {
+    "Register": "User account created successfully",
+    "Login": "Login successful",
+    "CreateNote": "Note successfully created",
+    "GetNote": "Note successfully retrieved",
+    "UpdateNote": "Note successfully Updated"
+  },
+
+  "StatusCode": {
+    "Register": "201",
+    "Login": "200",
+    "CreateNote": "200",
+    "GetNote": "200",
+    "UpdateNote": "200"
+  },
+
+  "SuccessFlag": {
+    "Register": "true",
+    "Login": "true",
+    "CreateNote": "true",
+    "GetNote": "true",
+    "UpdateNote": "true"
+  },
+
+  "NoteDataInputs":[
+    {
+      "Title": "TestTile3",
+      "Description": "This is test sentence",
+      "Category": "Work",
+      "NoteStatus": false
+    },
+    {
+      "Title": "New Title",
+      "Description": "New Long Description",
+      "Category": "Personal",
+      "NoteStatus": false
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 package pojoClasses;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @Getter
@@ -8,7 +9,6 @@ import lombok.*;
 @Builder
 public class LoginRequestPojo {
     //variables
-    private String name;
     private String email;
     private String password;
 }
