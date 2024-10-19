@@ -6,8 +6,8 @@
   - Request Object Model Class that contains all methods performed on Request Parameters through Request Pojo Class, includes Preparing Request body with static or dynamic data and Executing Request
   - Response Object Model Class that contains all Validations and Getters performed on the Response Parameters through Response Pojo Class
 - Prepare Request Body as follows:
-  - Statically from Json Files createad for each test, containing static test data
-  - Dynamically using TimeStamp and DataFaker for Generating Dynamic and Unique Test Data
+  - Statically from Json Files createad for each test, containing static test data (usually requires update before test cases that needs unique data or test cases that write on test data)
+  - Dynamically using TimeStamp (for Unique Data) and DataFaker (for Descriptive Data) for Generating Dynamic and Unique Test Data (doesn't require any updates for any tests)
 - Used Design Pattern
   -	Builder Pattern for Constructing Request Pojo Class with input parameters step by step in fluent manner to build the Request Body
   - Fluent Object Model Design Pattern in writing Test Script, thus chaining all Steps and different requests sent for the E2E scenario and all validations on recieved responses in One Line of Code

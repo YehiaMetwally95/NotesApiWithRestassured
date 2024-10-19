@@ -6,16 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="Test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/28f07e41-9804-4c31-9d5f-851c87405134-attachment.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/35221413-05d6-4e1a-b6ef-d7cb5d830fb3-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/393d031e-0796-43c7-b142-5812350b137f-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/453c7253-8271-4dde-b29a-2e1b10099a89-attachment.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/63c1fc83-1b69-4a7e-8eef-3b3bcb75bb6f-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/bbfb7b20-42ae-401a-9057-f370ce5c3509-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/dc5a9b6b-5bf7-4722-bcd3-0feb2b27fe93-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/ChangePasswordRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/ChangePasswordRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPasswordFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPasswordFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +123,7 @@
       <recent name="utils" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.UpdateUserPasswordFacade.updateUserPasswordFacade">
+  <component name="RunManager" selected="TestNG.UpdateUserPassword">
     <configuration name="UpdateNote" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="YehiaProject" />
       <extension name="coverage">
@@ -227,8 +218,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.UpdateUserPasswordFacade.updateUserPasswordFacade" />
         <item itemvalue="TestNG.UpdateUserPassword" />
+        <item itemvalue="TestNG.UpdateUserPasswordFacade.updateUserPasswordFacade" />
         <item itemvalue="TestNG.UpdateUserPasswordFacade" />
         <item itemvalue="TestNG.UpdateNoteFacade" />
         <item itemvalue="TestNG.UpdateNote" />
@@ -348,7 +339,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729338813720</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Test">
+      <option name="closed" value="true" />
+      <created>1729339951795</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1729339951795</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
