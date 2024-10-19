@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="Update Yaml File">
+    <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="Test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/28f07e41-9804-4c31-9d5f-851c87405134-attachment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/35221413-05d6-4e1a-b6ef-d7cb5d830fb3-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/393d031e-0796-43c7-b142-5812350b137f-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/453c7253-8271-4dde-b29a-2e1b10099a89-attachment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/63c1fc83-1b69-4a7e-8eef-3b3bcb75bb6f-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/bbfb7b20-42ae-401a-9057-f370ce5c3509-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/dc5a9b6b-5bf7-4722-bcd3-0feb2b27fe93-container.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/ChangePasswordRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/ChangePasswordRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/LoginRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/LoginRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/RegisterRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/RegisterRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPasswordFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPasswordFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,6 +102,7 @@
     "TestNG.UpdateUserPassword.executor": "Run",
     "TestNG.UpdateUserPasswordFacade.executor": "Run",
     "TestNG.UpdateUserPasswordFacade.updateUserPassword.executor": "Run",
+    "TestNG.UpdateUserPasswordFacade.updateUserPasswordFacade.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/AutomatestProject/NotesAPI",
@@ -126,42 +132,7 @@
       <recent name="utils" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.UpdateUserPassword">
-    <configuration name="CreateNewNoteFacade" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="YehiaProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.CreateNewNote.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.CreateNewNote" />
-      <option name="MAIN_CLASS_NAME" value="tests.CreateNewNote.CreateNewNoteFacade" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CreateNewUserFacade.createNewUserWithDynamicRandomData" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="YehiaProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.CreateNewUser.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.CreateNewUser" />
-      <option name="MAIN_CLASS_NAME" value="tests.CreateNewUser.CreateNewUserFacade" />
-      <option name="METHOD_NAME" value="createNewUserWithDynamicRandomData" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="TestNG.UpdateUserPasswordFacade.updateUserPasswordFacade">
     <configuration name="UpdateNote" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="YehiaProject" />
       <extension name="coverage">
@@ -213,6 +184,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UpdateUserPasswordFacade" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="YehiaProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.UpdateUserPassword.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.UpdateUserPassword" />
+      <option name="MAIN_CLASS_NAME" value="tests.UpdateUserPassword.UpdateUserPasswordFacade" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UpdateUserPasswordFacade.updateUserPasswordFacade" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="YehiaProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.UpdateUserPassword.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.UpdateUserPassword" />
+      <option name="MAIN_CLASS_NAME" value="tests.UpdateUserPassword.UpdateUserPasswordFacade" />
+      <option name="METHOD_NAME" value="updateUserPasswordFacade" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -221,11 +227,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.UpdateUserPasswordFacade.updateUserPasswordFacade" />
         <item itemvalue="TestNG.UpdateUserPassword" />
+        <item itemvalue="TestNG.UpdateUserPasswordFacade" />
         <item itemvalue="TestNG.UpdateNoteFacade" />
         <item itemvalue="TestNG.UpdateNote" />
-        <item itemvalue="TestNG.CreateNewUserFacade.createNewUserWithDynamicRandomData" />
-        <item itemvalue="TestNG.CreateNewNoteFacade" />
       </list>
     </recent_temporary>
   </component>
@@ -326,13 +332,29 @@
       <option name="project" value="LOCAL" />
       <updated>1729337455013</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Test">
+      <option name="closed" value="true" />
+      <created>1729338621146</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1729338621146</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Test">
+      <option name="closed" value="true" />
+      <created>1729338813720</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1729338813720</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Test" />
     <MESSAGE value="Update Yaml File" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Yaml File" />
+    <MESSAGE value="Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -6,6 +6,7 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import pojoClasses.ChangePasswordRequestPojo;
 import pojoClasses.ChangePasswordResponsePojo;
+import pojoClasses.LoginRequestPojo;
 
 import static utils.ApiManager.*;
 import static utils.PropertiesManager.getPropertiesValue;
@@ -65,7 +66,7 @@ public class ChangePasswordRequestModel {
 
     //Facade Method
     @Step("Change User Password")
-    public String changeUserPassword() throws JsonProcessingException {
+    public LoginRequestPojo changeUserPassword() throws JsonProcessingException {
         return prepareChangePasswordRequestWithRandomPassword()
                 .sendChangePasswordRequest()
                 .validateStatusFromResponse("200")
@@ -74,6 +75,6 @@ public class ChangePasswordRequestModel {
                 .sendLoginRequest()
                 .validateStatusFromResponse("200")
                 .validateTokenExists()
-                .getPassword();
+                .getRequestPojoObject();
     }
 }
