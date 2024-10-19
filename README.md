@@ -16,7 +16,8 @@
 -	Allure Report for the Following:
   - Reporting Test Result, and Logging all Test Steps and Validations
   - Screenshots for all sent requests and responses
-  - In Case of Facade Design, Logging the main encapsulated Steps suitable for stakeholders, and expand each step for child steps detailed inside 
+  - In Case of Facade Design, Logging the Main Encapsulated Steps suitable for stakeholders, then expand each step to check detailed steps inside if needed
+- Execute Tests from CI/CD Pipeline with GitHub Actions
 
 ## Application Under Test
 - Notes API https://practice.expandtesting.com/notes/api/api-docs/#/
