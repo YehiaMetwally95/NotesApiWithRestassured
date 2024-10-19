@@ -90,12 +90,14 @@ public class CreateNoteRequestModel {
     public UpdateNoteRequestModel createNewNoteWithDynamicRandomValues() throws JsonProcessingException {
         return prepareCreateNoteRequestWithRandomValues()
                 .sendCreateNoteRequest()
+                .validateStatusFromResponse("200")
                 .validateTitleFromResponse()
                 .validateDescriptionFromResponse()
                 .validateCategoryFromResponse()
                 .validateNoteStatusFromResponse()
                 .getNoteId()
                 .sendGetNoteRequest()
+                .validateStatusFromResponse("200")
                 .getNoteId();
     }
 }

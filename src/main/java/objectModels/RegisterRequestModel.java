@@ -64,9 +64,11 @@ public class RegisterRequestModel {
 
         return prepareRegisterRequestWithRandomValues()
                 .sendRegisterRequest()
+                .validateStatusFromResponse("201")
                 .getNewUserCredentials()
                 .prepareLoginRequest()
                 .sendLoginRequest()
+                .validateStatusFromResponse("200")
                 .validateTokenExists();
     }
 
@@ -75,9 +77,11 @@ public class RegisterRequestModel {
 
         return prepareRegisterRequestFromJsonFile(userJsonObject)
                 .sendRegisterRequest()
+                .validateStatusFromResponse("201")
                 .getNewUserCredentials()
                 .prepareLoginRequest()
                 .sendLoginRequest()
+                .validateStatusFromResponse("200")
                 .validateTokenExists();
     }
 }

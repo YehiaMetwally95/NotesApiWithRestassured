@@ -80,8 +80,10 @@ public class UpdateNoteRequestModel {
                                                 String description, String category, String noteStatus) throws JsonProcessingException {
         prepareUpdateNoteRequestFromJsonFile(noteJsonObject)
                 .sendUpdateNoteRequest()
+                .validateStatusFromResponse("200")
                 .getNoteID()
                 .sendGetNoteRequest()
+                .validateCategoryFromResponse("200")
                 .validateTitleFromResponse(title)
                 .validateDescriptionFromResponse(description)
                 .validateCategoryFromResponse(category)

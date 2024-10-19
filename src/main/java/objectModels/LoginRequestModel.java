@@ -68,6 +68,7 @@ public class LoginRequestModel {
                 new LoginRequestModel(userEmail,userPassword)
                         .prepareLoginRequest()
                         .sendLoginRequest()
+                        .validateStatusFromResponse("200")
                         .validateTokenExists();
     }
 }

@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="Test">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/E2ERegression.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/E2ERegression.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/E2ERegressionFacade.yml" beforeDir="false" />
+    <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="Update Yaml File">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/ChangePasswordRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/ChangePasswordRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/LoginRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/LoginRequestModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/RegisterRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/RegisterRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CreateNewNote/CreateNewNoteFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CreateNewNote/CreateNewNoteFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CreateNewUser/CreateNewUserFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CreateNewUser/CreateNewUserFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/UpdateNote/UpdateNoteFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UpdateNote/UpdateNoteFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPasswordFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPasswordFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +94,7 @@
     "TestNG.UpdateNoteStatus.updateNoteStatus.executor": "Run",
     "TestNG.UpdateNoteStatus.updateNoteStatusWithFacadeDesign.executor": "Run",
     "TestNG.UpdateUserPassword.changeUserPassword.executor": "Run",
+    "TestNG.UpdateUserPassword.executor": "Run",
     "TestNG.UpdateUserPasswordFacade.executor": "Run",
     "TestNG.UpdateUserPasswordFacade.updateUserPassword.executor": "Run",
     "git-widget-placeholder": "master",
@@ -127,7 +126,7 @@
       <recent name="utils" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.UpdateNoteFacade">
+  <component name="RunManager" selected="TestNG.UpdateUserPassword">
     <configuration name="CreateNewNoteFacade" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="YehiaProject" />
       <extension name="coverage">
@@ -139,24 +138,6 @@
       <option name="PACKAGE_NAME" value="tests.CreateNewNote" />
       <option name="MAIN_CLASS_NAME" value="tests.CreateNewNote.CreateNewNoteFacade" />
       <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CreateNewNoteFacade.createNewNote" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="YehiaProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.CreateNewNote.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.CreateNewNote" />
-      <option name="MAIN_CLASS_NAME" value="tests.CreateNewNote.CreateNewNoteFacade" />
-      <option name="METHOD_NAME" value="createNewNote" />
-      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -215,6 +196,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UpdateUserPassword" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="YehiaProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.UpdateUserPassword.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.UpdateUserPassword" />
+      <option name="MAIN_CLASS_NAME" value="tests.UpdateUserPassword.UpdateUserPassword" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -223,11 +221,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.UpdateUserPassword" />
         <item itemvalue="TestNG.UpdateNoteFacade" />
         <item itemvalue="TestNG.UpdateNote" />
         <item itemvalue="TestNG.CreateNewUserFacade.createNewUserWithDynamicRandomData" />
         <item itemvalue="TestNG.CreateNewNoteFacade" />
-        <item itemvalue="TestNG.CreateNewNoteFacade.createNewNote" />
       </list>
     </recent_temporary>
   </component>
@@ -312,12 +310,29 @@
       <option name="project" value="LOCAL" />
       <updated>1729320032178</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Test">
+      <option name="closed" value="true" />
+      <created>1729337338281</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1729337338281</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Update Yaml File">
+      <option name="closed" value="true" />
+      <created>1729337455013</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1729337455013</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test" />
+    <MESSAGE value="Update Yaml File" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Yaml File" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -68,9 +68,11 @@ public class ChangePasswordRequestModel {
     public String changeUserPassword() throws JsonProcessingException {
         return prepareChangePasswordRequestWithRandomPassword()
                 .sendChangePasswordRequest()
+                .validateStatusFromResponse("200")
                 .getUserCredentialsWithNewPassword()
                 .prepareLoginRequest()
                 .sendLoginRequest()
+                .validateStatusFromResponse("200")
                 .validateTokenExists()
                 .getPassword();
     }
