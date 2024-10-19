@@ -6,13 +6,13 @@
   - Request Object Model Class that contains all methods performed on Request Parameters through Request Pojo Class, includes Preparing Request body with static or dynamic data and Executing Request
   - Response Object Model Class that contains all Validations and Getters performed on the Response Parameters through Response Pojo Class
 - Prepare Request Body as follows:
-  - Statically from Json Files createad for each test, containing static test data (usually requires update before test cases that needs unique data or test cases that write on test data)
-  - Dynamically using TimeStamp (for Unique Data) and DataFaker (for Descriptive Data) for Generating Dynamic and Unique Test Data (doesn't require any updates for any tests)
+  - Statically from Json Files createad for each test, containing static test data --> (usually requires update before test cases that needs unique data or test cases that write on test data)
+  - Dynamically using TimeStamp "for Unique Data" and DataFaker "for Descriptive Data", for Generating Dynamic and Unique Test Data --> (doesn't require any updates for any tests)
 - Used Design Pattern
   -	Builder Pattern for Constructing Request Pojo Class with input parameters step by step in fluent manner to build the Request Body
   - Fluent Object Model Design Pattern in writing Test Script, thus chaining all Steps and different requests sent for the E2E scenario and all validations on recieved responses in One Line of Code
   - Fluent Facade Design Pattern for abstracting/hiding unnecessary requests and encapsulate them into high level steps, thus making the script more short and readable for anyone
-- Execute the same Request several times (like Create multiple Notes) in one of code with help of Facade Design	
+- Execute the same Request several times (like Create Multiple Notes) in one line of code with help of Fluent Facade Design	
 - Using APIManager Util that provide abstracted methods for sending all kind of requests and for different manipulations on API response
 - Allure Report for the Following:
   - Reporting Test Result, and Logging all Test Steps and Validations
