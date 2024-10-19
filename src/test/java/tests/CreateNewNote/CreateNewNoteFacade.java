@@ -14,7 +14,7 @@ public class CreateNewNoteFacade {
     JsonManager json;
 
     @Test
-    public void createNewNote() throws IOException, ParseException {
+    public void createNewNoteFacade() throws IOException, ParseException {
         json = new JsonManager(jsonFilePath);
         new RegisterRequestModel()
                 .registerNewUserWithRandomData()
@@ -25,7 +25,7 @@ public class CreateNewNoteFacade {
     }
 
     @Test
-    public void createMultipleNotes() throws IOException, ParseException {
+    public void createMultipleNotesFacade() throws IOException, ParseException {
         json = new JsonManager(jsonFilePath);
         new RegisterRequestModel()
                 .registerNewUserWithRandomData()

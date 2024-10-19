@@ -11,9 +11,10 @@
 - Used Design Pattern
   -	Builder Pattern for Constructing Request Pojo Class with input parameters step by step in fluent manner to build the Request Body
   - Fluent Object Model Design Pattern in writing Test Script, thus chaining all Steps and different requests sent for the E2E scenario and all validations on recieved responses in One Line of Code
-  - Fluent Facade Design Pattern for abstracting unnecessary requests and encapsulate them into one meaningful instruction, thus making the script more short and readable
--	Using APIManager Util that provide abstracted methods for sending all kind of requests and for different manipulations on API response
--	Allure Report for the Following:
+  - Fluent Facade Design Pattern for abstracting/hiding unnecessary requests and encapsulate them into high level steps, thus making the script more short and readable for anyone
+- Execute the same Request several times (like Create multiple Notes) in one of code with help of Facade Design	
+- Using APIManager Util that provide abstracted methods for sending all kind of requests and for different manipulations on API response
+- Allure Report for the Following:
   - Reporting Test Result, and Logging all Test Steps and Validations
   - Screenshots for all sent requests and responses
   - In Case of Facade Design, Logging the Main Encapsulated Steps suitable for Stakeholders, then expand each step to check the detailed requests inside if needed

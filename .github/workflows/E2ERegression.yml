@@ -1,4 +1,4 @@
-name: E2E Facade Tests Windows
+name: E2E Regression Tests Ubuntu
 
 on:
   workflow_dispatch:
@@ -12,8 +12,8 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
- Windows_Test:
-    runs-on: windows-latest
+ Ubuntu_Test:
+    runs-on: ubuntu-latest
     continue-on-error: true
 
     steps:
@@ -34,10 +34,10 @@ jobs:
       - name: Run tests
         continue-on-error: true
         run: >
-          mvn clean test -Dtest="CreateNewNote.CreateNewNote,
-          CreateNewUser.CreateNewUser,
-          UpdateNote.UpdateNote,
-          UpdateUserPassword.UpdateUserPassword"
+          mvn clean test -Dtest="CreateNewNote.**,
+          CreateNewUser.**,
+          UpdateNote.**,
+          UpdateUserPassword.**"
           -D"allure.results.directory"="target/allure-results"
 
       - name: Generate Allure report
@@ -49,5 +49,5 @@ jobs:
       - name: Upload Allure Report
         uses: actions/upload-artifact@v4
         with:
-          name: Allure Report Windows
+          name: Allure Report Regression Ubuntu
           path: "target/site/allure-maven-plugin"

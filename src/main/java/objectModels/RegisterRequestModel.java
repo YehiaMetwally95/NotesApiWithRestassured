@@ -24,7 +24,7 @@ public class RegisterRequestModel {
     RegisterResponsePojo responseObject;
 
     @Step("Prepare Registration Request Statically From Json File")
-    //Method to get Request Body inputs from Mock Server Statically
+    //Method to get Request Body inputs from Json File Statically
     public RegisterRequestModel prepareRegisterRequestFromJsonFile(String userData) throws JsonProcessingException {
         mapper = new JsonMapper();
         requestObject = mapper.readValue(userData, RegisterRequestPojo.class);

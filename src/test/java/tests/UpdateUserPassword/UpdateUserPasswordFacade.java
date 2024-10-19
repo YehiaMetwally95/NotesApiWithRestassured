@@ -17,7 +17,7 @@ public class UpdateUserPasswordFacade {
     String newPassword;
 
     @Test
-    public void updateUserPassword() throws IOException, ParseException {
+    public void updateUserPasswordFacade() throws IOException, ParseException {
         json = new JsonManager(jsonFilePath);
 
         newPassword = new LoginRequestModel(json.getData("UserCredentials2.Email"),json.getData("UserCredentials2.Password"))

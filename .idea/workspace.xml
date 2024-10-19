@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="Test">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/E2ERegression.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/E2ERegression.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/E2ERegressionFacade.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/RegisterRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/RegisterRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CreateNewNote/CreateNewNoteFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CreateNewNote/CreateNewNoteFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CreateNewUser/CreateNewUserFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CreateNewUser/CreateNewUserFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/UpdateNote/UpdateNoteFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UpdateNote/UpdateNoteFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPasswordFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPasswordFacade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +90,7 @@
     "TestNG.Test1.testmethod2.executor": "Run",
     "TestNG.UpdateNote.executor": "Run",
     "TestNG.UpdateNote.updateExistingNote.executor": "Run",
+    "TestNG.UpdateNoteFacade.executor": "Run",
     "TestNG.UpdateNoteFacade.updateExistingNote.executor": "Run",
     "TestNG.UpdateNoteStatus.executor": "Run",
     "TestNG.UpdateNoteStatus.updateNoteStatus.executor": "Run",
@@ -118,7 +127,7 @@
       <recent name="utils" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.CreateNewUserFacade.createNewUserWithDynamicRandomData">
+  <component name="RunManager" selected="TestNG.UpdateNoteFacade">
     <configuration name="CreateNewNoteFacade" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="YehiaProject" />
       <extension name="coverage">
@@ -172,16 +181,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UpdateUserPasswordFacade" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="UpdateNote" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="YehiaProject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.UpdateUserPassword.*" />
+          <option name="PATTERN" value="tests.UpdateNote.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests.UpdateUserPassword" />
-      <option name="MAIN_CLASS_NAME" value="tests.UpdateUserPassword.UpdateUserPasswordFacade" />
+      <option name="PACKAGE_NAME" value="tests.UpdateNote" />
+      <option name="MAIN_CLASS_NAME" value="tests.UpdateNote.UpdateNote" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -189,18 +198,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UpdateUserPasswordFacade.updateUserPassword" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="UpdateNoteFacade" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="YehiaProject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.UpdateUserPassword.*" />
+          <option name="PATTERN" value="tests.UpdateNote.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests.UpdateUserPassword" />
-      <option name="MAIN_CLASS_NAME" value="tests.UpdateUserPassword.UpdateUserPasswordFacade" />
-      <option name="METHOD_NAME" value="updateUserPassword" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="PACKAGE_NAME" value="tests.UpdateNote" />
+      <option name="MAIN_CLASS_NAME" value="tests.UpdateNote.UpdateNoteFacade" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -215,11 +223,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.UpdateNoteFacade" />
+        <item itemvalue="TestNG.UpdateNote" />
         <item itemvalue="TestNG.CreateNewUserFacade.createNewUserWithDynamicRandomData" />
         <item itemvalue="TestNG.CreateNewNoteFacade" />
         <item itemvalue="TestNG.CreateNewNoteFacade.createNewNote" />
-        <item itemvalue="TestNG.UpdateUserPasswordFacade" />
-        <item itemvalue="TestNG.UpdateUserPasswordFacade.updateUserPassword" />
       </list>
     </recent_temporary>
   </component>
@@ -296,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729319495471</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Test">
+      <option name="closed" value="true" />
+      <created>1729320032178</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1729320032178</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

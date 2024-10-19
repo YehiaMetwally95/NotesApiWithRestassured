@@ -14,7 +14,7 @@ public class CreateNewUserFacade {
     JsonManager json;
 
     @Test
-    public void createNewUserWithDynamicRandomData() throws IOException, ParseException {
+    public void createNewUserWithDynamicRandomDataFacade() throws IOException, ParseException {
         json = new JsonManager(jsonFilePath);
         new RegisterRequestModel()
                 .registerNewUserWithRandomData();

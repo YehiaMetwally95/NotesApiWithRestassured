@@ -14,7 +14,7 @@ public class UpdateNoteFacade {
     JsonManager json;
 
     @Test
-    public void updateExistingNote() throws IOException, ParseException {
+    public void updateExistingNoteFacade() throws IOException, ParseException {
         json = new JsonManager(jsonFilePath);
 
         new RegisterRequestModel()
@@ -25,7 +25,7 @@ public class UpdateNoteFacade {
     }
 
     @Test
-    public void updateMultipleNotes() throws IOException, ParseException {
+    public void updateMultipleNotesFacade() throws IOException, ParseException {
         json = new JsonManager(jsonFilePath);
 
         new RegisterRequestModel()
