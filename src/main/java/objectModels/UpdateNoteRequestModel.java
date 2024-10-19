@@ -83,7 +83,7 @@ public class UpdateNoteRequestModel {
                 .validateStatusFromResponse("200")
                 .getNoteID()
                 .sendGetNoteRequest()
-                .validateCategoryFromResponse("200")
+                .validateStatusFromResponse("200")
                 .validateTitleFromResponse(title)
                 .validateDescriptionFromResponse(description)
                 .validateCategoryFromResponse(category)
