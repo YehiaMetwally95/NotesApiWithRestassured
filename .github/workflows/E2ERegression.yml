@@ -39,7 +39,7 @@ jobs:
           UpdateNote.**,
           UpdateUserPassword.**"
           -DparallelMode="METHODS"
-          -DthreadCount="12"
+          -DthreadCount="6"
 
       - name: Generate Allure report
         run: mvn allure:report
