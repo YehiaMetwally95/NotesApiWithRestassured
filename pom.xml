@@ -258,15 +258,15 @@
                             </property>
                             <property>
                                 <name>listener</name>
-                                <value>com.yehia.yehiaEngine.listeners.MethodListeners</value>
+                                <value>yehiaEngine.listeners.MethodListeners</value>
                             </property>
                             <property>
                                 <name>listener</name>
-                                <value>com.yehia.yehiaEngine.listeners.SuiteListeners</value>
+                                <value>yehiaEngine.listeners.SuiteListeners</value>
                             </property>
                             <property>
                                 <name>listener</name>
-                                <value>com.yehia.yehiaEngine.listeners.ParallelExecutionListener</value>
+                                <value>yehiaEngine.listeners.ParallelExecutionListener</value>
                             </property>
                         </properties>
                     </configuration>
