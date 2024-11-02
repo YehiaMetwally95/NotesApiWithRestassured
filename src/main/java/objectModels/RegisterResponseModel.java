@@ -1,9 +1,9 @@
 package objectModels;
 
 import io.qameta.allure.Step;
-import org.testng.Assert;
 import pojoClasses.RegisterRequestPojo;
 import pojoClasses.RegisterResponsePojo;
+import yehiaEngine.assertions.CustomAssert;
 
 public class RegisterResponseModel {
 
@@ -22,31 +22,31 @@ public class RegisterResponseModel {
     //Validation Methods
     @Step("validateMassageFromResponse")
     public RegisterResponseModel validateMassageFromResponse(String message) {
-        Assert.assertEquals(responseObject.getMessage(),message);
+        CustomAssert.assertEquals(responseObject.getMessage(),message);
         return this;
     }
 
     @Step("validateStatusFromResponse")
     public RegisterResponseModel validateStatusFromResponse(String statusCode) {
-        Assert.assertEquals(responseObject.getStatus(),Integer.parseInt(statusCode));
+        CustomAssert.assertEquals(responseObject.getStatus(),Integer.parseInt(statusCode));
         return this;
     }
 
     @Step("validateSuccessFromResponse")
     public RegisterResponseModel validateSuccessFromResponse(String successFlag) {
-        Assert.assertEquals(responseObject.isSuccess(),Boolean.parseBoolean(successFlag));
+        CustomAssert.assertEquals(responseObject.isSuccess(),Boolean.parseBoolean(successFlag));
         return this;
     }
 
     @Step("validateNameFromResponse")
     public RegisterResponseModel validateNameFromResponse() {
-        Assert.assertEquals(responseObject.getData().getName(),requestObject.getName());
+        CustomAssert.assertEquals(responseObject.getData().getName(),requestObject.getName());
         return this;
     }
 
     @Step("validateEmailFromResponse")
     public RegisterResponseModel validateEmailFromResponse() {
-        Assert.assertEquals(responseObject.getData().getEmail(),requestObject.getEmail());
+        CustomAssert.assertEquals(responseObject.getData().getEmail(),requestObject.getEmail());
         return this;
     }
 

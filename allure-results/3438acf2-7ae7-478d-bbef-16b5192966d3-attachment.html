@@ -1,0 +1,28 @@
+<div>POST to https://practice.expandtesting.com/notes/api/users/change-password</div>
+
+    <h4>Body</h4>
+    <div>
+    <pre class="preformated-text">
+{
+    &quot;currentPassword&quot;: &quot;Test@%^3305405&quot;,
+    &quot;newPassword&quot;: &quot;Test@%^3323314&quot;
+}    </pre>
+    </div>
+
+    <h4>Headers</h4>
+    <div>
+            <div>Accept: */*</div>
+            <div>x-auth-token: 1d6cc3e797674c5a87d39b255419478e72fb0bee01754e419a2e28f7884eab37</div>
+            <div>Content-Type: application/json</div>
+    </div>
+
+
+
+    <h4>Curl</h4>
+    <div>
+        curl -v -X POST &#39;https://practice.expandtesting.com/notes/api/users/change-password&#39; -H &#39;Accept: */*&#39; -H &#39;x-auth-token: 1d6cc3e797674c5a87d39b255419478e72fb0bee01754e419a2e28f7884eab37&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;currentPassword&quot;: &quot;Test@%^3305405&quot;,
+    &quot;newPassword&quot;: &quot;Test@%^3323314&quot;
+}&#39;
+    </div>
+

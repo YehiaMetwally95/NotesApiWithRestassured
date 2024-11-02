@@ -1,23 +1,20 @@
 package tests.UpdateUserPassword;
 
 import objectModels.RegisterRequestModel;
-import org.json.simple.parser.ParseException;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pojoClasses.LoginRequestPojo;
-import utils.JsonManager;
+import yehiaEngine.managers.JsonManager;
 
 import java.io.IOException;
 
-@Listeners(utils.TestNGListners.class)
 public class UpdateUserPassword {
     String jsonFilePath = "src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json";
     JsonManager json;
     LoginRequestPojo loginRequestObject;
 
     @Test
-    public void changeUserPassword() throws IOException, ParseException {
+    public void changeUserPassword() throws IOException {
         json = new JsonManager(jsonFilePath);
         loginRequestObject =
         new RegisterRequestModel()
@@ -64,7 +61,7 @@ public class UpdateUserPassword {
 
     @AfterMethod()
     //Update the User Credentials in Json File with the New Password
-    public void updateUserCredentialsWithNewPassword() throws IOException, ParseException {
+    public void updateUserCredentialsWithNewPassword() throws IOException {
         json = new JsonManager(jsonFilePath);
         json.setData("UserCredentials1.Email",loginRequestObject.getEmail());
         json.setData("UserCredentials1.Password",loginRequestObject.getPassword());

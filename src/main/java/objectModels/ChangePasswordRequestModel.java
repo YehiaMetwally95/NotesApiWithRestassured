@@ -8,9 +8,10 @@ import pojoClasses.ChangePasswordRequestPojo;
 import pojoClasses.ChangePasswordResponsePojo;
 import pojoClasses.LoginRequestPojo;
 
-import static utils.ApiManager.*;
-import static utils.PropertiesManager.getPropertiesValue;
-import static utils.RandomDataGenerator.generateStrongPassword;
+import static yehiaEngine.managers.ApisManager.MakeAuthRequest;
+import static yehiaEngine.managers.ApisManager.getResponseBody;
+import static yehiaEngine.managers.PropertiesManager.getPropertiesValue;
+import static yehiaEngine.utilities.RandomDataGenerator.generateStrongPassword;
 
 public class ChangePasswordRequestModel {
     //Variables
@@ -59,8 +60,6 @@ public class ChangePasswordRequestModel {
 
         responseObject = mapper.readValue(responseBodyAsString, ChangePasswordResponsePojo.class);
 
-        logRequestBody(requestObject);
-        logResponseBody(responseObject);
         return new ChangePasswordResponseModel(requestObject, responseObject,userEmail);
     }
 

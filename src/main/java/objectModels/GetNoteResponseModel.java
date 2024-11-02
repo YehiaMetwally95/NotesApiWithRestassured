@@ -6,6 +6,7 @@ import pojoClasses.CreateNoteRequestPojo;
 import pojoClasses.CreateNoteResponsePojo;
 import pojoClasses.GetNoteRequestPojo;
 import pojoClasses.GetNoteResponsePojo;
+import yehiaEngine.assertions.CustomAssert;
 
 public class GetNoteResponseModel {
     //ObjectsFromPojoClasses
@@ -26,43 +27,43 @@ public class GetNoteResponseModel {
     //Validation Methods
     @Step("validateMassageFromResponse")
     public GetNoteResponseModel validateMassageFromResponse(String message) {
-        Assert.assertEquals(responseObject.getMessage(),message);
+        CustomAssert.assertEquals(responseObject.getMessage(),message);
         return this;
     }
 
     @Step("validateStatusFromResponse")
     public GetNoteResponseModel validateStatusFromResponse(String statusCode) {
-        Assert.assertEquals(responseObject.getStatus(),Integer.parseInt(statusCode));
+        CustomAssert.assertEquals(responseObject.getStatus(),Integer.parseInt(statusCode));
         return this;
     }
 
     @Step("validateSuccessFromResponse")
     public GetNoteResponseModel validateSuccessFromResponse(String successFlag) {
-        Assert.assertEquals(responseObject.isSuccess(),Boolean.parseBoolean(successFlag));
+        CustomAssert.assertEquals(responseObject.isSuccess(),Boolean.parseBoolean(successFlag));
         return this;
     }
 
     @Step("validateTitleFromResponse")
     public GetNoteResponseModel validateTitleFromResponse(String title) {
-        Assert.assertEquals(responseObject.getData().getTitle(),title);
+        CustomAssert.assertEquals(responseObject.getData().getTitle(),title);
         return this;
     }
 
     @Step("validateDescriptionFromResponse")
     public GetNoteResponseModel validateDescriptionFromResponse(String description) {
-        Assert.assertEquals(responseObject.getData().getDescription(),description);
+        CustomAssert.assertEquals(responseObject.getData().getDescription(),description);
         return this;
     }
 
     @Step("validateCategoryFromResponse")
     public GetNoteResponseModel validateCategoryFromResponse(String category) {
-        Assert.assertEquals(responseObject.getData().getCategory(),category);
+        CustomAssert.assertEquals(responseObject.getData().getCategory(),category);
         return this;
     }
 
     @Step("validateNoteStatusFromResponse")
     public GetNoteResponseModel validateNoteStatusFromResponse(String status) {
-        Assert.assertEquals(responseObject.getData().isCompleted(),Boolean.parseBoolean(status));
+        CustomAssert.assertEquals(responseObject.getData().isCompleted(),Boolean.parseBoolean(status));
         return this;
     }
 

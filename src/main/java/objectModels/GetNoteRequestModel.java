@@ -7,8 +7,8 @@ import io.restassured.response.Response;
 import pojoClasses.GetNoteRequestPojo;
 import pojoClasses.GetNoteResponsePojo;
 
-import static utils.ApiManager.*;
-import static utils.PropertiesManager.getPropertiesValue;
+import static yehiaEngine.managers.ApisManager.*;
+import static yehiaEngine.managers.PropertiesManager.getPropertiesValue;
 
 public class GetNoteRequestModel {
 
@@ -45,7 +45,6 @@ public class GetNoteRequestModel {
 
         responseObject = mapper.readValue(responseBodyAsString, GetNoteResponsePojo.class);
 
-        logResponseBody(responseObject);
         return new GetNoteResponseModel(requestObject,responseObject,token);
     }
 }

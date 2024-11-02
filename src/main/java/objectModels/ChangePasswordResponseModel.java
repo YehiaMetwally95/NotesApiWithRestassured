@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.testng.Assert;
 import pojoClasses.ChangePasswordRequestPojo;
 import pojoClasses.ChangePasswordResponsePojo;
+import yehiaEngine.assertions.CustomAssert;
 
 public class ChangePasswordResponseModel {
     //ObjectsFromPojoClasses
@@ -25,19 +26,19 @@ public class ChangePasswordResponseModel {
     //Validation Methods
     @Step("validateMassageFromResponse")
     public ChangePasswordResponseModel validateMassageFromResponse(String message) {
-        Assert.assertEquals(responseObject.getMessage(),message);
+        CustomAssert.assertEquals(responseObject.getMessage(),message);
         return this;
     }
 
     @Step("validateStatusFromResponse")
     public ChangePasswordResponseModel validateStatusFromResponse(String statusCode) {
-        Assert.assertEquals(responseObject.getStatus(),Integer.parseInt(statusCode));
+        CustomAssert.assertEquals(responseObject.getStatus(),Integer.parseInt(statusCode));
         return this;
     }
 
     @Step("validateSuccessFromResponse")
     public ChangePasswordResponseModel validateSuccessFromResponse(String successFlag) {
-        Assert.assertEquals(responseObject.isSuccess(),Boolean.parseBoolean(successFlag));
+        CustomAssert.assertEquals(responseObject.isSuccess(),Boolean.parseBoolean(successFlag));
         return this;
     }
 

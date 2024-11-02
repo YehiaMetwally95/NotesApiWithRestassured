@@ -1,20 +1,17 @@
 package tests.CreateNewNote;
 
 import objectModels.RegisterRequestModel;
-import org.json.simple.parser.ParseException;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import utils.JsonManager;
+import yehiaEngine.managers.JsonManager;
 
 import java.io.IOException;
 
-@Listeners(utils.TestNGListners.class)
 public class CreateNewNoteFacade {
     String jsonFilePath = "src/test/resources/Test_Data_Json_Files/CreateNewNoteTestData.json";
     JsonManager json;
 
     @Test
-    public void createNewNoteFacade() throws IOException, ParseException {
+    public void createNewNoteFacade() throws IOException {
         json = new JsonManager(jsonFilePath);
         new RegisterRequestModel()
                 .registerNewUserWithRandomData()
@@ -25,7 +22,7 @@ public class CreateNewNoteFacade {
     }
 
     @Test
-    public void createMultipleNotesFacade() throws IOException, ParseException {
+    public void createMultipleNotesFacade() throws IOException {
         json = new JsonManager(jsonFilePath);
         new RegisterRequestModel()
                 .registerNewUserWithRandomData()

@@ -6,13 +6,12 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import pojoClasses.CreateNoteRequestPojo;
 import pojoClasses.CreateNoteResponsePojo;
-import pojoClasses.RegisterRequestPojo;
-
 import java.util.Arrays;
 
-import static utils.ApiManager.*;
-import static utils.PropertiesManager.getPropertiesValue;
-import static utils.RandomDataGenerator.*;
+import static yehiaEngine.managers.ApisManager.MakeAuthRequest;
+import static yehiaEngine.managers.ApisManager.getResponseBody;
+import static yehiaEngine.managers.PropertiesManager.getPropertiesValue;
+import static yehiaEngine.utilities.RandomDataGenerator.*;
 
 public class CreateNoteRequestModel {
 
@@ -66,8 +65,6 @@ public class CreateNoteRequestModel {
 
         responseObject = mapper.readValue(responseBodyAsString, CreateNoteResponsePojo.class);
 
-        logRequestBody(requestObject);
-        logResponseBody(responseObject);
         return new CreateNoteResponseModel(requestObject,responseObject,token);
     }
 

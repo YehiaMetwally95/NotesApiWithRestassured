@@ -1,11 +1,10 @@
 package objectModels;
 
 import io.qameta.allure.Step;
-import org.testng.Assert;
-import pojoClasses.GetNoteRequestPojo;
-import pojoClasses.GetNoteResponsePojo;
+
 import pojoClasses.UpdateNoteRequestPojo;
 import pojoClasses.UpdateNoteResponsePojo;
+import yehiaEngine.assertions.CustomAssert;
 
 public class UpdateNoteResponseModel {
     //ObjectsFromPojoClasses
@@ -27,19 +26,19 @@ public class UpdateNoteResponseModel {
     //Validation Methods
     @Step("validateMassageFromResponse")
     public UpdateNoteResponseModel validateMassageFromResponse(String message) {
-        Assert.assertEquals(responseObject.getMessage(),message);
+        CustomAssert.assertEquals(responseObject.getMessage(),message);
         return this;
     }
 
     @Step("validateStatusFromResponse")
     public UpdateNoteResponseModel validateStatusFromResponse(String statusCode) {
-        Assert.assertEquals(responseObject.getStatus(),Integer.parseInt(statusCode));
+        CustomAssert.assertEquals(responseObject.getStatus(),Integer.parseInt(statusCode));
         return this;
     }
 
     @Step("validateSuccessFromResponse")
     public UpdateNoteResponseModel validateSuccessFromResponse(String successFlag) {
-        Assert.assertEquals(responseObject.isSuccess(),Boolean.parseBoolean(successFlag));
+        CustomAssert.assertEquals(responseObject.isSuccess(),Boolean.parseBoolean(successFlag));
         return this;
     }
 

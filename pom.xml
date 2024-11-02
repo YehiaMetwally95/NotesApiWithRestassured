@@ -12,14 +12,36 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <testng.version>7.10.2</testng.version>
-        <selenium.version>4.25.0</selenium.version>
-        <javafaker.version>1.0.2</javafaker.version>
-        <commons-io.version>RELEASE</commons-io.version>
-        <json-simple.version>1.1</json-simple.version>
-        <compiler-maven.version>3.10.1</compiler-maven.version>
-        <surefire-maven.version>3.0.0-M7</surefire-maven.version>
 
+        <testng.version>7.10.2</testng.version>
+        <selenium-java.version>4.25.0</selenium-java.version>
+        <rest-assured.version>5.5.0</rest-assured.version>
+        <appium.version>9.3.0</appium.version>
+        <mysql-connector-j.version>9.1.0</mysql-connector-j.version>
+        <commons-io.version>2.17.0</commons-io.version>
+        <json-path.version>2.9.0</json-path.version>
+        <gson.version>2.11.0</gson.version>
+        <jackson-databind.version>2.18.0</jackson-databind.version>
+        <jackson-core.version>2.18.0</jackson-core.version>
+        <lombok.version>1.18.34</lombok.version>
+        <javafaker.version>1.0.2</javafaker.version>
+        <jetbrains_annotations.version>26.0.1</jetbrains_annotations.version>
+        <aspectjweaver.version>1.9.22.1</aspectjweaver.version>
+        <allure-testng.version>2.29.0</allure-testng.version>
+        <allure-java-commons.version>2.29.0</allure-java-commons.version>
+        <allure-rest-assured.version>2.29.0</allure-rest-assured.version>
+
+        <allure-maven.version>2.13.0</allure-maven.version>
+        <allure_report.version>2.30.0</allure_report.version>
+        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <aspectj-maven-plugin.version>1.14</aspectj-maven-plugin.version>
+        <aspectjtools.version>1.9.22.1</aspectjtools.version>
+        <maven-surefire-plugin.version>3.5.1</maven-surefire-plugin.version>
+        <log4j-core.version>2.24.1</log4j-core.version>
+        <log4j-api.version>2.24.1</log4j-api.version>
+        <slf4j-api.version>2.0.16</slf4j-api.version>
+        <slf4j-reload4j.version>2.0.16</slf4j-reload4j.version>
+        <log4j-slf4j2-impl.version>2.24.1</log4j-slf4j2-impl.version>
 
     </properties>
 
@@ -33,13 +55,25 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>${selenium.version}</version>
+            <version>${selenium-java.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>com.github.javafaker</groupId>
-            <artifactId>javafaker</artifactId>
-            <version>${javafaker.version}</version>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>${appium.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>${mysql-connector-j.version}</version>
         </dependency>
 
         <dependency>
@@ -49,114 +83,123 @@
         </dependency>
 
         <dependency>
-            <groupId>com.googlecode.json-simple</groupId>
-            <artifactId>json-simple</artifactId>
-            <version>${json-simple.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.9.22.1</version>
-            <scope>runtime</scope>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>${json-path.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.11.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.beust</groupId>
-            <artifactId>jcommander</artifactId>
-            <version>1.82</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <version>8.0.33</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <version>5.5.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20240303</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.appium</groupId>
-            <artifactId>java-client</artifactId>
-            <version>9.3.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.17.2</version>
+            <version>${gson.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.17.2</version>
+            <version>${jackson-databind.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.17.2</version>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson-core.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.34</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${javafaker.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>${jetbrains_annotations.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.29.0</version>
+            <version>${allure-testng.version}</version>
         </dependency>
 
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-java-commons</artifactId>
-            <version>2.29.0</version>
+            <version>${allure-java-commons.version}</version>
         </dependency>
 
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-rest-assured</artifactId>
-            <version>2.29.0</version>
+            <version>${allure-rest-assured.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j-api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j2-impl</artifactId>
+            <version>${log4j-slf4j2-impl.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
+
         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>io.qameta.allure</groupId>
                     <artifactId>allure-maven</artifactId>
-                    <version>2.13.0</version>
+                    <version>${allure-maven.version}</version>
                     <configuration>
-                        <reportVersion>2.30.0</reportVersion>
+                        <reportVersion>${allure_report.version}</reportVersion>
                     </configuration>
                 </plugin>
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.10.1</version>
+                    <version>${maven-compiler-plugin.version}</version>
                     <configuration>
                         <source>17</source>
                         <target>17</target>
@@ -165,15 +208,28 @@
                 </plugin>
 
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.4.0</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <plugin>
                     <groupId>dev.aspectj</groupId>
                     <artifactId>aspectj-maven-plugin</artifactId>
-                    <version>1.14</version>
+                    <version>${aspectj-maven-plugin.version}</version>
                     <dependencies>
                         <dependency>
                             <groupId>org.aspectj</groupId>
                             <artifactId>aspectjtools</artifactId>
                             <!-- AspectJ compiler version, in sync with runtime -->
-                            <version>1.9.22.1</version>
+                            <version>${aspectjtools.version}</version>
                         </dependency>
                     </dependencies>
                     <configuration>
@@ -185,11 +241,16 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.5.0</version>
+                    <version>${maven-surefire-plugin.version}</version>
                     <configuration>
                         <argLine>
                             -javaagent:${user.home}/.m2/repository/org/aspectj/aspectjweaver/1.9.22.1/aspectjweaver-1.9.22.1.jar
                         </argLine>
+
+                        <!--suppress UnresolvedMavenProperty -->
+                        <parallel>${parallelMode}</parallel>
+                        <!--suppress UnresolvedMavenProperty -->
+                        <threadCount>${threadCount}</threadCount>
                         <properties>
                             <property>
                                 <name>usedefaultlisteners</name>
@@ -197,7 +258,15 @@
                             </property>
                             <property>
                                 <name>listener</name>
-                                <value>utils.TestNGListners</value>
+                                <value>com.yehia.yehiaEngine.listeners.MethodListeners</value>
+                            </property>
+                            <property>
+                                <name>listener</name>
+                                <value>com.yehia.yehiaEngine.listeners.SuiteListeners</value>
+                            </property>
+                            <property>
+                                <name>listener</name>
+                                <value>com.yehia.yehiaEngine.listeners.ParallelExecutionListener</value>
                             </property>
                         </properties>
                     </configuration>
@@ -205,5 +274,13 @@
             </plugins>
         </pluginManagement>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/YehiaMetwally95/YehiaEngine</url>
+        </repository>
+    </distributionManagement>
 
 </project>

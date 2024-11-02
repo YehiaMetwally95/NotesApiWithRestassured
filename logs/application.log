@@ -1,0 +1,583 @@
+[INFO] - Loading Properties File Data - - [01:13:03] - LogHelper 
+[INFO] - Running Tests with Parallel Mode = [NONE] - - [01:13:03] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/register] - - [01:13:10] - LogHelper 
+[INFO] - Request Body : {"Name":"test1303909","Email":"test1303910@gmail.com","Password":"test@%^1303910"} - - [01:13:11] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":201,"message":"User account created successfully","data":{"id":"6726b207bac5db01525a20da","name":"test1303909","email":"test1303910@gmail.com"}} - - [01:13:11] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/login] - - [01:13:11] - LogHelper 
+[INFO] - Request Body : {"email":"test1303910@gmail.com","password":"test@%^1303910"} - - [01:13:11] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Login successful","data":{"id":"6726b207bac5db01525a20da","name":"test1303909","email":"test1303910@gmail.com","token":"172256d0ae34424daadaa7ed55cf046cc32c4f05edd449c098facd516225a0c0"}} - - [01:13:11] - LogHelper 
+[INFO] - Sending Auth Post Request for URL [https://practice.expandtesting.com/notes/api/notes/] - - [01:13:12] - LogHelper 
+[INFO] - Request Body : {"Title":"test1311836","Description":"Alias tempore iusto in ducimus eaque ratione.","Category":"Home","NoteStatus":false} - - [01:13:12] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully created","data":{"id":"6726b20abac5db01525a20e2","title":"test1311836","description":"Alias tempore iusto in ducimus eaque ratione.","category":"Home","completed":false,"created_at":"2024-11-02T23:13:14.405Z","updated_at":"2024-11-02T23:13:14.405Z","user_id":"6726b207bac5db01525a20da"}} - - [01:13:12] - LogHelper 
+[INFO] - Sending Auth Get Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b20abac5db01525a20e2] - - [01:13:13] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully retrieved","data":{"id":"6726b20abac5db01525a20e2","title":"test1311836","description":"Alias tempore iusto in ducimus eaque ratione.","category":"Home","completed":false,"created_at":"2024-11-02T23:13:14.405Z","updated_at":"2024-11-02T23:13:14.405Z","user_id":"6726b207bac5db01525a20da"}} - - [01:13:13] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1] - [01:13:13] - CompiledPath 
+[INFO] - Getting Test Data [{"Title":"New Title","Description":"New Long Description","Category":"Personal","NoteStatus":false}] by Json Path [NoteDataInputs[1]] - - [01:13:13] - LogHelper 
+[INFO] - Sending Auth Put Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b20abac5db01525a20e2] - - [01:13:14] - LogHelper 
+[INFO] - Request Body : {"Title":"New Title","Description":"New Long Description","Category":"Personal","NoteStatus":false} - - [01:13:14] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully Updated","data":{"id":"6726b20abac5db01525a20e2","title":"New Title","description":"New Long Description","category":"Personal","completed":false,"created_at":"2024-11-02T23:13:14.405Z","updated_at":"2024-11-02T23:13:16.052Z","user_id":"6726b207bac5db01525a20da"}} - - [01:13:14] - LogHelper 
+[DEBUG] - Evaluating path: $['Messages']['UpdateNote'] - [01:13:14] - CompiledPath 
+[INFO] - Getting Test Data [Note successfully Updated] by Json Path [Messages.UpdateNote] - - [01:13:14] - LogHelper 
+[INFO] - Asserting actual result: [Note successfully Updated] equals expected result: [Note successfully Updated] - - [01:13:14] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:14] - LogHelper 
+[DEBUG] - Evaluating path: $['SuccessFlag']['UpdateNote'] - [01:13:14] - CompiledPath 
+[INFO] - Getting Test Data [true] by Json Path [SuccessFlag.UpdateNote] - - [01:13:14] - LogHelper 
+[INFO] - Asserting actual object: [true] equals expected object: [true] - - [01:13:14] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:14] - LogHelper 
+[DEBUG] - Evaluating path: $['StatusCode']['UpdateNote'] - [01:13:14] - CompiledPath 
+[INFO] - Getting Test Data [200] by Json Path [StatusCode.UpdateNote] - - [01:13:14] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:14] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:14] - LogHelper 
+[INFO] - Sending Auth Get Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b20abac5db01525a20e2] - - [01:13:14] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully retrieved","data":{"id":"6726b20abac5db01525a20e2","title":"New Title","description":"New Long Description","category":"Personal","completed":false,"created_at":"2024-11-02T23:13:14.405Z","updated_at":"2024-11-02T23:13:16.052Z","user_id":"6726b207bac5db01525a20da"}} - - [01:13:14] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Title'] - [01:13:14] - CompiledPath 
+[INFO] - Getting Test Data [New Title] by Json Path [NoteDataInputs[1].Title] - - [01:13:14] - LogHelper 
+[INFO] - Asserting actual result: [New Title] equals expected result: [New Title] - - [01:13:14] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:14] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Description'] - [01:13:14] - CompiledPath 
+[INFO] - Getting Test Data [New Long Description] by Json Path [NoteDataInputs[1].Description] - - [01:13:14] - LogHelper 
+[INFO] - Asserting actual result: [New Long Description] equals expected result: [New Long Description] - - [01:13:14] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:14] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Category'] - [01:13:14] - CompiledPath 
+[INFO] - Getting Test Data [Personal] by Json Path [NoteDataInputs[1].Category] - - [01:13:14] - LogHelper 
+[INFO] - Asserting actual result: [Personal] equals expected result: [Personal] - - [01:13:14] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:14] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['NoteStatus'] - [01:13:14] - CompiledPath 
+[INFO] - Getting Test Data [false] by Json Path [NoteDataInputs[1].NoteStatus] - - [01:13:14] - LogHelper 
+[INFO] - Asserting actual object: [false] equals expected object: [false] - - [01:13:14] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:14] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/register] - - [01:13:15] - LogHelper 
+[INFO] - Request Body : {"Name":"test1314991","Email":"test1314991@gmail.com","Password":"test@%^1314991"} - - [01:13:15] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":201,"message":"User account created successfully","data":{"id":"6726b20dbac5db01525a20ec","name":"test1314991","email":"test1314991@gmail.com"}} - - [01:13:15] - LogHelper 
+[INFO] - Asserting actual result: [201] equals expected result: [201] - - [01:13:15] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:15] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/login] - - [01:13:16] - LogHelper 
+[INFO] - Request Body : {"email":"test1314991@gmail.com","password":"test@%^1314991"} - - [01:13:16] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Login successful","data":{"id":"6726b20dbac5db01525a20ec","name":"test1314991","email":"test1314991@gmail.com","token":"bbc25094029a4b7fb2c7df44deda48b035f5dbf0918c4557a991e3f89a4d7311"}} - - [01:13:16] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:16] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:16] - LogHelper 
+[INFO] - Asserting condition is False - - [01:13:16] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:16] - LogHelper 
+[INFO] - Sending Auth Post Request for URL [https://practice.expandtesting.com/notes/api/notes/] - - [01:13:17] - LogHelper 
+[INFO] - Request Body : {"Title":"test1316537","Description":"Sit corrupti omnis sint vitae.","Category":"Work","NoteStatus":false} - - [01:13:17] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully created","data":{"id":"6726b20fbac5db01525a20f4","title":"test1316537","description":"Sit corrupti omnis sint vitae.","category":"Work","completed":false,"created_at":"2024-11-02T23:13:19.222Z","updated_at":"2024-11-02T23:13:19.222Z","user_id":"6726b20dbac5db01525a20ec"}} - - [01:13:17] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:17] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:17] - LogHelper 
+[INFO] - Asserting actual result: [test1316537] equals expected result: [test1316537] - - [01:13:17] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:17] - LogHelper 
+[INFO] - Asserting actual result: [Sit corrupti omnis sint vitae.] equals expected result: [Sit corrupti omnis sint vitae.] - - [01:13:17] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:17] - LogHelper 
+[INFO] - Asserting actual result: [Work] equals expected result: [Work] - - [01:13:17] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:17] - LogHelper 
+[INFO] - Asserting actual object: [false] equals expected object: [false] - - [01:13:17] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:17] - LogHelper 
+[INFO] - Sending Auth Get Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b20fbac5db01525a20f4] - - [01:13:18] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully retrieved","data":{"id":"6726b20fbac5db01525a20f4","title":"test1316537","description":"Sit corrupti omnis sint vitae.","category":"Work","completed":false,"created_at":"2024-11-02T23:13:19.222Z","updated_at":"2024-11-02T23:13:19.222Z","user_id":"6726b20dbac5db01525a20ec"}} - - [01:13:18] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:18] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:18] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1] - [01:13:18] - CompiledPath 
+[INFO] - Getting Test Data [{"Title":"New Title","Description":"New Long Description","Category":"Personal","NoteStatus":false}] by Json Path [NoteDataInputs[1]] - - [01:13:18] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Title'] - [01:13:18] - CompiledPath 
+[INFO] - Getting Test Data [New Title] by Json Path [NoteDataInputs[1].Title] - - [01:13:18] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Description'] - [01:13:18] - CompiledPath 
+[INFO] - Getting Test Data [New Long Description] by Json Path [NoteDataInputs[1].Description] - - [01:13:18] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Category'] - [01:13:18] - CompiledPath 
+[INFO] - Getting Test Data [Personal] by Json Path [NoteDataInputs[1].Category] - - [01:13:18] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1] - [01:13:18] - CompiledPath 
+[INFO] - Getting Test Data [{"Title":"New Title","Description":"New Long Description","Category":"Personal","NoteStatus":false}] by Json Path [NoteDataInputs[1]] - - [01:13:18] - LogHelper 
+[INFO] - Sending Auth Put Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b20fbac5db01525a20f4] - - [01:13:18] - LogHelper 
+[INFO] - Request Body : {"Title":"New Title","Description":"New Long Description","Category":"Personal","NoteStatus":false} - - [01:13:18] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully Updated","data":{"id":"6726b20fbac5db01525a20f4","title":"New Title","description":"New Long Description","category":"Personal","completed":false,"created_at":"2024-11-02T23:13:19.222Z","updated_at":"2024-11-02T23:13:20.577Z","user_id":"6726b20dbac5db01525a20ec"}} - - [01:13:18] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:18] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:18] - LogHelper 
+[INFO] - Sending Auth Get Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b20fbac5db01525a20f4] - - [01:13:19] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully retrieved","data":{"id":"6726b20fbac5db01525a20f4","title":"New Title","description":"New Long Description","category":"Personal","completed":false,"created_at":"2024-11-02T23:13:19.222Z","updated_at":"2024-11-02T23:13:20.577Z","user_id":"6726b20dbac5db01525a20ec"}} - - [01:13:19] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:19] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:19] - LogHelper 
+[INFO] - Asserting actual result: [New Title] equals expected result: [New Title] - - [01:13:19] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:19] - LogHelper 
+[INFO] - Asserting actual result: [New Long Description] equals expected result: [New Long Description] - - [01:13:19] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:19] - LogHelper 
+[INFO] - Asserting actual result: [Personal] equals expected result: [Personal] - - [01:13:19] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:19] - LogHelper 
+[INFO] - Asserting actual object: [false] equals expected object: [false] - - [01:13:19] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:19] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/register] - - [01:13:19] - LogHelper 
+[INFO] - Request Body : {"Name":"test1319296","Email":"test1319296@gmail.com","Password":"test@%^1319296"} - - [01:13:19] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":201,"message":"User account created successfully","data":{"id":"6726b211bac5db01525a20fe","name":"test1319296","email":"test1319296@gmail.com"}} - - [01:13:19] - LogHelper 
+[INFO] - Asserting actual result: [201] equals expected result: [201] - - [01:13:19] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:19] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/login] - - [01:13:20] - LogHelper 
+[INFO] - Request Body : {"email":"test1319296@gmail.com","password":"test@%^1319296"} - - [01:13:20] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Login successful","data":{"id":"6726b211bac5db01525a20fe","name":"test1319296","email":"test1319296@gmail.com","token":"eb7fbb79642c44bd9657559a115f1729373fcc500208480daa891fe96dc51f56"}} - - [01:13:20] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:20] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:20] - LogHelper 
+[INFO] - Asserting condition is False - - [01:13:20] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:20] - LogHelper 
+[INFO] - Sending Auth Post Request for URL [https://practice.expandtesting.com/notes/api/notes/] - - [01:13:20] - LogHelper 
+[INFO] - Request Body : {"Title":"test1320486","Description":"Quos voluptatem impedit.","Category":"Home","NoteStatus":false} - - [01:13:20] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully created","data":{"id":"6726b212bac5db01525a2106","title":"test1320486","description":"Quos voluptatem impedit.","category":"Home","completed":false,"created_at":"2024-11-02T23:13:22.796Z","updated_at":"2024-11-02T23:13:22.796Z","user_id":"6726b211bac5db01525a20fe"}} - - [01:13:20] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:20] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:20] - LogHelper 
+[INFO] - Asserting actual result: [test1320486] equals expected result: [test1320486] - - [01:13:20] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:20] - LogHelper 
+[INFO] - Asserting actual result: [Quos voluptatem impedit.] equals expected result: [Quos voluptatem impedit.] - - [01:13:20] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:20] - LogHelper 
+[INFO] - Asserting actual result: [Home] equals expected result: [Home] - - [01:13:20] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:20] - LogHelper 
+[INFO] - Asserting actual object: [false] equals expected object: [false] - - [01:13:20] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:20] - LogHelper 
+[INFO] - Sending Auth Get Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b212bac5db01525a2106] - - [01:13:21] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully retrieved","data":{"id":"6726b212bac5db01525a2106","title":"test1320486","description":"Quos voluptatem impedit.","category":"Home","completed":false,"created_at":"2024-11-02T23:13:22.796Z","updated_at":"2024-11-02T23:13:22.796Z","user_id":"6726b211bac5db01525a20fe"}} - - [01:13:21] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:21] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:21] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1] - [01:13:21] - CompiledPath 
+[INFO] - Getting Test Data [{"Title":"New Title","Description":"New Long Description","Category":"Personal","NoteStatus":false}] by Json Path [NoteDataInputs[1]] - - [01:13:21] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Title'] - [01:13:21] - CompiledPath 
+[INFO] - Getting Test Data [New Title] by Json Path [NoteDataInputs[1].Title] - - [01:13:21] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Description'] - [01:13:21] - CompiledPath 
+[INFO] - Getting Test Data [New Long Description] by Json Path [NoteDataInputs[1].Description] - - [01:13:21] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Category'] - [01:13:21] - CompiledPath 
+[INFO] - Getting Test Data [Personal] by Json Path [NoteDataInputs[1].Category] - - [01:13:21] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1] - [01:13:21] - CompiledPath 
+[INFO] - Getting Test Data [{"Title":"New Title","Description":"New Long Description","Category":"Personal","NoteStatus":false}] by Json Path [NoteDataInputs[1]] - - [01:13:21] - LogHelper 
+[INFO] - Sending Auth Put Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b212bac5db01525a2106] - - [01:13:21] - LogHelper 
+[INFO] - Request Body : {"Title":"New Title","Description":"New Long Description","Category":"Personal","NoteStatus":false} - - [01:13:21] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully Updated","data":{"id":"6726b212bac5db01525a2106","title":"New Title","description":"New Long Description","category":"Personal","completed":false,"created_at":"2024-11-02T23:13:22.796Z","updated_at":"2024-11-02T23:13:23.809Z","user_id":"6726b211bac5db01525a20fe"}} - - [01:13:21] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:21] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:21] - LogHelper 
+[INFO] - Sending Auth Get Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b212bac5db01525a2106] - - [01:13:22] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully retrieved","data":{"id":"6726b212bac5db01525a2106","title":"New Title","description":"New Long Description","category":"Personal","completed":false,"created_at":"2024-11-02T23:13:22.796Z","updated_at":"2024-11-02T23:13:23.809Z","user_id":"6726b211bac5db01525a20fe"}} - - [01:13:22] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:22] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:22] - LogHelper 
+[INFO] - Asserting actual result: [New Title] equals expected result: [New Title] - - [01:13:22] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:22] - LogHelper 
+[INFO] - Asserting actual result: [New Long Description] equals expected result: [New Long Description] - - [01:13:22] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:22] - LogHelper 
+[INFO] - Asserting actual result: [Personal] equals expected result: [Personal] - - [01:13:22] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:22] - LogHelper 
+[INFO] - Asserting actual object: [false] equals expected object: [false] - - [01:13:22] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:22] - LogHelper 
+[INFO] - Sending Auth Post Request for URL [https://practice.expandtesting.com/notes/api/notes/] - - [01:13:23] - LogHelper 
+[INFO] - Request Body : {"Title":"test1322561","Description":"Suscipit atque qui ut.","Category":"Work","NoteStatus":false} - - [01:13:23] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully created","data":{"id":"6726b215bac5db01525a2111","title":"test1322561","description":"Suscipit atque qui ut.","category":"Work","completed":false,"created_at":"2024-11-02T23:13:25.585Z","updated_at":"2024-11-02T23:13:25.585Z","user_id":"6726b211bac5db01525a20fe"}} - - [01:13:23] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:23] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:23] - LogHelper 
+[INFO] - Asserting actual result: [test1322561] equals expected result: [test1322561] - - [01:13:23] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:23] - LogHelper 
+[INFO] - Asserting actual result: [Suscipit atque qui ut.] equals expected result: [Suscipit atque qui ut.] - - [01:13:23] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:23] - LogHelper 
+[INFO] - Asserting actual result: [Work] equals expected result: [Work] - - [01:13:23] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:23] - LogHelper 
+[INFO] - Asserting actual object: [false] equals expected object: [false] - - [01:13:23] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:23] - LogHelper 
+[INFO] - Sending Auth Get Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b215bac5db01525a2111] - - [01:13:24] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully retrieved","data":{"id":"6726b215bac5db01525a2111","title":"test1322561","description":"Suscipit atque qui ut.","category":"Work","completed":false,"created_at":"2024-11-02T23:13:25.585Z","updated_at":"2024-11-02T23:13:25.585Z","user_id":"6726b211bac5db01525a20fe"}} - - [01:13:24] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:24] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:24] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0] - [01:13:24] - CompiledPath 
+[INFO] - Getting Test Data [{"Title":"TestTile3","Description":"This is test sentence","Category":"Work","NoteStatus":false}] by Json Path [NoteDataInputs[0]] - - [01:13:24] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0]['Title'] - [01:13:24] - CompiledPath 
+[INFO] - Getting Test Data [TestTile3] by Json Path [NoteDataInputs[0].Title] - - [01:13:24] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0]['Description'] - [01:13:24] - CompiledPath 
+[INFO] - Getting Test Data [This is test sentence] by Json Path [NoteDataInputs[0].Description] - - [01:13:24] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0]['Category'] - [01:13:24] - CompiledPath 
+[INFO] - Getting Test Data [Work] by Json Path [NoteDataInputs[0].Category] - - [01:13:24] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0] - [01:13:24] - CompiledPath 
+[INFO] - Getting Test Data [{"Title":"TestTile3","Description":"This is test sentence","Category":"Work","NoteStatus":false}] by Json Path [NoteDataInputs[0]] - - [01:13:24] - LogHelper 
+[INFO] - Sending Auth Put Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b215bac5db01525a2111] - - [01:13:24] - LogHelper 
+[INFO] - Request Body : {"Title":"TestTile3","Description":"This is test sentence","Category":"Work","NoteStatus":false} - - [01:13:24] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully Updated","data":{"id":"6726b215bac5db01525a2111","title":"TestTile3","description":"This is test sentence","category":"Work","completed":false,"created_at":"2024-11-02T23:13:25.585Z","updated_at":"2024-11-02T23:13:26.589Z","user_id":"6726b211bac5db01525a20fe"}} - - [01:13:24] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:24] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:24] - LogHelper 
+[INFO] - Sending Auth Get Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b215bac5db01525a2111] - - [01:13:26] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully retrieved","data":{"id":"6726b215bac5db01525a2111","title":"TestTile3","description":"This is test sentence","category":"Work","completed":false,"created_at":"2024-11-02T23:13:25.585Z","updated_at":"2024-11-02T23:13:26.589Z","user_id":"6726b211bac5db01525a20fe"}} - - [01:13:26] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:26] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:26] - LogHelper 
+[INFO] - Asserting actual result: [TestTile3] equals expected result: [TestTile3] - - [01:13:26] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:26] - LogHelper 
+[INFO] - Asserting actual result: [This is test sentence] equals expected result: [This is test sentence] - - [01:13:26] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:26] - LogHelper 
+[INFO] - Asserting actual result: [Work] equals expected result: [Work] - - [01:13:26] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:26] - LogHelper 
+[INFO] - Asserting actual object: [false] equals expected object: [false] - - [01:13:26] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:26] - LogHelper 
+[INFO] - Sending Auth Post Request for URL [https://practice.expandtesting.com/notes/api/notes/] - - [01:13:30] - LogHelper 
+[INFO] - Request Body : {"Title":"test1326233","Description":"Exercitationem minus aliquam odio consequatur voluptate.","Category":"Home","NoteStatus":false} - - [01:13:30] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully created","data":{"id":"6726b21bbac5db01525a211c","title":"test1326233","description":"Exercitationem minus aliquam odio consequatur voluptate.","category":"Home","completed":false,"created_at":"2024-11-02T23:13:31.987Z","updated_at":"2024-11-02T23:13:31.987Z","user_id":"6726b211bac5db01525a20fe"}} - - [01:13:30] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:30] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:30] - LogHelper 
+[INFO] - Asserting actual result: [test1326233] equals expected result: [test1326233] - - [01:13:30] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:30] - LogHelper 
+[INFO] - Asserting actual result: [Exercitationem minus aliquam odio consequatur voluptate.] equals expected result: [Exercitationem minus aliquam odio consequatur voluptate.] - - [01:13:30] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:30] - LogHelper 
+[INFO] - Asserting actual result: [Home] equals expected result: [Home] - - [01:13:30] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:30] - LogHelper 
+[INFO] - Asserting actual object: [false] equals expected object: [false] - - [01:13:30] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:30] - LogHelper 
+[INFO] - Sending Auth Get Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b21bbac5db01525a211c] - - [01:13:30] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully retrieved","data":{"id":"6726b21bbac5db01525a211c","title":"test1326233","description":"Exercitationem minus aliquam odio consequatur voluptate.","category":"Home","completed":false,"created_at":"2024-11-02T23:13:31.987Z","updated_at":"2024-11-02T23:13:31.987Z","user_id":"6726b211bac5db01525a20fe"}} - - [01:13:30] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:30] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:30] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/register] - - [01:13:31] - LogHelper 
+[INFO] - Request Body : {"Name":"test1330632","Email":"test1330633@gmail.com","Password":"test@%^1330633"} - - [01:13:31] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":201,"message":"User account created successfully","data":{"id":"6726b21dbac5db01525a2121","name":"test1330632","email":"test1330633@gmail.com"}} - - [01:13:31] - LogHelper 
+[DEBUG] - Evaluating path: $['Messages']['Register'] - [01:13:31] - CompiledPath 
+[INFO] - Getting Test Data [User account created successfully] by Json Path [Messages.Register] - - [01:13:31] - LogHelper 
+[INFO] - Asserting actual result: [User account created successfully] equals expected result: [User account created successfully] - - [01:13:31] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:31] - LogHelper 
+[DEBUG] - Evaluating path: $['SuccessFlag']['Register'] - [01:13:31] - CompiledPath 
+[INFO] - Getting Test Data [true] by Json Path [SuccessFlag.Register] - - [01:13:31] - LogHelper 
+[INFO] - Asserting actual object: [true] equals expected object: [true] - - [01:13:31] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:31] - LogHelper 
+[DEBUG] - Evaluating path: $['StatusCode']['Register'] - [01:13:31] - CompiledPath 
+[INFO] - Getting Test Data [201] by Json Path [StatusCode.Register] - - [01:13:31] - LogHelper 
+[INFO] - Asserting actual result: [201] equals expected result: [201] - - [01:13:31] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:31] - LogHelper 
+[INFO] - Asserting actual result: [test1330632] equals expected result: [test1330632] - - [01:13:31] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:31] - LogHelper 
+[INFO] - Asserting actual result: [test1330633@gmail.com] equals expected result: [test1330633@gmail.com] - - [01:13:31] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:31] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/login] - - [01:13:32] - LogHelper 
+[INFO] - Request Body : {"email":"test1330633@gmail.com","password":"test@%^1330633"} - - [01:13:32] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Login successful","data":{"id":"6726b21dbac5db01525a2121","name":"test1330632","email":"test1330633@gmail.com","token":"6113510d5b134a0b9180bf77457dea848e93499de482474e94e973d387f405de"}} - - [01:13:32] - LogHelper 
+[DEBUG] - Evaluating path: $['Messages']['Login'] - [01:13:32] - CompiledPath 
+[INFO] - Getting Test Data [Login successful] by Json Path [Messages.Login] - - [01:13:32] - LogHelper 
+[INFO] - Asserting actual result: [Login successful] equals expected result: [Login successful] - - [01:13:32] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:32] - LogHelper 
+[DEBUG] - Evaluating path: $['SuccessFlag']['Login'] - [01:13:32] - CompiledPath 
+[INFO] - Getting Test Data [true] by Json Path [SuccessFlag.Login] - - [01:13:32] - LogHelper 
+[INFO] - Asserting actual object: [true] equals expected object: [true] - - [01:13:32] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:32] - LogHelper 
+[DEBUG] - Evaluating path: $['StatusCode']['Login'] - [01:13:32] - CompiledPath 
+[INFO] - Getting Test Data [200] by Json Path [StatusCode.Login] - - [01:13:32] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:32] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:32] - LogHelper 
+[INFO] - Asserting condition is False - - [01:13:32] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:32] - LogHelper 
+[INFO] - Sending Auth Post Request for URL [https://practice.expandtesting.com/notes/api/users/change-password] - - [01:13:33] - LogHelper 
+[INFO] - Request Body : {"currentPassword":"test@%^1330633","newPassword":"test@%^1332374"} - - [01:13:33] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"The password was successfully updated"} - - [01:13:33] - LogHelper 
+[DEBUG] - Evaluating path: $['Messages']['ChangePassword'] - [01:13:33] - CompiledPath 
+[INFO] - Getting Test Data [The password was successfully updated] by Json Path [Messages.ChangePassword] - - [01:13:33] - LogHelper 
+[INFO] - Asserting actual result: [The password was successfully updated] equals expected result: [The password was successfully updated] - - [01:13:33] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:33] - LogHelper 
+[DEBUG] - Evaluating path: $['SuccessFlag']['ChangePassword'] - [01:13:33] - CompiledPath 
+[INFO] - Getting Test Data [true] by Json Path [SuccessFlag.ChangePassword] - - [01:13:33] - LogHelper 
+[INFO] - Asserting actual object: [true] equals expected object: [true] - - [01:13:33] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:33] - LogHelper 
+[DEBUG] - Evaluating path: $['StatusCode']['ChangePassword'] - [01:13:33] - CompiledPath 
+[INFO] - Getting Test Data [200] by Json Path [StatusCode.ChangePassword] - - [01:13:33] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:33] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:33] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/login] - - [01:13:34] - LogHelper 
+[INFO] - Request Body : {"email":"test1330633@gmail.com","password":"test@%^1332374"} - - [01:13:34] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Login successful","data":{"id":"6726b21dbac5db01525a2121","name":"test1330632","email":"test1330633@gmail.com","token":"6113510d5b134a0b9180bf77457dea848e93499de482474e94e973d387f405de"}} - - [01:13:34] - LogHelper 
+[DEBUG] - Evaluating path: $['Messages']['Login'] - [01:13:34] - CompiledPath 
+[INFO] - Getting Test Data [Login successful] by Json Path [Messages.Login] - - [01:13:34] - LogHelper 
+[INFO] - Asserting actual result: [Login successful] equals expected result: [Login successful] - - [01:13:34] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:34] - LogHelper 
+[DEBUG] - Evaluating path: $['SuccessFlag']['Login'] - [01:13:34] - CompiledPath 
+[INFO] - Getting Test Data [true] by Json Path [SuccessFlag.Login] - - [01:13:34] - LogHelper 
+[INFO] - Asserting actual object: [true] equals expected object: [true] - - [01:13:34] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:34] - LogHelper 
+[DEBUG] - Evaluating path: $['StatusCode']['Login'] - [01:13:34] - CompiledPath 
+[INFO] - Getting Test Data [200] by Json Path [StatusCode.Login] - - [01:13:34] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:34] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:34] - LogHelper 
+[INFO] - Asserting condition is False - - [01:13:34] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:34] - LogHelper 
+[INFO] - Reading the Json File By filePath [src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json] - - [01:13:34] - LogHelper 
+[DEBUG] - Evaluating path: $['UserCredentials1']['Email'] - [01:13:34] - CompiledPath 
+[DEBUG] - Set path $['UserCredentials1']['Email'] new value test1330633@gmail.com - [01:13:34] - JsonContext 
+[INFO] - Update the Json Path [UserCredentials1.Email] with new Test Data [test1330633@gmail.com] - - [01:13:34] - LogHelper 
+[INFO] - Writing Into Json File By filePath [src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json] - - [01:13:34] - LogHelper 
+[INFO] - Reading the Json File By filePath [src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json] - - [01:13:34] - LogHelper 
+[DEBUG] - Evaluating path: $['UserCredentials1']['Password'] - [01:13:34] - CompiledPath 
+[DEBUG] - Set path $['UserCredentials1']['Password'] new value test@%^1332374 - [01:13:34] - JsonContext 
+[INFO] - Update the Json Path [UserCredentials1.Password] with new Test Data [test@%^1332374] - - [01:13:34] - LogHelper 
+[INFO] - Writing Into Json File By filePath [src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json] - - [01:13:34] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/register] - - [01:13:35] - LogHelper 
+[INFO] - Request Body : {"Name":"test1334482","Email":"test1334482@gmail.com","Password":"test@%^1334482"} - - [01:13:35] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":201,"message":"User account created successfully","data":{"id":"6726b221bac5db01525a212d","name":"test1334482","email":"test1334482@gmail.com"}} - - [01:13:35] - LogHelper 
+[INFO] - Asserting actual result: [201] equals expected result: [201] - - [01:13:35] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:35] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/login] - - [01:13:36] - LogHelper 
+[INFO] - Request Body : {"email":"test1334482@gmail.com","password":"test@%^1334482"} - - [01:13:36] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Login successful","data":{"id":"6726b221bac5db01525a212d","name":"test1334482","email":"test1334482@gmail.com","token":"8fc717b409d0425291ea76ebc847322797018f3a14c446e4b30889fb9130c295"}} - - [01:13:36] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:36] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:36] - LogHelper 
+[INFO] - Asserting condition is False - - [01:13:36] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:36] - LogHelper 
+[INFO] - Sending Auth Post Request for URL [https://practice.expandtesting.com/notes/api/users/change-password] - - [01:13:36] - LogHelper 
+[INFO] - Request Body : {"currentPassword":"test@%^1334482","newPassword":"test@%^1336221"} - - [01:13:36] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"The password was successfully updated"} - - [01:13:36] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:36] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:36] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/login] - - [01:13:37] - LogHelper 
+[INFO] - Request Body : {"email":"test1334482@gmail.com","password":"test@%^1336221"} - - [01:13:37] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Login successful","data":{"id":"6726b221bac5db01525a212d","name":"test1334482","email":"test1334482@gmail.com","token":"8fc717b409d0425291ea76ebc847322797018f3a14c446e4b30889fb9130c295"}} - - [01:13:37] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:37] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:37] - LogHelper 
+[INFO] - Asserting condition is False - - [01:13:37] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:37] - LogHelper 
+[INFO] - Reading the Json File By filePath [src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json] - - [01:13:37] - LogHelper 
+[DEBUG] - Evaluating path: $['UserCredentials2']['Email'] - [01:13:37] - CompiledPath 
+[DEBUG] - Set path $['UserCredentials2']['Email'] new value test1334482@gmail.com - [01:13:37] - JsonContext 
+[INFO] - Update the Json Path [UserCredentials2.Email] with new Test Data [test1334482@gmail.com] - - [01:13:37] - LogHelper 
+[INFO] - Writing Into Json File By filePath [src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json] - - [01:13:37] - LogHelper 
+[INFO] - Reading the Json File By filePath [src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json] - - [01:13:37] - LogHelper 
+[DEBUG] - Evaluating path: $['UserCredentials2']['Password'] - [01:13:37] - CompiledPath 
+[DEBUG] - Set path $['UserCredentials2']['Password'] new value test@%^1336221 - [01:13:37] - JsonContext 
+[INFO] - Update the Json Path [UserCredentials2.Password] with new Test Data [test@%^1336221] - - [01:13:37] - LogHelper 
+[INFO] - Writing Into Json File By filePath [src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json] - - [01:13:37] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/register] - - [01:13:38] - LogHelper 
+[INFO] - Request Body : {"Name":"test1337799","Email":"test1337799@gmail.com","Password":"test@%^1337799"} - - [01:13:38] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":201,"message":"User account created successfully","data":{"id":"6726b224bac5db01525a2139","name":"test1337799","email":"test1337799@gmail.com"}} - - [01:13:38] - LogHelper 
+[DEBUG] - Evaluating path: $['Messages']['Register'] - [01:13:38] - CompiledPath 
+[INFO] - Getting Test Data [User account created successfully] by Json Path [Messages.Register] - - [01:13:38] - LogHelper 
+[INFO] - Asserting actual result: [User account created successfully] equals expected result: [User account created successfully] - - [01:13:38] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:38] - LogHelper 
+[DEBUG] - Evaluating path: $['SuccessFlag']['Register'] - [01:13:38] - CompiledPath 
+[INFO] - Getting Test Data [true] by Json Path [SuccessFlag.Register] - - [01:13:38] - LogHelper 
+[INFO] - Asserting actual object: [true] equals expected object: [true] - - [01:13:38] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:38] - LogHelper 
+[DEBUG] - Evaluating path: $['StatusCode']['Register'] - [01:13:38] - CompiledPath 
+[INFO] - Getting Test Data [201] by Json Path [StatusCode.Register] - - [01:13:38] - LogHelper 
+[INFO] - Asserting actual result: [201] equals expected result: [201] - - [01:13:38] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:38] - LogHelper 
+[INFO] - Asserting actual result: [test1337799] equals expected result: [test1337799] - - [01:13:38] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:38] - LogHelper 
+[INFO] - Asserting actual result: [test1337799@gmail.com] equals expected result: [test1337799@gmail.com] - - [01:13:38] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:38] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/login] - - [01:13:39] - LogHelper 
+[INFO] - Request Body : {"email":"test1337799@gmail.com","password":"test@%^1337799"} - - [01:13:39] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Login successful","data":{"id":"6726b224bac5db01525a2139","name":"test1337799","email":"test1337799@gmail.com","token":"11f8a9e30736467e9c55afa018767d484abbf831a3444171a4aee7b7dbc8e6d6"}} - - [01:13:39] - LogHelper 
+[DEBUG] - Evaluating path: $['Messages']['Login'] - [01:13:39] - CompiledPath 
+[INFO] - Getting Test Data [Login successful] by Json Path [Messages.Login] - - [01:13:39] - LogHelper 
+[INFO] - Asserting actual result: [Login successful] equals expected result: [Login successful] - - [01:13:39] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:39] - LogHelper 
+[DEBUG] - Evaluating path: $['SuccessFlag']['Login'] - [01:13:39] - CompiledPath 
+[INFO] - Getting Test Data [true] by Json Path [SuccessFlag.Login] - - [01:13:39] - LogHelper 
+[INFO] - Asserting actual object: [true] equals expected object: [true] - - [01:13:39] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:39] - LogHelper 
+[DEBUG] - Evaluating path: $['StatusCode']['Login'] - [01:13:39] - CompiledPath 
+[INFO] - Getting Test Data [200] by Json Path [StatusCode.Login] - - [01:13:39] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:39] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:39] - LogHelper 
+[INFO] - Asserting condition is False - - [01:13:39] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:39] - LogHelper 
+[DEBUG] - Evaluating path: $['RegisterDataInputs'][0] - [01:13:39] - CompiledPath 
+[INFO] - Getting Test Data [{"Name":"Ahmed234","Email":"ahmed200200@gmail.com","Password":"StrongPass123"}] by Json Path [RegisterDataInputs[0]] - - [01:13:39] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/register] - - [01:13:39] - LogHelper 
+[INFO] - Request Body : {"Name":"Ahmed234","Email":"ahmed200200@gmail.com","Password":"StrongPass123"} - - [01:13:39] - LogHelper 
+[INFO] - Response Body : {"success":false,"status":409,"message":"An account already exists with the same email address"} - - [01:13:39] - LogHelper 
+[DEBUG] - Evaluating path: $['Messages']['Register'] - [01:13:39] - CompiledPath 
+[INFO] - Getting Test Data [User account created successfully] by Json Path [Messages.Register] - - [01:13:39] - LogHelper 
+[INFO] - Asserting actual result: [An account already exists with the same email address] equals expected result: [User account created successfully] - - [01:13:39] - LogHelper 
+[ERROR] - Assertion Failed - - [01:13:39] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/register] - - [01:13:40] - LogHelper 
+[INFO] - Request Body : {"Name":"test1339750","Email":"test1339750@gmail.com","Password":"test@%^1339750"} - - [01:13:40] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":201,"message":"User account created successfully","data":{"id":"6726b226bac5db01525a2141","name":"test1339750","email":"test1339750@gmail.com"}} - - [01:13:40] - LogHelper 
+[INFO] - Asserting actual result: [201] equals expected result: [201] - - [01:13:40] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:40] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/login] - - [01:13:41] - LogHelper 
+[INFO] - Request Body : {"email":"test1339750@gmail.com","password":"test@%^1339750"} - - [01:13:41] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Login successful","data":{"id":"6726b226bac5db01525a2141","name":"test1339750","email":"test1339750@gmail.com","token":"92161b9e32334fc99d8404bf5e07a77daaf61a4be82340e6a32486de622b9c84"}} - - [01:13:41] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:41] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:41] - LogHelper 
+[INFO] - Asserting condition is False - - [01:13:41] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:41] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/register] - - [01:13:42] - LogHelper 
+[INFO] - Request Body : {"Name":"test1341186","Email":"test1341186@gmail.com","Password":"test@%^1341186"} - - [01:13:42] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":201,"message":"User account created successfully","data":{"id":"6726b228bac5db01525a2148","name":"test1341186","email":"test1341186@gmail.com"}} - - [01:13:42] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/login] - - [01:13:44] - LogHelper 
+[INFO] - Request Body : {"email":"test1341186@gmail.com","password":"test@%^1341186"} - - [01:13:44] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Login successful","data":{"id":"6726b228bac5db01525a2148","name":"test1341186","email":"test1341186@gmail.com","token":"91baae3b5efd4437bd4b682892ad25dbbd0dd3ce8cde418e8054f0c2a093a1a9"}} - - [01:13:44] - LogHelper 
+[INFO] - Sending Auth Post Request for URL [https://practice.expandtesting.com/notes/api/notes/] - - [01:13:45] - LogHelper 
+[INFO] - Request Body : {"Title":"test1344822","Description":"Dolorum atque tempora sit ut pariatur consequatur iusto.","Category":"Home","NoteStatus":false} - - [01:13:45] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully created","data":{"id":"6726b22bbac5db01525a2150","title":"test1344822","description":"Dolorum atque tempora sit ut pariatur consequatur iusto.","category":"Home","completed":false,"created_at":"2024-11-02T23:13:47.316Z","updated_at":"2024-11-02T23:13:47.316Z","user_id":"6726b228bac5db01525a2148"}} - - [01:13:45] - LogHelper 
+[DEBUG] - Evaluating path: $['Messages']['CreateNote'] - [01:13:45] - CompiledPath 
+[INFO] - Getting Test Data [Note successfully created] by Json Path [Messages.CreateNote] - - [01:13:45] - LogHelper 
+[INFO] - Asserting actual result: [Note successfully created] equals expected result: [Note successfully created] - - [01:13:45] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:45] - LogHelper 
+[DEBUG] - Evaluating path: $['SuccessFlag']['CreateNote'] - [01:13:45] - CompiledPath 
+[INFO] - Getting Test Data [true] by Json Path [SuccessFlag.CreateNote] - - [01:13:45] - LogHelper 
+[INFO] - Asserting actual object: [true] equals expected object: [true] - - [01:13:45] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:45] - LogHelper 
+[DEBUG] - Evaluating path: $['StatusCode']['CreateNote'] - [01:13:45] - CompiledPath 
+[INFO] - Getting Test Data [200] by Json Path [StatusCode.CreateNote] - - [01:13:45] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:45] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:45] - LogHelper 
+[INFO] - Asserting actual result: [test1344822] equals expected result: [test1344822] - - [01:13:45] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:45] - LogHelper 
+[INFO] - Asserting actual result: [Home] equals expected result: [Home] - - [01:13:45] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:45] - LogHelper 
+[INFO] - Asserting actual result: [Dolorum atque tempora sit ut pariatur consequatur iusto.] equals expected result: [Dolorum atque tempora sit ut pariatur consequatur iusto.] - - [01:13:45] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:45] - LogHelper 
+[INFO] - Asserting actual object: [false] equals expected object: [false] - - [01:13:45] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:45] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/register] - - [01:13:46] - LogHelper 
+[INFO] - Request Body : {"Name":"test1345512","Email":"test1345513@gmail.com","Password":"test@%^1345513"} - - [01:13:46] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":201,"message":"User account created successfully","data":{"id":"6726b22bbac5db01525a2153","name":"test1345512","email":"test1345513@gmail.com"}} - - [01:13:46] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/login] - - [01:13:46] - LogHelper 
+[INFO] - Request Body : {"email":"test1345513@gmail.com","password":"test@%^1345513"} - - [01:13:46] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Login successful","data":{"id":"6726b22bbac5db01525a2153","name":"test1345512","email":"test1345513@gmail.com","token":"6fad80d9cc1b4ae78c27ef83af3b0304b1f86ebf502a4ad6a60a49875d379918"}} - - [01:13:46] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0] - [01:13:46] - CompiledPath 
+[INFO] - Getting Test Data [{"Title":"TestTile1","Description":"This is long sentence","Category":"Work","NoteStatus":"true"}] by Json Path [NoteDataInputs[0]] - - [01:13:46] - LogHelper 
+[INFO] - Sending Auth Post Request for URL [https://practice.expandtesting.com/notes/api/notes/] - - [01:13:47] - LogHelper 
+[INFO] - Request Body : {"Title":"TestTile1","Description":"This is long sentence","Category":"Work","NoteStatus":true} - - [01:13:47] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully created","data":{"id":"6726b22dbac5db01525a215b","title":"TestTile1","description":"This is long sentence","category":"Work","completed":true,"created_at":"2024-11-02T23:13:49.491Z","updated_at":"2024-11-02T23:13:49.491Z","user_id":"6726b22bbac5db01525a2153"}} - - [01:13:47] - LogHelper 
+[DEBUG] - Evaluating path: $['Messages']['CreateNote'] - [01:13:47] - CompiledPath 
+[INFO] - Getting Test Data [Note successfully created] by Json Path [Messages.CreateNote] - - [01:13:47] - LogHelper 
+[INFO] - Asserting actual result: [Note successfully created] equals expected result: [Note successfully created] - - [01:13:47] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:47] - LogHelper 
+[DEBUG] - Evaluating path: $['SuccessFlag']['CreateNote'] - [01:13:47] - CompiledPath 
+[INFO] - Getting Test Data [true] by Json Path [SuccessFlag.CreateNote] - - [01:13:47] - LogHelper 
+[INFO] - Asserting actual object: [true] equals expected object: [true] - - [01:13:47] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:47] - LogHelper 
+[DEBUG] - Evaluating path: $['StatusCode']['CreateNote'] - [01:13:47] - CompiledPath 
+[INFO] - Getting Test Data [200] by Json Path [StatusCode.CreateNote] - - [01:13:47] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:47] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:47] - LogHelper 
+[INFO] - Sending Auth Get Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b22dbac5db01525a215b] - - [01:13:48] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully retrieved","data":{"id":"6726b22dbac5db01525a215b","title":"TestTile1","description":"This is long sentence","category":"Work","completed":true,"created_at":"2024-11-02T23:13:49.491Z","updated_at":"2024-11-02T23:13:49.491Z","user_id":"6726b22bbac5db01525a2153"}} - - [01:13:48] - LogHelper 
+[DEBUG] - Evaluating path: $['Messages']['GetNote'] - [01:13:48] - CompiledPath 
+[INFO] - Getting Test Data [Note successfully retrieved] by Json Path [Messages.GetNote] - - [01:13:48] - LogHelper 
+[INFO] - Asserting actual result: [Note successfully retrieved] equals expected result: [Note successfully retrieved] - - [01:13:48] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:48] - LogHelper 
+[DEBUG] - Evaluating path: $['SuccessFlag']['GetNote'] - [01:13:48] - CompiledPath 
+[INFO] - Getting Test Data [true] by Json Path [SuccessFlag.GetNote] - - [01:13:48] - LogHelper 
+[INFO] - Asserting actual object: [true] equals expected object: [true] - - [01:13:48] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:48] - LogHelper 
+[DEBUG] - Evaluating path: $['StatusCode']['GetNote'] - [01:13:48] - CompiledPath 
+[INFO] - Getting Test Data [200] by Json Path [StatusCode.GetNote] - - [01:13:48] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:48] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:48] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0]['Title'] - [01:13:48] - CompiledPath 
+[INFO] - Getting Test Data [TestTile1] by Json Path [NoteDataInputs[0].Title] - - [01:13:48] - LogHelper 
+[INFO] - Asserting actual result: [TestTile1] equals expected result: [TestTile1] - - [01:13:48] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:48] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0]['Description'] - [01:13:48] - CompiledPath 
+[INFO] - Getting Test Data [This is long sentence] by Json Path [NoteDataInputs[0].Description] - - [01:13:48] - LogHelper 
+[INFO] - Asserting actual result: [This is long sentence] equals expected result: [This is long sentence] - - [01:13:48] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:48] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0]['Category'] - [01:13:48] - CompiledPath 
+[INFO] - Getting Test Data [Work] by Json Path [NoteDataInputs[0].Category] - - [01:13:48] - LogHelper 
+[INFO] - Asserting actual result: [Work] equals expected result: [Work] - - [01:13:48] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:48] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0]['NoteStatus'] - [01:13:48] - CompiledPath 
+[INFO] - Getting Test Data [true] by Json Path [NoteDataInputs[0].NoteStatus] - - [01:13:48] - LogHelper 
+[INFO] - Asserting actual object: [true] equals expected object: [true] - - [01:13:48] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:48] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/register] - - [01:13:49] - LogHelper 
+[INFO] - Request Body : {"Name":"test1348328","Email":"test1348328@gmail.com","Password":"test@%^1348328"} - - [01:13:49] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":201,"message":"User account created successfully","data":{"id":"6726b22ebac5db01525a2160","name":"test1348328","email":"test1348328@gmail.com"}} - - [01:13:49] - LogHelper 
+[INFO] - Asserting actual result: [201] equals expected result: [201] - - [01:13:49] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:49] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/login] - - [01:13:49] - LogHelper 
+[INFO] - Request Body : {"email":"test1348328@gmail.com","password":"test@%^1348328"} - - [01:13:49] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Login successful","data":{"id":"6726b22ebac5db01525a2160","name":"test1348328","email":"test1348328@gmail.com","token":"d65a2a89005747688eae6983b8451643fa36083d8ce74023964080df0ac20e89"}} - - [01:13:49] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:49] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:49] - LogHelper 
+[INFO] - Asserting condition is False - - [01:13:49] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:49] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1] - [01:13:49] - CompiledPath 
+[INFO] - Getting Test Data [{"Title":"TestTile2","Description":"This is very long sentence","Category":"Personal","NoteStatus":"true"}] by Json Path [NoteDataInputs[1]] - - [01:13:49] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Title'] - [01:13:49] - CompiledPath 
+[INFO] - Getting Test Data [TestTile2] by Json Path [NoteDataInputs[1].Title] - - [01:13:49] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Description'] - [01:13:49] - CompiledPath 
+[INFO] - Getting Test Data [This is very long sentence] by Json Path [NoteDataInputs[1].Description] - - [01:13:49] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Category'] - [01:13:49] - CompiledPath 
+[INFO] - Getting Test Data [Personal] by Json Path [NoteDataInputs[1].Category] - - [01:13:49] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['NoteStatus'] - [01:13:49] - CompiledPath 
+[INFO] - Getting Test Data [true] by Json Path [NoteDataInputs[1].NoteStatus] - - [01:13:49] - LogHelper 
+[INFO] - Sending Auth Post Request for URL [https://practice.expandtesting.com/notes/api/notes/] - - [01:13:50] - LogHelper 
+[INFO] - Request Body : {"Title":"TestTile2","Description":"This is very long sentence","Category":"Personal","NoteStatus":true} - - [01:13:50] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully created","data":{"id":"6726b230bac5db01525a2168","title":"TestTile2","description":"This is very long sentence","category":"Personal","completed":true,"created_at":"2024-11-02T23:13:52.043Z","updated_at":"2024-11-02T23:13:52.043Z","user_id":"6726b22ebac5db01525a2160"}} - - [01:13:50] - LogHelper 
+[INFO] - Sending Auth Get Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b230bac5db01525a2168] - - [01:13:50] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully retrieved","data":{"id":"6726b230bac5db01525a2168","title":"TestTile2","description":"This is very long sentence","category":"Personal","completed":true,"created_at":"2024-11-02T23:13:52.043Z","updated_at":"2024-11-02T23:13:52.043Z","user_id":"6726b22ebac5db01525a2160"}} - - [01:13:50] - LogHelper 
+[INFO] - Asserting actual result: [TestTile2] equals expected result: [TestTile2] - - [01:13:50] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:50] - LogHelper 
+[INFO] - Asserting actual result: [This is very long sentence] equals expected result: [This is very long sentence] - - [01:13:50] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:50] - LogHelper 
+[INFO] - Asserting actual result: [Personal] equals expected result: [Personal] - - [01:13:50] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:50] - LogHelper 
+[INFO] - Asserting actual object: [true] equals expected object: [true] - - [01:13:50] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:50] - LogHelper 
+[INFO] - Sending Auth Post Request for URL [https://practice.expandtesting.com/notes/api/notes/] - - [01:13:51] - LogHelper 
+[INFO] - Request Body : {"Title":"test1350704","Description":"Voluptates eum velit asperiores sit magnam.","Category":"Personal","NoteStatus":false} - - [01:13:51] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully created","data":{"id":"6726b231bac5db01525a216e","title":"test1350704","description":"Voluptates eum velit asperiores sit magnam.","category":"Personal","completed":false,"created_at":"2024-11-02T23:13:53.147Z","updated_at":"2024-11-02T23:13:53.147Z","user_id":"6726b22ebac5db01525a2160"}} - - [01:13:51] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:51] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:51] - LogHelper 
+[INFO] - Asserting actual result: [test1350704] equals expected result: [test1350704] - - [01:13:51] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:51] - LogHelper 
+[INFO] - Asserting actual result: [Voluptates eum velit asperiores sit magnam.] equals expected result: [Voluptates eum velit asperiores sit magnam.] - - [01:13:51] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:51] - LogHelper 
+[INFO] - Asserting actual result: [Personal] equals expected result: [Personal] - - [01:13:51] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:51] - LogHelper 
+[INFO] - Asserting actual object: [false] equals expected object: [false] - - [01:13:51] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:51] - LogHelper 
+[INFO] - Sending Auth Get Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b231bac5db01525a216e] - - [01:13:51] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully retrieved","data":{"id":"6726b231bac5db01525a216e","title":"test1350704","description":"Voluptates eum velit asperiores sit magnam.","category":"Personal","completed":false,"created_at":"2024-11-02T23:13:53.147Z","updated_at":"2024-11-02T23:13:53.147Z","user_id":"6726b22ebac5db01525a2160"}} - - [01:13:51] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:51] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:51] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0] - [01:13:51] - CompiledPath 
+[INFO] - Getting Test Data [{"Title":"TestTile1","Description":"This is long sentence","Category":"Work","NoteStatus":"true"}] by Json Path [NoteDataInputs[0]] - - [01:13:51] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0]['Title'] - [01:13:51] - CompiledPath 
+[INFO] - Getting Test Data [TestTile1] by Json Path [NoteDataInputs[0].Title] - - [01:13:51] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0]['Description'] - [01:13:51] - CompiledPath 
+[INFO] - Getting Test Data [This is long sentence] by Json Path [NoteDataInputs[0].Description] - - [01:13:51] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0]['Category'] - [01:13:51] - CompiledPath 
+[INFO] - Getting Test Data [Work] by Json Path [NoteDataInputs[0].Category] - - [01:13:51] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][0]['NoteStatus'] - [01:13:51] - CompiledPath 
+[INFO] - Getting Test Data [true] by Json Path [NoteDataInputs[0].NoteStatus] - - [01:13:51] - LogHelper 
+[INFO] - Sending Auth Post Request for URL [https://practice.expandtesting.com/notes/api/notes/] - - [01:13:52] - LogHelper 
+[INFO] - Request Body : {"Title":"TestTile1","Description":"This is long sentence","Category":"Work","NoteStatus":true} - - [01:13:52] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully created","data":{"id":"6726b232bac5db01525a2174","title":"TestTile1","description":"This is long sentence","category":"Work","completed":true,"created_at":"2024-11-02T23:13:54.232Z","updated_at":"2024-11-02T23:13:54.232Z","user_id":"6726b22ebac5db01525a2160"}} - - [01:13:52] - LogHelper 
+[INFO] - Sending Auth Get Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b232bac5db01525a2174] - - [01:13:52] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully retrieved","data":{"id":"6726b232bac5db01525a2174","title":"TestTile1","description":"This is long sentence","category":"Work","completed":true,"created_at":"2024-11-02T23:13:54.232Z","updated_at":"2024-11-02T23:13:54.232Z","user_id":"6726b22ebac5db01525a2160"}} - - [01:13:52] - LogHelper 
+[INFO] - Asserting actual result: [TestTile1] equals expected result: [TestTile1] - - [01:13:52] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:52] - LogHelper 
+[INFO] - Asserting actual result: [This is long sentence] equals expected result: [This is long sentence] - - [01:13:52] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:52] - LogHelper 
+[INFO] - Asserting actual result: [Work] equals expected result: [Work] - - [01:13:52] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:52] - LogHelper 
+[INFO] - Asserting actual object: [true] equals expected object: [true] - - [01:13:52] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:52] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/register] - - [01:13:53] - LogHelper 
+[INFO] - Request Body : {"Name":"test1352958","Email":"test1352958@gmail.com","Password":"test@%^1352958"} - - [01:13:53] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":201,"message":"User account created successfully","data":{"id":"6726b233bac5db01525a2179","name":"test1352958","email":"test1352958@gmail.com"}} - - [01:13:53] - LogHelper 
+[INFO] - Asserting actual result: [201] equals expected result: [201] - - [01:13:53] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:53] - LogHelper 
+[INFO] - Sending Post Request for URL [https://practice.expandtesting.com/notes/api/users/login] - - [01:13:54] - LogHelper 
+[INFO] - Request Body : {"email":"test1352958@gmail.com","password":"test@%^1352958"} - - [01:13:54] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Login successful","data":{"id":"6726b233bac5db01525a2179","name":"test1352958","email":"test1352958@gmail.com","token":"32dcdedf5b9c43c6937406af3bddf8f1fc7867ddc273486bb8b9800d892a7aa9"}} - - [01:13:54] - LogHelper 
+[INFO] - Asserting actual result: [200] equals expected result: [200] - - [01:13:54] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:54] - LogHelper 
+[INFO] - Asserting condition is False - - [01:13:54] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:54] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1] - [01:13:54] - CompiledPath 
+[INFO] - Getting Test Data [{"Title":"TestTile2","Description":"This is very long sentence","Category":"Personal","NoteStatus":"true"}] by Json Path [NoteDataInputs[1]] - - [01:13:54] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Title'] - [01:13:54] - CompiledPath 
+[INFO] - Getting Test Data [TestTile2] by Json Path [NoteDataInputs[1].Title] - - [01:13:54] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Description'] - [01:13:54] - CompiledPath 
+[INFO] - Getting Test Data [This is very long sentence] by Json Path [NoteDataInputs[1].Description] - - [01:13:54] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['Category'] - [01:13:54] - CompiledPath 
+[INFO] - Getting Test Data [Personal] by Json Path [NoteDataInputs[1].Category] - - [01:13:54] - LogHelper 
+[DEBUG] - Evaluating path: $['NoteDataInputs'][1]['NoteStatus'] - [01:13:54] - CompiledPath 
+[INFO] - Getting Test Data [true] by Json Path [NoteDataInputs[1].NoteStatus] - - [01:13:54] - LogHelper 
+[INFO] - Sending Auth Post Request for URL [https://practice.expandtesting.com/notes/api/notes/] - - [01:13:55] - LogHelper 
+[INFO] - Request Body : {"Title":"TestTile2","Description":"This is very long sentence","Category":"Personal","NoteStatus":true} - - [01:13:55] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully created","data":{"id":"6726b234bac5db01525a2181","title":"TestTile2","description":"This is very long sentence","category":"Personal","completed":true,"created_at":"2024-11-02T23:13:56.896Z","updated_at":"2024-11-02T23:13:56.896Z","user_id":"6726b233bac5db01525a2179"}} - - [01:13:55] - LogHelper 
+[INFO] - Sending Auth Get Request for URL [https://practice.expandtesting.com/notes/api/notes/6726b234bac5db01525a2181] - - [01:13:55] - LogHelper 
+[INFO] - Response Body : {"success":true,"status":200,"message":"Note successfully retrieved","data":{"id":"6726b234bac5db01525a2181","title":"TestTile2","description":"This is very long sentence","category":"Personal","completed":true,"created_at":"2024-11-02T23:13:56.896Z","updated_at":"2024-11-02T23:13:56.896Z","user_id":"6726b233bac5db01525a2179"}} - - [01:13:55] - LogHelper 
+[INFO] - Asserting actual result: [TestTile2] equals expected result: [TestTile2] - - [01:13:55] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:55] - LogHelper 
+[INFO] - Asserting actual result: [This is very long sentence] equals expected result: [This is very long sentence] - - [01:13:55] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:55] - LogHelper 
+[INFO] - Asserting actual result: [Personal] equals expected result: [Personal] - - [01:13:55] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:55] - LogHelper 
+[INFO] - Asserting actual object: [true] equals expected object: [true] - - [01:13:55] - LogHelper 
+[INFO] - Assertion Passed - - [01:13:55] - LogHelper 
+[INFO] - Generating the Allure Report - - [01:14:06] - LogHelper 

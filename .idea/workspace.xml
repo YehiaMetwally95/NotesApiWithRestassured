@@ -5,6 +5,88 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="Update Readme file">
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/assertions/CustomAssert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/assertions/CustomSoftAssert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/assertions/SoftAssertHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/browserActions/WindowManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/driverManager/AppiumDriverFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/driverManager/BrowserFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/NativeAndroidActionBot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/W3CTouchActions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/WebElementsActionBot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/MethodListeners.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/ParallelExecutionListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/SuiteListeners.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/loggers/AllureReportLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/loggers/LogHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/loggers/Screenshot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/JDBCManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/JsonManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/PropertiesManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/SessionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/file.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/services/org.testng.ITestNGListener" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/allure.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/apps/Android-SauceLabs.apk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/apps/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/apps/ApiDemos-debug.apk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dbFiles/ProductsAndUsers.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dockerFiles/docker-compose-grid-v3.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dockerFiles/docker-compose-mysql-v3.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Appium.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Database.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Environment.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/MobileApp.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Parallelization.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/SeleniumGrid.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Waits.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/WebApp.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/screenshots/FailedTests/file.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/screenshots/SoftAssertionFailures/file.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/screenshots/SuccessfulTests/file.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_17_2024_4_08_AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_17_2024_4_08_AM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/ChangePasswordRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/ChangePasswordRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/ChangePasswordResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/ChangePasswordResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/CreateNoteResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/GetNoteRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/GetNoteRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/GetNoteResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/GetNoteResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/LoginRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/LoginRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/LoginResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/LoginResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/RegisterRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/RegisterRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/RegisterResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/RegisterResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pojoClasses/ChangePasswordRequestPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojoClasses/ChangePasswordRequestPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pojoClasses/CreateNoteRequestPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojoClasses/CreateNoteRequestPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ApiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/ApisManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/BrowserFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/CookiesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/CookiesManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DeleteDirectoryFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/utilities/DeleteDirectoryFiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ImportStaticMethods" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/JDBCManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/JsonManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/PropertiesManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/RandomDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/utilities/RandomDataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Screenshot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/TestNGListners.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ThreadDriver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Waits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/WaitsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/WindowManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Configurations.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CreateNewNote/CreateNewNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CreateNewNote/CreateNewNote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CreateNewNote/CreateNewNoteFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CreateNewNote/CreateNewNoteFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CreateNewUser/CreateNewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CreateNewUser/CreateNewUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CreateNewUser/CreateNewUserFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CreateNewUser/CreateNewUserFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/UpdateNote/UpdateNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UpdateNote/UpdateNote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/UpdateNote/UpdateNoteFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UpdateNote/UpdateNoteFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPasswordFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UpdateUserPassword/UpdateUserPasswordFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/Test_Data_Json_Files/CreateNewUserTestData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Test_Data_Json_Files/CreateNewUserTestData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,12 +143,15 @@
     "TestNG.CreateNewNote.createNewNoteByDynamicRandomData.executor": "Run",
     "TestNG.CreateNewNote.createNewNoteByStaticDataFromJsonFile.executor": "Run",
     "TestNG.CreateNewNote.executor": "Run",
+    "TestNG.CreateNewNoteFacade.createMultipleNotesFacade.executor": "Run",
     "TestNG.CreateNewNoteFacade.createNewNote.executor": "Run",
+    "TestNG.CreateNewNoteFacade.createNewNoteFacade.executor": "Run",
     "TestNG.CreateNewNoteFacade.executor": "Run",
     "TestNG.CreateNewUser.createNewUserByDynamicRandomData.executor": "Run",
     "TestNG.CreateNewUser.createNewUserByStaticDataFromJsonFile.executor": "Run",
     "TestNG.CreateNewUser.createNewUserThenLogin.executor": "Run",
     "TestNG.CreateNewUserFacade.createNewUserWithDynamicRandomData.executor": "Run",
+    "TestNG.CreateNewUserFacade.createNewUserWithDynamicRandomDataFacade.executor": "Run",
     "TestNG.CreateNote.createNewNode.executor": "Run",
     "TestNG.CreateNote.createNewNodeWithFacadeDesign.executor": "Run",
     "TestNG.Login.loginWithExistingUser.executor": "Run",
@@ -92,6 +177,9 @@
     "TestNG.UpdateUserPasswordFacade.executor": "Run",
     "TestNG.UpdateUserPasswordFacade.updateUserPassword.executor": "Run",
     "TestNG.UpdateUserPasswordFacade.updateUserPasswordFacade.executor": "Run",
+    "TestNG.test.test.executor": "Run",
+    "TestNG.tests.CreateNewNote.executor": "Run",
+    "TestNG.tests.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/AutomatestProject/NotesAPI",
@@ -107,11 +195,11 @@
       <recent name="objectModels" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\AutomatestProject\NotesAPI" />
+      <recent name="D:\AutomatestProject\NotesAPI\src\main\java" />
+      <recent name="D:\AutomatestProject\NotesAPI\src\main\java\yehiaEngine" />
       <recent name="D:\AutomatestProject\NotesAPI\src\main\resources" />
       <recent name="D:\AutomatestProject\NotesAPI\target\allure-results" />
-      <recent name="D:\AutomatestProject\NotesAPI\src\main\java" />
-      <recent name="D:\AutomatestProject\NotesAPI\src\main\java\utils" />
-      <recent name="C:\Users\Yehia.Metwally\OneDrive\yehia\Desktop\AutomatestProject\NotesAPI\src\main\java\utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\AutomatestProject\NotesAPI\src\test\resources\Test_Data_Json_Files" />
@@ -121,87 +209,87 @@
       <recent name="utils" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.UpdateUserPassword">
-    <configuration name="UpdateNote" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.tests">
+    <configuration name="CreateNewNoteFacade.createMultipleNotesFacade" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="YehiaProject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.UpdateNote.*" />
+          <option name="PATTERN" value="tests.CreateNewNote.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests.UpdateNote" />
-      <option name="MAIN_CLASS_NAME" value="tests.UpdateNote.UpdateNote" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UpdateNoteFacade" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="YehiaProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.UpdateNote.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.UpdateNote" />
-      <option name="MAIN_CLASS_NAME" value="tests.UpdateNote.UpdateNoteFacade" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UpdateUserPassword" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="YehiaProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.UpdateUserPassword.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.UpdateUserPassword" />
-      <option name="MAIN_CLASS_NAME" value="tests.UpdateUserPassword.UpdateUserPassword" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UpdateUserPasswordFacade" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="YehiaProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.UpdateUserPassword.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.UpdateUserPassword" />
-      <option name="MAIN_CLASS_NAME" value="tests.UpdateUserPassword.UpdateUserPasswordFacade" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UpdateUserPasswordFacade.updateUserPasswordFacade" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="YehiaProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.UpdateUserPassword.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.UpdateUserPassword" />
-      <option name="MAIN_CLASS_NAME" value="tests.UpdateUserPassword.UpdateUserPasswordFacade" />
-      <option name="METHOD_NAME" value="updateUserPasswordFacade" />
+      <option name="PACKAGE_NAME" value="tests.CreateNewNote" />
+      <option name="MAIN_CLASS_NAME" value="tests.CreateNewNote.CreateNewNoteFacade" />
+      <option name="METHOD_NAME" value="createMultipleNotesFacade" />
       <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateNewNoteFacade.createNewNoteFacade" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="YehiaProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.CreateNewNote.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.CreateNewNote" />
+      <option name="MAIN_CLASS_NAME" value="tests.CreateNewNote.CreateNewNoteFacade" />
+      <option name="METHOD_NAME" value="createNewNoteFacade" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateNewNote.createNewNoteByDynamicRandomData" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="YehiaProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.CreateNewNote.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.CreateNewNote" />
+      <option name="MAIN_CLASS_NAME" value="tests.CreateNewNote.CreateNewNote" />
+      <option name="METHOD_NAME" value="createNewNoteByDynamicRandomData" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="YehiaProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="TEST_OBJECT" value="PACKAGE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tests.CreateNewNote" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="YehiaProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.CreateNewNote.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.CreateNewNote" />
+      <option name="TEST_OBJECT" value="PACKAGE" />
       <properties />
       <listeners />
       <method v="2">
@@ -216,11 +304,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.UpdateUserPassword" />
-        <item itemvalue="TestNG.UpdateUserPasswordFacade.updateUserPasswordFacade" />
-        <item itemvalue="TestNG.UpdateUserPasswordFacade" />
-        <item itemvalue="TestNG.UpdateNoteFacade" />
-        <item itemvalue="TestNG.UpdateNote" />
+        <item itemvalue="TestNG.tests" />
+        <item itemvalue="TestNG.CreateNewNoteFacade.createMultipleNotesFacade" />
+        <item itemvalue="TestNG.CreateNewNote.createNewNoteByDynamicRandomData" />
+        <item itemvalue="TestNG.CreateNewNoteFacade.createNewNoteFacade" />
+        <item itemvalue="TestNG.tests.CreateNewNote" />
       </list>
     </recent_temporary>
   </component>
@@ -353,7 +441,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729340516295</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Update Readme file">
+      <option name="closed" value="true" />
+      <created>1729341852323</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1729341852323</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -1,8 +1,9 @@
 package objectModels;
-import static utils.ApiManager.*;
-import static utils.RandomDataGenerator.*;
+import static yehiaEngine.managers.ApisManager.MakeRequest;
+import static yehiaEngine.managers.ApisManager.getResponseBody;
+import static yehiaEngine.managers.PropertiesManager.getPropertiesValue;
+import static yehiaEngine.utilities.RandomDataGenerator.*;
 
-import static utils.PropertiesManager.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import io.qameta.allure.Step;
@@ -53,8 +54,6 @@ public class RegisterRequestModel {
 
         responseObject = mapper.readValue(responseBodyAsString, RegisterResponsePojo.class);
 
-        logRequestBody(requestObject);
-        logResponseBody(responseObject);
         return new RegisterResponseModel(requestObject,responseObject);
     }
 

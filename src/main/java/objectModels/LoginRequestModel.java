@@ -7,9 +7,9 @@ import io.restassured.response.Response;
 import pojoClasses.LoginRequestPojo;
 import pojoClasses.LoginResponsePojo;
 
-import static utils.ApiManager.*;
-import static utils.ApiManager.logResponseBody;
-import static utils.PropertiesManager.getPropertiesValue;
+import static yehiaEngine.managers.ApisManager.MakeRequest;
+import static yehiaEngine.managers.ApisManager.getResponseBody;
+import static yehiaEngine.managers.PropertiesManager.getPropertiesValue;
 
 public class LoginRequestModel {
 
@@ -56,8 +56,6 @@ public class LoginRequestModel {
 
         responseObject = mapper.readValue(responseBodyAsString, LoginResponsePojo.class);
 
-        logRequestBody(requestObject);
-        logResponseBody(responseObject);
         return new LoginResponseModel(requestObject, responseObject);
     }
 

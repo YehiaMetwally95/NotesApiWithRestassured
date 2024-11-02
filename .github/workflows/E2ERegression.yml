@@ -38,7 +38,8 @@ jobs:
           CreateNewUser.**,
           UpdateNote.**,
           UpdateUserPassword.**"
-          -D"allure.results.directory"="target/allure-results"
+          -DparallelMode="METHODS"
+          -DthreadCount="12"
 
       - name: Generate Allure report
         run: mvn allure:report

@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.testng.Assert;
 import pojoClasses.LoginRequestPojo;
 import pojoClasses.LoginResponsePojo;
+import yehiaEngine.assertions.CustomAssert;
 
 public class LoginResponseModel {
 
@@ -22,25 +23,25 @@ public class LoginResponseModel {
     //Validation Methods
     @Step("validate Massage From Response")
     public LoginResponseModel validateMassageFromResponse(String message) {
-        Assert.assertEquals(responseObject.getMessage(),message);
+        CustomAssert.assertEquals(responseObject.getMessage(),message);
         return this;
     }
 
     @Step("validate Status From Response")
     public LoginResponseModel validateStatusFromResponse(String statusCode){
-        Assert.assertEquals(responseObject.getStatus(),Integer.parseInt(statusCode));
+        CustomAssert.assertEquals(responseObject.getStatus(),Integer.parseInt(statusCode));
         return this;
     }
 
     @Step("validate Success From Response")
     public LoginResponseModel validateSuccessFromResponse(String successFlag) {
-        Assert.assertEquals(responseObject.isSuccess(),Boolean.parseBoolean(successFlag));
+        CustomAssert.assertEquals(responseObject.isSuccess(),Boolean.parseBoolean(successFlag));
         return this;
     }
 
     @Step("Validate TokenExists ")
     public LoginResponseModel validateTokenExists() {
-        Assert.assertFalse(responseObject.getData().getToken().isEmpty());
+        CustomAssert.assertFalse(responseObject.getData().getToken().isEmpty());
         return this;
     }
 

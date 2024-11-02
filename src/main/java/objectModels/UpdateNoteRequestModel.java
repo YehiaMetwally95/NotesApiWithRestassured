@@ -8,10 +8,10 @@ import pojoClasses.*;
 
 import java.util.Arrays;
 
-import static utils.ApiManager.*;
-import static utils.ApiManager.getResponseBody;
-import static utils.PropertiesManager.getPropertiesValue;
-import static utils.RandomDataGenerator.*;
+import static yehiaEngine.managers.ApisManager.MakeAuthRequest;
+import static yehiaEngine.managers.ApisManager.getResponseBody;
+import static yehiaEngine.managers.PropertiesManager.getPropertiesValue;
+import static yehiaEngine.utilities.RandomDataGenerator.*;
 
 public class UpdateNoteRequestModel {
 
@@ -69,8 +69,6 @@ public class UpdateNoteRequestModel {
 
         responseObject = mapper.readValue(responseBodyAsString, UpdateNoteResponsePojo.class);
 
-        logRequestBody(requestObject);
-        logResponseBody(responseObject);
         return new UpdateNoteResponseModel(requestObject,responseObject,token);
     }
 
