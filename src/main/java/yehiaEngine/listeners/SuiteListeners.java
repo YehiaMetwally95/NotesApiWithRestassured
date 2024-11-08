@@ -14,8 +14,10 @@ public class SuiteListeners implements ISuiteListener {
         //Clear Old Screenshots & Allure Results before Every Run
         File file1 = new File("src/main/resources/screenshots");
         File file2 = new File("target/allure-results");
+        File file3 = new File("logs");
         DeleteDirectoryFiles.deleteFiles(file1);
         DeleteDirectoryFiles.deleteFiles(file2);
+        DeleteDirectoryFiles.deleteFiles(file3);
     }
 
     public void onFinish (ISuite suite) {

@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="" />
+    <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/AllureListeners.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/services/io.qameta.allure.listener.FixtureLifecycleListener" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/MethodListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/MethodListeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/SuiteListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/SuiteListeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/loggers/AllureReportLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/loggers/AllureReportLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/loggers/LogHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/loggers/LogHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/services/org.testng.ITestNGListener" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/services/org.testng.ITestNGListener" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Environment.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Environment.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Parallelization.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Parallelization.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,7 +114,7 @@
     "TestNG.tests.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/AutomatestProject/NotesAPI",
+    "last_opened_file_path": "D:/AutomatestProject/NotesAPI/src/main/resources",
     "onboarding.tips.debug.path": "C:/Users/Yehia.Metwally/OneDrive/yehia/Desktop/AutomatestProject/NotesAPI/src/main/java/io/github/YehiaMetwally95/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -112,10 +127,10 @@
       <recent name="objectModels" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\AutomatestProject\NotesAPI" />
-      <recent name="D:\AutomatestProject\NotesAPI\src\main\java" />
-      <recent name="D:\AutomatestProject\NotesAPI\src\main\java\yehiaEngine" />
       <recent name="D:\AutomatestProject\NotesAPI\src\main\resources" />
+      <recent name="D:\AutomatestProject\NotesAPI\src\main\java" />
+      <recent name="D:\AutomatestProject\NotesAPI" />
+      <recent name="D:\AutomatestProject\NotesAPI\src\main\java\yehiaEngine" />
       <recent name="D:\AutomatestProject\NotesAPI\target\allure-results" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -126,11 +141,11 @@
       <recent name="utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Batch.Open_Allure_Report">
+  <component name="RunManager" selected="TestNG.tests">
     <configuration name="Open_Allure_Report" type="BatchConfigurationType" factoryName="Batch" temporary="true">
       <module name="YehiaProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="WORKING_DIRECTORY" value="D:\AutomatestProject\NotesAPI" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SCRIPT_NAME" value="Open_Allure_Report.bat" />
       <option name="PARAMETERS" value="" />
@@ -138,7 +153,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateNewNoteFacade.createMultipleNotesFacade" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateNewNote" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="YehiaProject" />
       <extension name="coverage">
         <pattern>
@@ -147,27 +162,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests.CreateNewNote" />
-      <option name="MAIN_CLASS_NAME" value="tests.CreateNewNote.CreateNewNoteFacade" />
-      <option name="METHOD_NAME" value="createMultipleNotesFacade" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CreateNewNoteFacade.createNewNoteFacade" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="YehiaProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.CreateNewNote.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.CreateNewNote" />
-      <option name="MAIN_CLASS_NAME" value="tests.CreateNewNote.CreateNewNoteFacade" />
-      <option name="METHOD_NAME" value="createNewNoteFacade" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="MAIN_CLASS_NAME" value="tests.CreateNewNote.CreateNewNote" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -185,6 +181,24 @@
       <option name="PACKAGE_NAME" value="tests.CreateNewNote" />
       <option name="MAIN_CLASS_NAME" value="tests.CreateNewNote.CreateNewNote" />
       <option name="METHOD_NAME" value="createNewNoteByDynamicRandomData" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateNewUser.createNewUserByDynamicRandomData" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="YehiaProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.CreateNewUser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.CreateNewUser" />
+      <option name="MAIN_CLASS_NAME" value="tests.CreateNewUser.CreateNewUser" />
+      <option name="METHOD_NAME" value="createNewUserByDynamicRandomData" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -216,11 +230,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Batch.Open_Allure_Report" />
         <item itemvalue="TestNG.tests" />
-        <item itemvalue="TestNG.CreateNewNoteFacade.createMultipleNotesFacade" />
+        <item itemvalue="Batch.Open_Allure_Report" />
         <item itemvalue="TestNG.CreateNewNote.createNewNoteByDynamicRandomData" />
-        <item itemvalue="TestNG.CreateNewNoteFacade.createNewNoteFacade" />
+        <item itemvalue="TestNG.CreateNewNote" />
+        <item itemvalue="TestNG.CreateNewUser.createNewUserByDynamicRandomData" />
       </list>
     </recent_temporary>
   </component>
@@ -393,7 +407,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730590196793</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Test">
+      <option name="closed" value="true" />
+      <created>1730590397767</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1730590397767</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

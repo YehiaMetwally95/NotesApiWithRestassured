@@ -15,14 +15,17 @@ import static yehiaEngine.loggers.LogHelper.logErrorStep;
 import static yehiaEngine.loggers.LogHelper.logInfoStep;
 
 public class AllureReportLogger {
-    public static void uploadLogFileIntoAllure() {
-        try {
-            File file = new File("logs/application.log");
-            var byteArray = Files.readAllBytes(file.toPath());
-            Allure.addAttachment("The Log File", new ByteArrayInputStream(byteArray));
-        } catch (Exception e) {
-            logErrorStep("Failed to Upload The Log File into Allure", e);
-        }
+    public static void uploadLogFileIntoAllure(String methodName) {
+       if (methodName != null)
+       {
+           try {
+               File file = new File("logs/"+methodName+".log");
+               var byteArray = Files.readAllBytes(file.toPath());
+               Allure.addAttachment("The Log File for ["+methodName+"]", new ByteArrayInputStream(byteArray));
+           } catch (Exception e) {
+               logErrorStep("Failed to Upload The Log File into Allure", e);
+           }
+       }
     }
 
     public static AllureRestAssured logApiRequestsToAllureReport(){
