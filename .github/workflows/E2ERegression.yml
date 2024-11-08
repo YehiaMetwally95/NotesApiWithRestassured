@@ -38,7 +38,7 @@ jobs:
           CreateNewUser.**,
           UpdateNote.**,
           UpdateUserPassword.**"
-          -DparallelMode="METHODS"
+          -DparallelMode="NONE"
           -DthreadCount="3"
 
       - name: Generate Allure report
