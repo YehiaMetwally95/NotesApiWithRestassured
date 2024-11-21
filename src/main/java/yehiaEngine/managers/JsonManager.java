@@ -1,6 +1,5 @@
 package yehiaEngine.managers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import com.jayway.jsonpath.JsonPath;
@@ -25,7 +24,7 @@ public class JsonManager {
     }
 
     //Method to Get JsonData as String using JsonPath Expression
-    public String getData(String jsonPath) throws IOException {
+    public String getData(String jsonPath) {
         try {
             String data;
         Object result = JsonPath.parse(new File(filePath)).read(jsonPath);
@@ -44,7 +43,7 @@ public class JsonManager {
     }
 
     //Method to Get JsonData as Object using JsonPath Expression
-    public Object getDataAsJson(String jsonPath) throws IOException {
+    public Object getDataAsJson(String jsonPath) {
        try {
            Object data;
            Object result = JsonPath.parse(new File(filePath)).read(jsonPath);
@@ -61,7 +60,7 @@ public class JsonManager {
     }
 
     //Method to Get JsonData as JsonArray using JsonPath Expression
-    public JsonArray getDataAsJsonArray(String jsonPath) throws IOException {
+    public JsonArray getDataAsJsonArray(String jsonPath) {
         try {
             List<Object> list = JsonPath.parse(new File(filePath)).read(jsonPath);
             JsonArray data;
@@ -93,7 +92,7 @@ public class JsonManager {
     }
 
     //Method to read JsonFile and convert it to JsonObject
-    public static JsonObject readJsonFile(String filePath) throws IOException {
+    public static JsonObject readJsonFile(String filePath) {
         try {
         //pass the path of test data json file
         File filename = new File(filePath);
@@ -109,7 +108,7 @@ public class JsonManager {
     }
 
     //Method to Create JsonFile from Object
-    public static void createJsonFile(Object obj , String filePath) throws IOException {
+    public static void createJsonFile(Object obj , String filePath) {
         try{
             FileWriter file = new FileWriter(filePath);
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -123,7 +122,7 @@ public class JsonManager {
     }
 
     //Method to Combine multiple JsonObjects then write them to JsonFile as a Combined Object
-    public static void createJsonFileFromMultipleJsonObjects(JsonObject[] arr, String jsonFilePath) throws IOException {
+    public static void createJsonFileFromMultipleJsonObjects(JsonObject[] arr, String jsonFilePath)  {
         Map<String,Object> total = new HashMap<>();
         for (int i = 0;i<arr.length;i++)
         {
@@ -134,7 +133,7 @@ public class JsonManager {
     }
 
     //Method to Convert Map to Json Object
-    public static JsonObject convertMapToJsonObject(Map map) throws JsonProcessingException {
+    public static JsonObject convertMapToJsonObject(Map map) {
         Gson gson = new Gson();
         String jsonString = gson.toJson(map);
         return gson.fromJson(jsonString,JsonObject.class);

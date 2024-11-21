@@ -1,11 +1,15 @@
 package yehiaEngine.listeners;
 
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.*;
 import yehiaEngine.assertions.SoftAssertHelper;
+import yehiaEngine.driverManager.AppiumFactory;
+import yehiaEngine.driverManager.BrowserFactory;
 import yehiaEngine.loggers.AllureReportLogger;
 
-import static yehiaEngine.driverManager.BrowserFactory.getDriver;
+import java.io.IOException;
+
 import static yehiaEngine.loggers.LogHelper.setLogFileName;
 import static yehiaEngine.loggers.Screenshot.captureFailure;
 import static yehiaEngine.loggers.Screenshot.captureSuccess;
@@ -43,20 +47,32 @@ public class MethodListeners implements IInvokedMethodListener , IConfigurationL
         if(method.isTestMethod())
         {
             //Log Screenshots for Successful and Failed Tests
-            ThreadLocal<RemoteWebDriver> driver = (ThreadLocal<RemoteWebDriver>) context.getAttribute("isolatedDriver");
+            ThreadLocal<RemoteWebDriver> webDriver = (ThreadLocal<RemoteWebDriver>) context.getAttribute("isolatedWebDriver");
+            ThreadLocal<AppiumDriver> appiumDriver = (ThreadLocal<AppiumDriver>) context.getAttribute("isolatedAppiumDriver");
+
             //Take Screenshot after every succeeded test
-            if (ITestResult.SUCCESS == testResult.getStatus() && driver != null)
-                captureSuccess(getDriver(driver),testResult);
+            if (ITestResult.SUCCESS == testResult.getStatus() && webDriver != null)
+                captureSuccess(BrowserFactory.getDriver(webDriver),testResult);
+
+            else if (ITestResult.SUCCESS == testResult.getStatus() && appiumDriver != null)
+                captureSuccess(AppiumFactory.getDriver(appiumDriver),testResult);
 
                 //Take Screenshot after every failed test
-            else if (ITestResult.FAILURE == testResult.getStatus() && driver != null)
-                captureFailure(getDriver(driver),testResult);
+            else if (ITestResult.FAILURE == testResult.getStatus() && webDriver != null)
+                captureFailure(BrowserFactory.getDriver(webDriver),testResult);
+
+            else if (ITestResult.FAILURE == testResult.getStatus() && appiumDriver != null)
+                captureFailure(AppiumFactory.getDriver(appiumDriver),testResult);
 
             //Log Summery Report for Soft Assertion Errors after Every Run
             SoftAssertHelper.reportSoftAssertionErrors(method);
 
             //Upload the Log Files to Allure Report
-            AllureReportLogger.uploadLogFileIntoAllure("Test - "+method.getTestMethod().getMethodName());
+            try {
+                AllureReportLogger.uploadLogFileIntoAllure("Test - "+method.getTestMethod().getMethodName());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

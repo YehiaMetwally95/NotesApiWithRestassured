@@ -5,20 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/AllureListeners.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/services/io.qameta.allure.listener.FixtureLifecycleListener" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/Helpers/NativeAndroidActionsHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/Helpers/W3CTouchActionsHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/Helpers/WebElementActionsHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/NativeAndroidActions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dbFiles/SwagLabs_ProductsAndUsers.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/assertions/SoftAssertHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/assertions/SoftAssertHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/driverManager/AppiumDriverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/driverManager/AppiumFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/driverManager/BrowserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/driverManager/BrowserFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/NativeAndroidActionBot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/W3CTouchActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/W3CTouchActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/WaitsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/Helpers/WaitsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/WebElementsActionBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/WebElementsActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/AllureListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/AllureListeners.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/MethodListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/MethodListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/SuiteListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/SuiteListeners.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/loggers/AllureReportLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/loggers/AllureReportLogger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/loggers/LogHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/loggers/LogHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/services/org.testng.ITestNGListener" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/services/org.testng.ITestNGListener" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/JsonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/JsonManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Appium.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Swipe.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Environment.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Environment.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Parallelization.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Parallelization.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Test_Data_Json_Files/UpdateUserPasswordTestData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Environment.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/API.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/MobileApp.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/MobileApp.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Waits.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Waits.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/WebApp.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/WebApp.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +124,7 @@
     "TestNG.tests.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/AutomatestProject/NotesAPI/src/main/resources",
+    "last_opened_file_path": "D:/AutomatestProject/NotesAPI/src/main/java",
     "onboarding.tips.debug.path": "C:/Users/Yehia.Metwally/OneDrive/yehia/Desktop/AutomatestProject/NotesAPI/src/main/java/io/github/YehiaMetwally95/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -127,11 +137,11 @@
       <recent name="objectModels" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\AutomatestProject\NotesAPI\src\main\resources" />
       <recent name="D:\AutomatestProject\NotesAPI\src\main\java" />
+      <recent name="D:\AutomatestProject\NotesAPI\src\main" />
+      <recent name="D:\AutomatestProject\NotesAPI\src\main\resources" />
       <recent name="D:\AutomatestProject\NotesAPI" />
       <recent name="D:\AutomatestProject\NotesAPI\src\main\java\yehiaEngine" />
-      <recent name="D:\AutomatestProject\NotesAPI\target\allure-results" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\AutomatestProject\NotesAPI\src\test\resources\Test_Data_Json_Files" />
@@ -415,7 +425,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730590397767</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Test">
+      <option name="closed" value="true" />
+      <created>1731076198062</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1731076198062</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Test">
+      <option name="closed" value="true" />
+      <created>1731076477176</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1731076477176</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

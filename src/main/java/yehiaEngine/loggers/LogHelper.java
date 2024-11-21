@@ -32,6 +32,13 @@ public class LogHelper {
     }
 
     @Step("{Error}")
+    public static void logErrorStep(String Error , Throwable e)
+    {
+        log.error(Error + " -");
+        Assert.fail(Error,e);
+    }
+
+    @Step("{Error}")
     public static void logErrorStep(String Error)
     {
         log.error(Error + " -");

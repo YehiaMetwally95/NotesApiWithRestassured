@@ -5,6 +5,9 @@ import io.appium.java_client.InteractsWithApps;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.ITestContext;
+import org.testng.ITestResult;
+import org.testng.Reporter;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -12,7 +15,9 @@ import java.net.URL;
 import static yehiaEngine.loggers.LogHelper.logErrorStep;
 import static yehiaEngine.loggers.LogHelper.logInfoStep;
 
-public class AppiumDriverFactory {
+public class AppiumFactory {
+    private static final ThreadLocal<AppiumDriver> driver = new ThreadLocal<>();;
+
     private static DesiredCapabilities cap;
     private static final String appType = System.getProperty("appType");
     private static final String browserName = System.getProperty("browserName");
@@ -22,24 +27,28 @@ public class AppiumDriverFactory {
     private static final String nativeAutomationDriver = System.getProperty("nativeAutomationDriver");
     private static final String appName = System.getProperty("appName");
     private static final String appActivity = System.getProperty("appActivity");
+    private static final String appiumURL = System.getProperty("AppiumServerURL");
 
-    public static AppiumDriver openApp() throws MalformedURLException {
-        AppiumDriver driver = null;
-        if (appType.equalsIgnoreCase("NativeAndroid")  || appType.equalsIgnoreCase("WebAppAndroid") )
-        {
-            driver =  new AndroidDriver(getAppiumServerURL(), getAndroidCapabilities());
-            logInfoStep("Starting "+ appName +" ............");
-        }
 
-        else if (appType.equalsIgnoreCase("NativeIOS")  || appType.equalsIgnoreCase("WebAppIOS") )
-        {
-            driver =  new AndroidDriver(getAppiumServerURL(), getIOSCapabilities());
-            logInfoStep("Starting "+ appName +" ............");
-        }
+    public static ThreadLocal<AppiumDriver> openApp() throws MalformedURLException {
+        try {
+            ITestResult result = Reporter.getCurrentTestResult();
+            ITestContext context = result.getTestContext();
 
-        else
-        {
-            logErrorStep("Failed to Start the Application, The Input App Type is Incorrect");
+            if (appType.equalsIgnoreCase("NativeAndroid") || appType.equalsIgnoreCase("WebAppAndroid")) {
+                driver.set(new AndroidDriver(getAppiumServerURL(), getAndroidCapabilities()));
+                logInfoStep("Starting [" + appName + "] ............");
+            } else if (appType.equalsIgnoreCase("NativeIOS") || appType.equalsIgnoreCase("WebAppIOS")) {
+                driver.set(new AndroidDriver(getAppiumServerURL(), getIOSCapabilities()));
+                logInfoStep("Starting [" + appName + "] ............");
+            } else {
+                logErrorStep("Failed to Start the Application, The Input App Type is Incorrect");
+            }
+
+            //Set the Logger Classes with the driver
+            context.setAttribute("isolatedAppiumDriver", driver);
+        }catch (Exception e){
+            logErrorStep("Failed to Start [" + appName + "]",e);
         }
         return driver;
     }
@@ -55,7 +64,9 @@ public class AppiumDriverFactory {
     private static DesiredCapabilities getAndroidCapabilities()
     {
         cap = new DesiredCapabilities();
-            //Device Capabilities
+        cap.setCapability("appium:newCommandTimeout",600);
+
+        //Device Capabilities
         cap.setCapability("appium:deviceName",deviceName);
         cap.setCapability("appium:udid",deviceUdid);
 
@@ -78,6 +89,8 @@ public class AppiumDriverFactory {
     private static DesiredCapabilities getIOSCapabilities()
     {
         cap = new DesiredCapabilities();
+        cap.setCapability("appium:newCommandTimeout",600);
+
         //Device Capabilities
         cap.setCapability("appium:deviceName",deviceName);
         cap.setCapability("appium:udid",deviceUdid);
@@ -99,7 +112,7 @@ public class AppiumDriverFactory {
     }
 
     private static URL getAppiumServerURL () throws MalformedURLException {
-        return new URL("http://127.0.0.1:4723");
+        return new URL(appiumURL);
     }
 
     //ThreadLocal Driver

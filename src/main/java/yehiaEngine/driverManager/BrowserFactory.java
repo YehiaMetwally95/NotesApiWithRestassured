@@ -83,7 +83,7 @@ public class BrowserFactory {
             }
         }
         //Set the Logger Classes with the driver
-        context.setAttribute("isolatedDriver",driver);
+        context.setAttribute("isolatedWebDriver",driver);
 
         return driver;
     }

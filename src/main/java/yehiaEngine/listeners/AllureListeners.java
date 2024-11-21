@@ -6,6 +6,8 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import yehiaEngine.loggers.AllureReportLogger;
 
+import static yehiaEngine.loggers.LogHelper.logErrorStep;
+
 public class AllureListeners implements FixtureLifecycleListener {
 
     @Override
@@ -31,20 +33,25 @@ public class AllureListeners implements FixtureLifecycleListener {
 
     @Override
     public void beforeFixtureStop(FixtureResult result) {
-        //Upload the Log Files to Allure Report
-        ITestResult testResult = Reporter.getCurrentTestResult();
-        String method = testResult.getMethod().getMethodName();
-        var iTestNGMethod = testResult.getMethod();
+        try{
+            //Upload the Log Files to Allure Report
+            ITestResult testResult = Reporter.getCurrentTestResult();
+            String method = testResult.getMethod().getMethodName();
+            var iTestNGMethod = testResult.getMethod();
 
-        if(!(iTestNGMethod.isAfterMethodConfiguration() || iTestNGMethod.isBeforeMethodConfiguration()))
-            AllureReportLogger.uploadLogFileIntoAllure("Configuration - " + method+"-"+testResult.getTestClass().getRealClass().getSimpleName());
+            if(!(iTestNGMethod.isAfterMethodConfiguration() || iTestNGMethod.isBeforeMethodConfiguration()))
+                AllureReportLogger.uploadLogFileIntoAllure("Configuration - " + method+"-"+testResult.getTestClass().getRealClass().getSimpleName());
 
-        if (iTestNGMethod.isBeforeMethodConfiguration())
-            AllureReportLogger.uploadLogFileIntoAllure("Configuration - " + method+"-"+testResult.getTestClass().getRealClass().getSimpleName()+"-"+MethodListeners.beforeMethodInvocationCount);
+            if (iTestNGMethod.isBeforeMethodConfiguration())
+                AllureReportLogger.uploadLogFileIntoAllure("Configuration - " + method+"-"+testResult.getTestClass().getRealClass().getSimpleName()+"-"+MethodListeners.beforeMethodInvocationCount);
 
 
-        if (iTestNGMethod.isAfterMethodConfiguration())
-            AllureReportLogger.uploadLogFileIntoAllure("Configuration - " + method+"-"+testResult.getTestClass().getRealClass().getSimpleName()+"-"+MethodListeners.afterMethodInvocationCount);
+            if (iTestNGMethod.isAfterMethodConfiguration())
+                AllureReportLogger.uploadLogFileIntoAllure("Configuration - " + method+"-"+testResult.getTestClass().getRealClass().getSimpleName()+"-"+MethodListeners.afterMethodInvocationCount);
+        }catch (Exception e){
+            logErrorStep("Failed to Upload Log Files to Allure Report",e);
+        }
+
     }
 
     @Override

@@ -5,51 +5,54 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.WheelInput;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import yehiaEngine.elementActions.Helpers.WaitsManager;
 import yehiaEngine.loggers.LogHelper;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class WebElementsActionBot {
+import static yehiaEngine.elementActions.Helpers.WebElementActionsHelper.*;
+
+
+public class WebElementsActions {
     //Variables
     WebDriver driver;
 
     //Constructor
-    public WebElementsActionBot(WebDriver driver) {
+    public WebElementsActions(WebDriver driver) {
         this.driver = driver;
     }
 
-    //************************    Basic Interactions    ************************//
-    //ActionBot1 for Clear TextBox then Typing on it & Log Typing Action
-    public WebElementsActionBot type (By locator , String text) throws IOException {
-        String elementName =
-                //Locate Element and Check if its present on DOM
-                locateElement(locator)
-                //Check if Element is Displayed and Visible on Page
-                .checkElementDisplayed(locator)
-                //Get Element AccessibleName
-                .getElementName(locator);
-                //Check if Element is Enabled on Page (Not Disabled)
-        checkElementEnabled(locator,elementName);
-                //Take Action on Element
-        clearText(locator,elementName);
-        writeText(locator,elementName,text);
+    /**
+     * *********************************  Basic Interactions *************************************
+     */
+    // Clear TextBox then Typing on it & Log Typing Action
+    public WebElementsActions type (By locator , String text) {
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,locator);
+        //Check if Element is Displayed and Visible on Page
+        checkElementDisplayed(driver,locator);
+        //Get Element AccessibleName
+        String elementName = getElementName(driver,locator);
+        //Check if Element is Enabled on Page (Not Disabled)
+        checkElementEnabled(driver,locator,elementName);
+        //Take Action on Element
+        clearText(driver,locator,elementName);
+        writeText(driver,locator,elementName,text);
         return this;
     }
 
-    //ActionBot2 for Pressing on Button or Link & Log CLicking Action
-    public WebElementsActionBot press(By locator) throws IOException {
-        String elementName =
-                //Locate Element and Check if its present on DOM
-                locateElement(locator)
-                //Check if Element is Displayed and Visible on Page
-                .checkElementDisplayed(locator)
-                //Get Element AccessibleName
-                .getElementName(locator);
-                //Check if Element is Enabled on Page (Not Disabled)
-        checkElementEnabled(locator,elementName);
-                //Take Action on Element
+    //Pressing on Button or Link & Log CLicking Action
+    public WebElementsActions press(By locator) {
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,locator);
+        //Check if Element is Displayed and Visible on Page
+        checkElementDisplayed(driver,locator);
+        //Get Element AccessibleName
+        String elementName = getElementName(driver,locator);
+        //Check if Element is Enabled on Page (Not Disabled)
+        checkElementEnabled(driver,locator,elementName);
+        //Take Action on Element
         try {
             WaitsManager.getFluentWait(driver).until(f -> {
                 new Actions(driver).moveToElement(driver.findElement(locator)).perform();
@@ -71,8 +74,8 @@ public class WebElementsActionBot {
         return this;
     }
 
-    //ActionBot3 for Pressing on Button or Link (By WebElement) & Log CLicking Action
-    public WebElementsActionBot press(WebElement element) throws IOException {
+    //Pressing on Button or Link (By WebElement) & Log CLicking Action
+    public WebElementsActions press(WebElement element) {
         String elementName = element.getAccessibleName();
         checkElementEnabled(element,elementName);
         try {
@@ -94,13 +97,13 @@ public class WebElementsActionBot {
         return this;
     }
 
-    //ActionBot4 for Verify Element is Displayed on Page Without Failing the Test if not displayed
+    //Verify Element is Displayed on Page
     public boolean isElementDisplayed(By locator){
         try{
             //Wait until Element is Displayed on Page
-            WaitsManager.getExplicitWait(driver).until(f -> driver.findElement(locator).isDisplayed());
+            WaitsManager.getFluentWait(driver).until(f -> driver.findElement(locator).isDisplayed());
             //Get Element Accessible Name
-            String elementName = getElementName(locator);
+            String elementName = getElementName(driver,locator);
             LogHelper.logInfoStep("The Element [" + elementName + "] is Displayed");
 
         }catch(TimeoutException e){
@@ -110,12 +113,26 @@ public class WebElementsActionBot {
         return true;
     }
 
-    //ActionBot5 for Get Text from Element (with Locator) & Log the Text
-    public String readText(By locator) throws IOException {
+    //Verify Element is Displayed on Page
+    public boolean isElementNotDisplayed(By locator){
+        try{
+            //Wait until Element is Displayed on Page
+            WaitsManager.getFluentWait(driver).until(ExpectedConditions.invisibilityOfElementLocated(locator));
+            LogHelper.logInfoStep("The Element located by [" + locator.toString() + "] is Not Displayed");
+
+        }catch(TimeoutException e){
+            LogHelper.logInfoStep("The Element located by [" + locator.toString() + "] is Displayed");
+            return false;
+        }
+        return true;
+    }
+
+    //Get Text from Element (with Locator) & Log the Text
+    public String readText(By locator) {
         //Locate Element and Check if its present on DOM
-        locateElement(locator);
+        locateElement(driver,locator);
         //Check if Element is Displayed and Visible on Page
-        checkElementDisplayed(locator);
+        checkElementDisplayed(driver,locator);
         //Read Text from Element on Page
         try {
             String text = WaitsManager.getFluentWait(driver).until(f -> driver.findElement(locator).getText());
@@ -128,8 +145,8 @@ public class WebElementsActionBot {
         }
     }
 
-    //ActionBot6 for Get Text from Element (with WebElement) & Log the Text
-    public String readText(WebElement element) throws IOException {
+    // Get Text from Element (with WebElement) & Log the Text
+    public String readText(WebElement element) {
         try {
             String text = element.getText();
             LogHelper.logInfoStep("Getting Text " + "[" + text + "] from Web Element");
@@ -141,17 +158,16 @@ public class WebElementsActionBot {
         }
     }
 
-    //ActionBot7 for Long Pressing on Button or Link & Log CLicking Action
-    public WebElementsActionBot longPress(By locator) throws IOException {
-        String elementName =
-                //Locate Element and Check if its present on DOM
-                locateElement(locator)
-                        //Check if Element is Displayed and Visible on Page
-                        .checkElementDisplayed(locator)
-                        //Get Element AccessibleName
-                        .getElementName(locator);
+    //Long Pressing on Button or Link & Log CLicking Action
+    public WebElementsActions longPress(By locator) {
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,locator);
+        //Check if Element is Displayed and Visible on Page
+        checkElementDisplayed(driver,locator);
+        //Get Element AccessibleName
+        String elementName = getElementName(driver,locator);
         //Check if Element is Enabled on Page (Not Disabled)
-        checkElementEnabled(locator,elementName);
+        checkElementEnabled(driver,locator,elementName);
         //Take Action on Element
         try {
             WaitsManager.getFluentWait(driver).until(f -> {
@@ -167,17 +183,16 @@ public class WebElementsActionBot {
         return this;
     }
 
-    //ActionBot8 for Hover on Element & Log Hovering Action
-    public WebElementsActionBot hoverOnElement (By locator) throws IOException {
-        String elementName =
-                //Locate Element and Check if its present on DOM
-                locateElement(locator)
-                        //Check if Element is Displayed and Visible on Page
-                        .checkElementDisplayed(locator)
-                        //Get Element AccessibleName
-                        .getElementName(locator);
+    //Hover on Element & Log Hovering Action
+    public WebElementsActions hoverOnElement (By locator) {
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,locator);
+        //Check if Element is Displayed and Visible on Page
+        checkElementDisplayed(driver,locator);
+        //Get Element AccessibleName
+        String elementName = getElementName(driver,locator);
         //Check if Element is Enabled on Page (Not Disabled)
-        checkElementEnabled(locator,elementName);
+        checkElementEnabled(driver,locator,elementName);
         //Take Action on Element
         try {
             WaitsManager.getFluentWait(driver).until(f -> {
@@ -192,12 +207,12 @@ public class WebElementsActionBot {
         return this;
     }
 
-    //ActionBot9 for Get All Matched Elements
+    //Get All Matched Elements
     public List<WebElement> getAllMatchedElements(By locator){
         //Locate Element and Check if its present on DOM
-        locateElement(locator);
+        locateElement(driver,locator);
         //Check if Element is Displayed and Visible on Page
-        checkElementDisplayed(locator);
+        checkElementDisplayed(driver,locator);
         //Read Text from Element on Page
         try {
             List<WebElement> list
@@ -211,11 +226,12 @@ public class WebElementsActionBot {
         }
     }
 
-    //************************    Interactions with DropDowns    ************************//
-
-    public WebElementsActionBot selectFromDropdownByValue(By dropdownLocator , String value)
+    /**
+     * *********************************  Interactions with DropDowns  *************************************
+     */
+    public WebElementsActions selectFromDropdownByValue(By dropdownLocator , String value)
     {
-        String elementName = getElementName(dropdownLocator);
+        String elementName = getElementName(driver,dropdownLocator);
         try {
             dropDownElement(dropdownLocator).selectByValue(value);
             LogHelper.logInfoStep("Selecting ["+ value +"] from" + elementName);
@@ -225,9 +241,9 @@ public class WebElementsActionBot {
         return this;
     }
 
-    public WebElementsActionBot selectFromDropdownByIndex(By dropdownLocator , int index)
+    public WebElementsActions selectFromDropdownByIndex(By dropdownLocator , int index)
     {
-        String elementName = getElementName(dropdownLocator);
+        String elementName = getElementName(driver,dropdownLocator);
         try {
             dropDownElement(dropdownLocator).selectByIndex(index);
             LogHelper.logInfoStep("Selecting ["+ index +"] from" + elementName);
@@ -237,9 +253,9 @@ public class WebElementsActionBot {
         return this;
     }
 
-    public WebElementsActionBot selectFromDropdownByText(By dropdownLocator , String text)
+    public WebElementsActions selectFromDropdownByText(By dropdownLocator , String text)
     {
-        String elementName = getElementName(dropdownLocator);
+        String elementName = getElementName(driver,dropdownLocator);
         try {
             dropDownElement(dropdownLocator).selectByVisibleText(text);
             LogHelper.logInfoStep("Selecting ["+ text +"] from" + elementName);
@@ -251,7 +267,7 @@ public class WebElementsActionBot {
 
     public List<String> getAllOptionsAsString(By dropdownLocator)
     {
-        String elementName = getElementName(dropdownLocator);
+        String elementName = getElementName(driver,dropdownLocator);
         try {
             List<WebElement> options = dropDownElement(dropdownLocator).getOptions();
             LogHelper.logInfoStep("Retrieving All Options from List of " + elementName);
@@ -264,7 +280,7 @@ public class WebElementsActionBot {
 
     public String getSelectedOption(By dropdownLocator)
     {
-        String elementName = getElementName(dropdownLocator);
+        String elementName = getElementName(driver,dropdownLocator);
         try {
             String text = dropDownElement(dropdownLocator).getFirstSelectedOption().getText();
             LogHelper.logInfoStep("Retrieving Selected Option ["+text+"] from List of " + elementName);
@@ -275,9 +291,9 @@ public class WebElementsActionBot {
         }
     }
 
-    public WebElementsActionBot deselectAllOptions(By dropdownLocator)
+    public WebElementsActions deselectAllOptions(By dropdownLocator)
     {
-        String elementName = getElementName(dropdownLocator);
+        String elementName = getElementName(driver,dropdownLocator);
         try {
             dropDownElement(dropdownLocator).deselectAll();
             LogHelper.logInfoStep("Deselecting All Options from List of " + elementName);
@@ -289,26 +305,25 @@ public class WebElementsActionBot {
 
     private Select dropDownElement(By dropdownLocator)
     {
-        String elementName =
-                //Locate Element and Check if its present on DOM
-                locateElement(dropdownLocator)
-                        //Check if Element is Displayed and Visible on Page
-                        .checkElementDisplayed(dropdownLocator)
-                        //Get Element AccessibleName
-                        .getElementName(dropdownLocator);
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,dropdownLocator);
+        //Check if Element is Displayed and Visible on Page
+        checkElementDisplayed(driver,dropdownLocator);
+        //Get Element AccessibleName
+        String elementName = getElementName(driver,dropdownLocator);
         //Check if Element is Enabled on Page (Not Disabled)
-        checkElementEnabled(dropdownLocator,elementName);
+        checkElementEnabled(driver,dropdownLocator,elementName);
         return new Select(driver.findElement(dropdownLocator));
     }
 
-    //************************    Interactions with Scrolling    ************************//
-
-    public WebElementsActionBot scrollToElementIntoView(By elementLocator) {
-        String elementName =
-                //Locate Element and Check if its present on DOM
-                locateElement(elementLocator)
-                //Get Element AccessibleName
-                .getElementName(elementLocator);
+    /**
+     * *********************************  Interactions with Scrolling  *************************************
+     */
+    public WebElementsActions scrollToElementIntoView(By elementLocator) {
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,elementLocator);
+        //Get Element AccessibleName
+        String elementName = getElementName(driver,elementLocator);
         try{
             new Actions(driver).scrollToElement(driver.findElement(elementLocator)).perform();
             LogHelper.logInfoStep("Scrolling to element ["+elementName+"]");
@@ -318,13 +333,12 @@ public class WebElementsActionBot {
         return this;
     }
 
-    public WebElementsActionBot scrollByGivenAmountFromElement(By elementLocator , int deltaX, int deltaY)
+    public WebElementsActions scrollByGivenAmountFromElement(By elementLocator , int deltaX, int deltaY)
     {
-        String elementName =
-                //Locate Element and Check if its present on DOM
-                locateElement(elementLocator)
-                        //Get Element AccessibleName
-                        .getElementName(elementLocator);
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,elementLocator);
+        //Get Element AccessibleName
+        String elementName = getElementName(driver,elementLocator);
         try{
             WheelInput.ScrollOrigin myOrigin =
                     WheelInput.ScrollOrigin.fromElement(driver.findElement(elementLocator));
@@ -336,16 +350,15 @@ public class WebElementsActionBot {
         return this;
     }
 
-    public WebElementsActionBot scrollTillElementDisplayed (By targetElement , int scrollStep) {
-        String elementName =
-                //Locate Element and Check if its present on DOM
-                locateElement(targetElement)
-                        //Get Element AccessibleName
-                        .getElementName(targetElement);
+    public WebElementsActions scrollTillElementDisplayed (By elementLocator , int scrollStep) {
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,elementLocator);
+        //Get Element AccessibleName
+        String elementName = getElementName(driver,elementLocator);
         try{
             WaitsManager.getFluentWait(driver).until(f->{
                 new Actions(driver).scrollByAmount(0,scrollStep).perform();
-                driver.findElement(targetElement).isDisplayed();
+                driver.findElement(elementLocator).isDisplayed();
                 return true;
             });
             LogHelper.logInfoStep("Scrolling Into Page with till Element ["+elementName+"] is Displayed");
@@ -355,8 +368,9 @@ public class WebElementsActionBot {
         return this;
     }
 
-    //************************    Interactions with Alerts    ************************//
-
+    /**
+     * *********************************  Interactions with Alerts  *************************************
+     */
     public void acceptAlert()
     {
         try{
@@ -419,97 +433,5 @@ public class WebElementsActionBot {
         }
     }
 
-    //************************    Locating The Element    ************************//
-    //Check if Element is Present on DOM
-    private WebElementsActionBot  locateElement(By locator) {
-        try{
-            //Wait for the element to be Present on DOM
-            WaitsManager.getFluentWait(driver).until(ExpectedConditions.presenceOfElementLocated(locator));
 
-        } catch (Exception e) {
-            LogHelper.logErrorStep("Failed to Locate the element by Locator ["+locator+"]",e);
-        }
-        return this;
-    }
-
-    //Check if Element is Displayed on Page With Failing the Test if not displayed
-    private WebElementsActionBot checkElementDisplayed (By elementLocator){
-        // Scroll the element into view
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);",
-                driver.findElement(elementLocator));
-
-        //Wait for the element to be Displayed on Page
-        try{
-            WaitsManager.getFluentWait(driver).until(f -> driver.findElement(elementLocator).isDisplayed());
-
-        }catch(TimeoutException e){
-            LogHelper.logErrorStep("The Element located by [" + elementLocator.toString() + "] is not Displayed",e);
-        }
-        return this;
-    }
-
-    //Get The Element Accessible Name
-    private String getElementName (By locator) {
-        String elementName = driver.findElement(locator).getAccessibleName();
-        if ((elementName != null && !elementName.isEmpty()))
-            return elementName;
-        else
-            return locator.toString();
-    }
-
-    //Check if Element is Enabled on Page (By Locator)
-    private WebElementsActionBot checkElementEnabled(By locator,String elementName){
-        try{
-            WaitsManager.getFluentWait(driver).until(f -> driver.findElement(locator).isEnabled());
-        }catch(TimeoutException e){
-            LogHelper.logErrorStep("The Element [" + elementName + "] is not Enabled",e);
-        }
-        return this;
-    }
-
-    //Check if Element is Enabled on Page (By WebElement)
-    private WebElementsActionBot checkElementEnabled(WebElement element,String elementName){
-        try{
-            element.isEnabled();
-        }catch(TimeoutException e){
-            LogHelper.logErrorStep("The Element [" + elementName + "] is not Enabled",e);
-        }
-        return this;
-    }
-
-    //************************    Clear & Write Text On Element    ************************//
-    private void writeText(By locator, String elementName, String text)
-    {
-        // Write Text on TextBox Element using the Selenium sendKeys method
-        try{
-            WaitsManager.getFluentWait(driver).until(f -> {
-                driver.findElement(locator).sendKeys(text);
-                return true;
-            });
-        //  Write Text using JavascriptExecutor in case of the data is not typed successfully
-        if (!driver.findElement(locator).getAttribute("value").equals(text)) {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', '" + text + "')",
-                        driver.findElement(locator));
-            }
-        LogHelper.logInfoStep("Typing ["+text+"] on Element ["+elementName+"]");
-
-        }catch (Exception e)
-        {
-            LogHelper.logErrorStep("Failed to Type ["+text+"] on Element ["+elementName+"]",e);
-        }
-    }
-
-    private void clearText(By locator , String elementName)
-    {
-        try{
-            WaitsManager.getFluentWait(driver).until(f -> {
-                driver.findElement(locator).clear();
-                return true;
-            });
-            LogHelper.logInfoStep("Clearing the Text on Element ["+elementName+"]");
-        }catch (Exception e)
-        {
-            LogHelper.logErrorStep("Failed to Clear the Text on Element ["+elementName+"]",e);
-        }
-    }
 }

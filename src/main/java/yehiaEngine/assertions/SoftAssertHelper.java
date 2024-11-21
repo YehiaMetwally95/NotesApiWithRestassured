@@ -1,5 +1,6 @@
 package yehiaEngine.assertions;
 
+import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Allure;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.IInvokedMethod;
@@ -8,13 +9,14 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.asserts.IAssert;
 import org.testng.asserts.SoftAssert;
+import yehiaEngine.driverManager.AppiumFactory;
+import yehiaEngine.driverManager.BrowserFactory;
 import yehiaEngine.loggers.LogHelper;
 import yehiaEngine.loggers.Screenshot;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static yehiaEngine.driverManager.BrowserFactory.getDriver;
 import static yehiaEngine.loggers.LogHelper.logErrorStep;
 
 public class SoftAssertHelper extends SoftAssert {
@@ -26,10 +28,17 @@ public class SoftAssertHelper extends SoftAssert {
     public void onAssertFailure(IAssert<?> assertCommand, AssertionError ex) {
         ITestResult result = Reporter.getCurrentTestResult();
         ITestContext context = result.getTestContext();
-        ThreadLocal<RemoteWebDriver> driver = (ThreadLocal<RemoteWebDriver>) context.getAttribute("isolatedDriver");
+
+        ThreadLocal<RemoteWebDriver> webDriver = (ThreadLocal<RemoteWebDriver>) context.getAttribute("isolatedWebDriver");
+        ThreadLocal<AppiumDriver> appiumDriver = (ThreadLocal<AppiumDriver>) context.getAttribute("isolatedAppiumDriver");
+
         String errorMessage = "Soft Assertion Failed: " + ex.getMessage();
-        if (driver != null)
-            Screenshot.captureSoftFailure(getDriver(driver), assertCommand, errorMessage);
+
+        if (webDriver != null)
+            Screenshot.captureSoftFailure(BrowserFactory.getDriver(webDriver), assertCommand, errorMessage);
+
+        else if (appiumDriver != null)
+            Screenshot.captureSoftFailure(AppiumFactory.getDriver(appiumDriver), assertCommand, errorMessage);
         errors.get().add(errorMessage); // Add error to the ThreadLocal list for this thread
     }
 
