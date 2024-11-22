@@ -132,6 +132,7 @@ public class NativeAndroidActionsHelper {
                 if (direction == NativeAndroidActions.ScrollDirection.VERTICAL)
                     query = "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(" + "new UiSelector().textContains(\"" + locatorValue + "\"))";
 
+
                 else if (direction == NativeAndroidActions.ScrollDirection.HORIZONTAL)
                     query = "new UiScrollable(new UiSelector()).setAsHorizontalList().scrollIntoView(" + "new UiSelector().textContains(\"" + locatorValue + "\"))";
 

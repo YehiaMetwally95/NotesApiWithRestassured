@@ -1,16 +1,17 @@
 package yehiaEngine.elementActions;
 
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.WheelInput;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import yehiaEngine.elementActions.Helpers.WaitsManager;
 import yehiaEngine.loggers.LogHelper;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static yehiaEngine.elementActions.Helpers.WaitsManager.getFluentWait;
 import static yehiaEngine.elementActions.Helpers.WebElementActionsHelper.*;
 
 
@@ -54,23 +55,34 @@ public class WebElementsActions {
         checkElementEnabled(driver,locator,elementName);
         //Take Action on Element
         try {
-            WaitsManager.getFluentWait(driver).until(f -> {
-                new Actions(driver).moveToElement(driver.findElement(locator)).perform();
-                driver.findElement(locator).click();
-                return true;
-            });
+            if (driver instanceof AppiumDriver appiumDriver)
+            {
+                getFluentWait(appiumDriver).until(f -> {
+                    new Actions(driver).moveToElement(driver.findElement(locator)).click().perform();
+                    driver.findElement(locator).click();
+                    return true;
+                });
+            }
+            else
+            {
+                getFluentWait(driver).until(f -> {
+                    new Actions(driver).moveToElement(driver.findElement(locator)).perform();
+                    driver.findElement(locator).click();
+                    return true;
+                });
+            }
+            LogHelper.logInfoStep("Clicking on Element ["+elementName+"]");
         }catch (ElementNotInteractableException e)
         //If Webdriver Click fails and fluent wait throw Timeout Exception, Try to click using JS
         {
             try {
                 ((JavascriptExecutor)driver).executeScript("arguments[0].click();", driver.findElement(locator));
-                LogHelper.logInfoStep("Clicking on Element ["+elementName+"]");
+                LogHelper.logInfoStep("Clicking using JS on Element ["+elementName+"]");
             }catch (Exception i)
             {
                 LogHelper.logErrorStep("Failed to Click on Element ["+elementName+"]",i);
             }
         }
-        LogHelper.logInfoStep("Clicking on Element ["+elementName+"]");
         return this;
     }
 
@@ -79,21 +91,34 @@ public class WebElementsActions {
         String elementName = element.getAccessibleName();
         checkElementEnabled(element,elementName);
         try {
-            new Actions(driver).moveToElement(element).perform();
-            element.click();
-
+            if (driver instanceof AppiumDriver appiumDriver)
+            {
+                getFluentWait(appiumDriver).until(f -> {
+                    new Actions(driver).moveToElement(element).click().perform();
+                    element.click();
+                    return true;
+                });
+            }
+            else
+            {
+                getFluentWait(driver).until(f -> {
+                    new Actions(driver).moveToElement(element).perform();
+                    element.click();
+                    return true;
+                });
+                LogHelper.logInfoStep("Clicking on Element ["+elementName+"]");
+            }
         }catch (ElementNotInteractableException e)
         //If Webdriver Click fails and fluent wait throw Timeout Exception, Try to click using JS
         {
             try {
                 ((JavascriptExecutor)driver).executeScript("arguments[0].click();", element);
-                LogHelper.logInfoStep("Clicking on Element ["+elementName+"]");
+                LogHelper.logInfoStep("Clicking using JS on Element ["+elementName+"]");
             }catch (Exception i)
             {
                 LogHelper.logErrorStep("Failed to Click on Element ["+elementName+"]",i);
             }
         }
-        LogHelper.logInfoStep("Clicking on Element ["+elementName+"]");
         return this;
     }
 
@@ -101,7 +126,7 @@ public class WebElementsActions {
     public boolean isElementDisplayed(By locator){
         try{
             //Wait until Element is Displayed on Page
-            WaitsManager.getFluentWait(driver).until(f -> driver.findElement(locator).isDisplayed());
+            getFluentWait(driver).until(f -> driver.findElement(locator).isDisplayed());
             //Get Element Accessible Name
             String elementName = getElementName(driver,locator);
             LogHelper.logInfoStep("The Element [" + elementName + "] is Displayed");
@@ -117,7 +142,7 @@ public class WebElementsActions {
     public boolean isElementNotDisplayed(By locator){
         try{
             //Wait until Element is Displayed on Page
-            WaitsManager.getFluentWait(driver).until(ExpectedConditions.invisibilityOfElementLocated(locator));
+            getFluentWait(driver).until(ExpectedConditions.invisibilityOfElementLocated(locator));
             LogHelper.logInfoStep("The Element located by [" + locator.toString() + "] is Not Displayed");
 
         }catch(TimeoutException e){
@@ -135,7 +160,7 @@ public class WebElementsActions {
         checkElementDisplayed(driver,locator);
         //Read Text from Element on Page
         try {
-            String text = WaitsManager.getFluentWait(driver).until(f -> driver.findElement(locator).getText());
+            String text = getFluentWait(driver).until(f -> driver.findElement(locator).getText());
             LogHelper.logInfoStep("Getting Text " + "[" + text + "] from Element located by [" + locator.toString() +"]");
             return text.replace("\n","");
         }catch (Exception e)
@@ -170,7 +195,7 @@ public class WebElementsActions {
         checkElementEnabled(driver,locator,elementName);
         //Take Action on Element
         try {
-            WaitsManager.getFluentWait(driver).until(f -> {
+            getFluentWait(driver).until(f -> {
                 new Actions(driver).moveToElement(driver.findElement(locator)).doubleClick()
                         .perform();
                 return true;
@@ -195,7 +220,7 @@ public class WebElementsActions {
         checkElementEnabled(driver,locator,elementName);
         //Take Action on Element
         try {
-            WaitsManager.getFluentWait(driver).until(f -> {
+            getFluentWait(driver).until(f -> {
                 new Actions(driver).moveToElement(driver.findElement(locator)).perform();
                 return true;
             });
@@ -216,7 +241,7 @@ public class WebElementsActions {
         //Read Text from Element on Page
         try {
             List<WebElement> list
-                    = WaitsManager.getFluentWait(driver).until(f -> driver.findElements(locator));
+                    = getFluentWait(driver).until(f -> driver.findElements(locator));
             LogHelper.logInfoStep("Retrieving All Matched Elements from the Element located by [" + locator + "]");
             return list;
         }catch (Exception e)
@@ -356,7 +381,7 @@ public class WebElementsActions {
         //Get Element AccessibleName
         String elementName = getElementName(driver,elementLocator);
         try{
-            WaitsManager.getFluentWait(driver).until(f->{
+            getFluentWait(driver).until(f->{
                 new Actions(driver).scrollByAmount(0,scrollStep).perform();
                 driver.findElement(elementLocator).isDisplayed();
                 return true;
@@ -374,7 +399,7 @@ public class WebElementsActions {
     public void acceptAlert()
     {
         try{
-            WaitsManager.getFluentWait(driver).until(ExpectedConditions.alertIsPresent());
+            getFluentWait(driver).until(ExpectedConditions.alertIsPresent());
             driver.switchTo().alert().accept();
             LogHelper.logInfoStep("Accepting the Alert");
         }catch (Exception e){
@@ -385,7 +410,7 @@ public class WebElementsActions {
     public void dismissAlert()
     {
         try{
-            WaitsManager.getFluentWait(driver).until(ExpectedConditions.alertIsPresent());
+            getFluentWait(driver).until(ExpectedConditions.alertIsPresent());
             driver.switchTo().alert().dismiss();
             LogHelper.logInfoStep("Dismissing the Alert");
         }catch (Exception e){
@@ -396,7 +421,7 @@ public class WebElementsActions {
     public void typeTextInAlert(String text)
     {
         try{
-            WaitsManager.getFluentWait(driver).until(ExpectedConditions.alertIsPresent());
+            getFluentWait(driver).until(ExpectedConditions.alertIsPresent());
             driver.switchTo().alert().sendKeys(text);
             LogHelper.logInfoStep("Typing ["+text+"] in the Alert");
         }catch (Exception e){
@@ -407,7 +432,7 @@ public class WebElementsActions {
     public void typeTextInAlert(String text1,String text2)
     {
         try{
-            WaitsManager.getFluentWait(driver).until(ExpectedConditions.alertIsPresent());
+            getFluentWait(driver).until(ExpectedConditions.alertIsPresent());
 
             Actions action = new Actions(driver);
             driver.switchTo().alert().sendKeys(text1);
@@ -423,7 +448,7 @@ public class WebElementsActions {
     public String getTextInAlert()
     {
         try{
-            WaitsManager.getFluentWait(driver).until(ExpectedConditions.alertIsPresent());
+            getFluentWait(driver).until(ExpectedConditions.alertIsPresent());
             String text = driver.switchTo().alert().getText();
             LogHelper.logInfoStep("Retrieving ["+text+"] from Alert");
             return text;

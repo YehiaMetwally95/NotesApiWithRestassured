@@ -1,5 +1,6 @@
 package yehiaEngine.elementActions.Helpers;
 
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import yehiaEngine.loggers.LogHelper;
@@ -38,7 +39,13 @@ public class WebElementActionsHelper {
 
     //Get The Element Accessible Name
     public static String getElementName (WebDriver driver,By locator) {
-        String elementName = driver.findElement(locator).getAccessibleName();
+        String elementName;
+
+        if (driver instanceof AppiumDriver appiumDriver)
+            elementName = appiumDriver.findElement(locator).getText();
+        else
+            elementName = driver.findElement(locator).getAccessibleName();
+
         if ((elementName != null && !elementName.isEmpty()))
             return elementName;
         else

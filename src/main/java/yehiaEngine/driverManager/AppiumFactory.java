@@ -21,6 +21,7 @@ public class AppiumFactory {
     private static DesiredCapabilities cap;
     private static final String appType = System.getProperty("appType");
     private static final String browserName = System.getProperty("browserName");
+    private static final String browserVersion = System.getProperty("browserVersion");
     private static final String deviceName = System.getProperty("deviceName");
     private static final String deviceUdid = System.getProperty("deviceUdid");
     private static final String platformVersion = System.getProperty("platformVersion");
@@ -75,13 +76,19 @@ public class AppiumFactory {
         cap.setCapability("appium:platformVersion",platformVersion);
         cap.setCapability("appium:automationName",nativeAutomationDriver);
 
-            //Application Capabilities for Native App
-        cap.setCapability("appium:app", System.getProperty("user.dir")+"\\src\\main\\resources\\apps\\"+appName);
-        cap.setCapability("appium:appActivity",appActivity);
+        //Application Capabilities for Native App
+        if (appType.equalsIgnoreCase("NativeAndroid"))
+        {
+            cap.setCapability("appium:app", System.getProperty("user.dir")+"\\src\\main\\resources\\apps\\"+appName);
+            cap.setCapability("appium:appActivity",appActivity);
+        }
 
             //Browser Capabilities for Web-Based App
         if (appType.equalsIgnoreCase("WebAppAndroid"))
+        {
             cap.setCapability(CapabilityType.BROWSER_NAME,browserName);
+            cap.setCapability(CapabilityType.BROWSER_VERSION,browserVersion);
+        }
 
         return cap;
     }
@@ -101,12 +108,18 @@ public class AppiumFactory {
         cap.setCapability("appium:automationName",nativeAutomationDriver);
 
         //Application Capabilities for Native App
-        cap.setCapability("appium:app", System.getProperty("user.dir")+"\\src\\main\\resources\\apps\\"+appName);
-        cap.setCapability("appium:appActivity",appActivity);
+        if (appType.equalsIgnoreCase("NativeIOS"))
+        {
+            cap.setCapability("appium:app", System.getProperty("user.dir")+"\\src\\main\\resources\\apps\\"+appName);
+            cap.setCapability("appium:appActivity",appActivity);
+        }
 
         //Browser Capabilities for Web-Based App
         if (appType.equalsIgnoreCase("WebAppIOS"))
+        {
             cap.setCapability(CapabilityType.BROWSER_NAME,browserName);
+            cap.setCapability(CapabilityType.BROWSER_VERSION,browserVersion);
+        }
 
         return cap;
     }
