@@ -32,7 +32,7 @@ public class NativeAndroidActionsHelper {
         }
     }
 
-    // Check if Element is Displayed on Page with Swiping
+    // Check if Element is Displayed on Page with Swiping into Screen
     public static void swipeTillElementDisplayed (AppiumDriver driver,NativeAndroidActions.LocatorType locatorType, String locatorValue, NativeAndroidActions.ScrollDirection direction)
     {
         try {
@@ -43,7 +43,7 @@ public class NativeAndroidActionsHelper {
         }
     }
 
-    // Check if Element is Displayed on Page with Swiping
+    // Check if Element is Displayed on Page with Swiping into Element
     public static void swipeTillElementDisplayed (AppiumDriver driver,NativeAndroidActions.LocatorType locatorType, String locatorValue, NativeAndroidActions.ScrollDirection direction, NativeAndroidActions.LocatorType swipedElementLocatorType, String swipedElementLocatorValue)
     {
         try {
@@ -277,6 +277,218 @@ public class NativeAndroidActionsHelper {
         return query;
     }
 
+    //Get the Locator query that will be used to perform scrolling into screen till find the element locator
+    public static String getUiAutomatorQueryForward(NativeAndroidActions.ScrollDirection direction)
+    {
+        if (direction == NativeAndroidActions.ScrollDirection.VERTICAL)
+            return "new UiScrollable(new UiSelector().scrollable(true)).setAsVerticalList().scrollForward(90)";
+        else if (direction == NativeAndroidActions.ScrollDirection.HORIZONTAL)
+            return "new UiScrollable(new UiSelector()).setAsHorizontalList().scrollForward(90)";
+        else
+            return null;
+    }
+
+    //Get the Locator query that will be used to perform scrolling into screen till find the element locator
+    public static String getUiAutomatorQueryBackward(NativeAndroidActions.ScrollDirection direction)
+    {
+        if (direction == NativeAndroidActions.ScrollDirection.VERTICAL)
+            return "new UiScrollable(new UiSelector().scrollable(true)).setAsVerticalList().scrollBackward(90)";
+        else if (direction == NativeAndroidActions.ScrollDirection.HORIZONTAL)
+            return "new UiScrollable(new UiSelector()).setAsHorizontalList().scrollBackward(90)";
+        else
+            return null;
+    }
+
+    //Get the Locator query that will be used to perform scrolling into screen till find the element locator
+    public static String getUiAutomatorQueryForward(NativeAndroidActions.ScrollDirection direction, AppiumDriver driver, By swipedElementLocator)
+    {
+        String attribute;
+        if (direction == NativeAndroidActions.ScrollDirection.VERTICAL)
+        {
+            if (driver.findElement(swipedElementLocator).getDomAttribute("content-desc") != null
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("content-desc").equalsIgnoreCase("null")
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("content-desc").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("content-desc");
+                return "new UiScrollable(new UiSelector().descriptionMatches(\".*" + attribute + "\").scrollable(true)).scrollForward(90)";
+            }
+
+
+            else if (driver.findElement(swipedElementLocator).getDomAttribute("resource-id") != null
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("resource-id").equalsIgnoreCase("null")
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("resource-id").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("resource-id");
+                return "new UiScrollable(new UiSelector().resourceIdMatches(\".*" + attribute + "\").scrollable(true)).scrollForward(90)";
+            }
+
+            else if (driver.findElement(swipedElementLocator).getDomAttribute("text") != null
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("text").equalsIgnoreCase("null")
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("text").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("text");
+                return "new UiScrollable(new UiSelector().textMatches(\".*" + attribute + "\").scrollable(true)).scrollForward(90)";
+            }
+
+            else if (driver.findElement(swipedElementLocator).getDomAttribute("class") != null
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("class").equalsIgnoreCase("null")
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("class").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("class");
+                return "new UiScrollable(new UiSelector().classNameMatches(\".*" + attribute + "\").scrollable(true)).scrollForward(90)";
+            }
+
+            else
+            {
+                LogHelper.logErrorStep("The Swiped Element has No Defined Attribute");
+                return null;
+            }
+        }
+
+        else if (direction == NativeAndroidActions.ScrollDirection.HORIZONTAL)
+        {
+            if (driver.findElement(swipedElementLocator).getDomAttribute("content-desc") != null
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("content-desc").equalsIgnoreCase("null")
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("content-desc").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("content-desc");
+                return "new UiScrollable(new UiSelector().descriptionMatches(\".*" + attribute + "\")).setAsHorizontalList().scrollForward(90)";
+            }
+
+
+            else if (driver.findElement(swipedElementLocator).getDomAttribute("resource-id") != null
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("resource-id").equalsIgnoreCase("null")
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("resource-id").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("resource-id");
+                return "new UiScrollable(new UiSelector().resourceIdMatches(\".*" + attribute + "\")).setAsHorizontalList().scrollForward(90)";
+            }
+
+            else if (driver.findElement(swipedElementLocator).getDomAttribute("text") != null
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("text").equalsIgnoreCase("null")
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("text").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("text");
+                return "new UiScrollable(new UiSelector().textMatches(\".*" + attribute + "\")).setAsHorizontalList().scrollForward(90)";
+            }
+
+            else if (driver.findElement(swipedElementLocator).getDomAttribute("class") != null
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("class").equalsIgnoreCase("null")
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("class").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("class");
+                return "new UiScrollable(new UiSelector().classNameMatches(\".*" + attribute + "\")).setAsHorizontalList().scrollForward(90)";
+            }
+
+            else {
+                LogHelper.logErrorStep("The Swiped Element has No Defined Attribute");
+                return null;
+            }
+        }
+
+        else
+        {
+            LogHelper.logErrorStep("The Direction Value is Incorrect");
+            return null;
+        }
+    }
+
+    //Get the Locator query that will be used to perform scrolling into screen till find the element locator
+    public static String getUiAutomatorQueryBackward(NativeAndroidActions.ScrollDirection direction, AppiumDriver driver, By swipedElementLocator)
+    {
+        String attribute;
+        if (direction == NativeAndroidActions.ScrollDirection.VERTICAL)
+        {
+           if (driver.findElement(swipedElementLocator).getDomAttribute("content-desc") != null
+                && !driver.findElement(swipedElementLocator).getDomAttribute("content-desc").equalsIgnoreCase("null")
+                && !driver.findElement(swipedElementLocator).getDomAttribute("content-desc").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("content-desc");
+                return "new UiScrollable(new UiSelector().descriptionMatches(\".*" + attribute + "\").scrollable(true)).scrollBackward(90)";
+            }
+
+
+           else if (driver.findElement(swipedElementLocator).getDomAttribute("resource-id") != null
+                   && !driver.findElement(swipedElementLocator).getDomAttribute("resource-id").equalsIgnoreCase("null")
+                   && !driver.findElement(swipedElementLocator).getDomAttribute("resource-id").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("resource-id");
+                return "new UiScrollable(new UiSelector().resourceIdMatches(\".*" + attribute + "\").scrollable(true)).scrollBackward(90)";
+            }
+
+           else if (driver.findElement(swipedElementLocator).getDomAttribute("text") != null
+                   && !driver.findElement(swipedElementLocator).getDomAttribute("text").equalsIgnoreCase("null")
+                   && !driver.findElement(swipedElementLocator).getDomAttribute("text").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("text");
+                return "new UiScrollable(new UiSelector().textMatches(\".*" + attribute + "\").scrollable(true)).scrollBackward(90)";
+            }
+
+            else if (driver.findElement(swipedElementLocator).getDomAttribute("class") != null
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("class").equalsIgnoreCase("null")
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("class").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("class");
+                return "new UiScrollable(new UiSelector().classNameMatches(\".*" + attribute + "\").scrollable(true)).scrollBackward(90)";
+            }
+
+            else
+            {
+                LogHelper.logErrorStep("The Swiped Element has No Defined Attribute");
+                return null;
+            }
+        }
+
+
+
+        else if (direction == NativeAndroidActions.ScrollDirection.HORIZONTAL)
+        {
+            if (driver.findElement(swipedElementLocator).getDomAttribute("content-desc") != null
+                && !driver.findElement(swipedElementLocator).getDomAttribute("content-desc").equalsIgnoreCase("null")
+                && !driver.findElement(swipedElementLocator).getDomAttribute("content-desc").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("content-desc");
+                return "new UiScrollable(new UiSelector().descriptionMatches(\".*" + attribute + "\")).setAsHorizontalList().scrollBackward(90)";
+            }
+
+
+            else if (driver.findElement(swipedElementLocator).getDomAttribute("resource-id") != null
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("resource-id").equalsIgnoreCase("null")
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("resource-id").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("resource-id");
+                return "new UiScrollable(new UiSelector().resourceIdMatches(\".*" + attribute + "\")).setAsHorizontalList().scrollBackward(90)";
+            }
+
+            else if (driver.findElement(swipedElementLocator).getDomAttribute("text") != null
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("text").equalsIgnoreCase("null")
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("text").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("text");
+                return "new UiScrollable(new UiSelector().textMatches(\".*" + attribute + "\")).setAsHorizontalList().scrollBackward(90)";
+            }
+
+            else if (driver.findElement(swipedElementLocator).getDomAttribute("class") != null
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("class").equalsIgnoreCase("null")
+                    && !driver.findElement(swipedElementLocator).getDomAttribute("class").isEmpty())
+            {
+                attribute = driver.findElement(swipedElementLocator).getDomAttribute("class");
+                return "new UiScrollable(new UiSelector().classNameMatches(\".*" + attribute + "\")).setAsHorizontalList().scrollBackward(90)";
+            }
+
+            else {
+                LogHelper.logErrorStep("The Swiped Element has No Defined Attribute");
+                return null;
+            }
+        }
+
+        else
+        {
+            LogHelper.logErrorStep("The Direction Value is Incorrect");
+            return null;
+        }
+    }
+
     // Write Text on TextBox and Log the Action
     public static void writeText(AppiumDriver driver,NativeAndroidActions.LocatorType locatorType, String locatorValue, String elementName, String text) {
         // Write Text on TextBox Element using the Selenium sendKeys method
@@ -300,6 +512,36 @@ public class NativeAndroidActionsHelper {
             getFluentWait(driver).until(f -> {
                 driver.findElement(AppiumBy.androidUIAutomator(
                         getUiAutomatorQuery(locatorType, locatorValue, null))).clear();
+                return true;
+            });
+            LogHelper.logInfoStep("Clearing Text from Element [" + elementName + "]");
+
+        } catch (Exception e) {
+            LogHelper.logErrorStep("Failed to Clear Text from Element [" + elementName + "]", e);
+        }
+    }
+
+    // Write Text on TextBox and Log the Action
+    public static void writeText(AppiumDriver driver,By locator, String elementName, String text) {
+        // Write Text on TextBox Element using the Selenium sendKeys method
+        try {
+            getFluentWait(driver).until(f -> {
+                driver.findElement(locator).sendKeys(text);
+                return true;
+            });
+            LogHelper.logInfoStep("Typing [" + text + "] on Element [" + elementName + "]");
+
+        } catch (Exception e) {
+            LogHelper.logErrorStep("Failed to Type [" + text + "] on Element [" + elementName + "]", e);
+        }
+    }
+
+    // Clear Text from TextBox and Log the Action
+    public static void clearText(AppiumDriver driver,By locator, String elementName) {
+        // Clear Text on TextBox Element using the Selenium sendKeys method
+        try {
+            getFluentWait(driver).until(f -> {
+                driver.findElement(locator).clear();
                 return true;
             });
             LogHelper.logInfoStep("Clearing Text from Element [" + elementName + "]");
@@ -368,5 +610,195 @@ public class NativeAndroidActionsHelper {
         return driver.manage()
                 .window()
                 .getSize();
+    }
+
+    /**
+     * *********************************  Locating Element Methods Using By Locator  *************************************
+     */
+    // Check if Element is Displayed on Page
+    public static void checkElementDisplayed(AppiumDriver driver,By locator)
+    {
+        try {
+            getFluentWait(driver).until(f -> driver.findElement(locator).isDisplayed());
+        } catch (TimeoutException e) {
+            LogHelper.logErrorStep("The Element located by [" + locator.toString() + "] is not Displayed", e);
+        }
+    }
+
+    // Check if Element is Displayed on Page with Swiping into Screen
+    public static void swipeTillElementDisplayed (AppiumDriver driver,By locator, NativeAndroidActions.ScrollDirection direction)
+    {
+        boolean isElementVisible = false;
+        String previousPageSource = "";
+        String currentPageSource;
+        try {
+            // Loop to scroll and check if the element is visible
+            while (!isElementVisible) {
+                try {
+                    // Try to find the element
+                    if (driver.findElement(locator).isDisplayed())
+                        isElementVisible = true;
+
+                } catch (NoSuchElementException e) {
+                    // If the element is not found, perform a scroll action using UIAutomator
+                    driver.findElement(AppiumBy.androidUIAutomator(getUiAutomatorQueryForward(direction)));
+
+                    //the element is not found, perform a scroll action in Opposite Direction
+                    currentPageSource = driver.getPageSource();
+                    if (currentPageSource.equalsIgnoreCase(previousPageSource))
+                        // The page source hasn't changed, so we've reached the bottom
+                        throw new TimeoutException();
+                    else
+                        previousPageSource = currentPageSource;
+                }
+            }
+
+        } catch (TimeoutException e) {
+            try{
+                // Loop to scroll and check if the element is visible
+                previousPageSource = "";
+                while (!isElementVisible) {
+                    try {
+                        // Try to find the element
+                        if (driver.findElement(locator).isDisplayed())
+                            isElementVisible = true;
+
+                    } catch (NoSuchElementException ex) {
+                        // If the element is not found, perform a scroll action using UIAutomator
+                        driver.findElement(AppiumBy.androidUIAutomator(getUiAutomatorQueryBackward(direction)));
+
+                        //the element is not found, perform a scroll action in Opposite Direction
+                        currentPageSource = driver.getPageSource();
+                        if (currentPageSource.equalsIgnoreCase(previousPageSource))
+                            // The page source hasn't changed, so we've reached the bottom
+                        {
+                            throw new TimeoutException();
+                        }
+                        else
+                            previousPageSource = currentPageSource;
+                    }
+                }
+            }catch (TimeoutException ext){
+                LogHelper.logErrorStep("The Element located by [" + locator.toString() + "] is not Displayed", ext);
+            }
+        }
+    }
+
+    // Check if Element is Displayed on Page with Swiping into Element
+    public static void swipeTillElementDisplayed (AppiumDriver driver,By locator, NativeAndroidActions.ScrollDirection direction, By swipedElementLocator)
+    {
+        boolean isElementVisible = false;
+        String previousPageSource = "";
+        String currentPageSource;
+        try {
+            // Loop to scroll and check if the element is visible
+            while (!isElementVisible) {
+                try {
+                    // Try to find the element
+                    if (driver.findElement(locator).isDisplayed())
+                        isElementVisible = true;
+
+                } catch (NoSuchElementException e) {
+                    // If the element is not found, perform a scroll action using UIAutomator
+                    driver.findElement(AppiumBy.androidUIAutomator(getUiAutomatorQueryForward(direction,driver,swipedElementLocator)));
+
+                    //the element is not found, perform a scroll action in Opposite Direction
+                    currentPageSource = driver.getPageSource();
+                    if (currentPageSource.equalsIgnoreCase(previousPageSource))
+                        // The page source hasn't changed, so we've reached the bottom
+                        throw new TimeoutException();
+                    else
+                        previousPageSource = currentPageSource;
+                }
+            }
+
+        } catch (TimeoutException e) {
+            try{
+                // Loop to scroll and check if the element is visible
+                while (!isElementVisible) {
+                    try {
+                        // Try to find the element
+                        if (driver.findElement(locator).isDisplayed())
+                            isElementVisible = true;
+
+                    } catch (NoSuchElementException ex) {
+                        // If the element is not found, perform a scroll action using UIAutomator
+                        driver.findElement(AppiumBy.androidUIAutomator(getUiAutomatorQueryBackward(direction,driver,swipedElementLocator)));
+
+                        //the element is not found, perform a scroll action in Opposite Direction
+                        currentPageSource = driver.getPageSource();
+                        if (currentPageSource.equalsIgnoreCase(previousPageSource))
+                            // The page source hasn't changed, so we've reached the bottom
+                            throw new TimeoutException();
+                        else
+                            previousPageSource = currentPageSource;
+                    }
+                }
+            }catch (TimeoutException ext){
+                LogHelper.logErrorStep("The Element located by [" + locator.toString() + "] is not Displayed", ext);
+            }
+        }
+    }
+
+    //Check if Element is Enabled on Page
+    public static void checkElementEnabled(AppiumDriver driver,By Locator, String elementName)
+    {
+        try {
+            getFluentWait(driver).until(f -> driver.findElement(Locator).isEnabled());
+        } catch (TimeoutException e) {
+            LogHelper.logErrorStep("The Element [" + elementName + "] is not Enabled", e);
+        }
+    }
+
+    // Get the Element Name
+    public static String getElementName(AppiumDriver driver,By locator) {
+        try {
+            String elementName = getMainElementText(driver,locator);
+            if (elementName != null && !elementName.isEmpty()) {
+                return elementName;
+            }
+
+            //Classes Related to Android
+            String[] elementTypes = {
+                    ".//android.widget.TextView",
+                    ".//android.widget.EditText",
+//                    ".//android.widget.Button",
+//                    ".//android.widget.ImageView",
+//                    ".//android.widget.LinearLayout",
+//                    ".//android.widget.FrameLayout",
+//                    ".//androidx.recyclerview.widget.RecyclerView",
+//                    ".//androidx.constraintlayout.widget.ConstraintLayout",
+//                    ".//androidx.cardview.widget.CardView",
+//                    ".//android.webkit.WebView"
+            };
+
+            for (String elementType : elementTypes) {
+                elementName = getChildElementText(driver, locator, elementType);
+                if (elementName != null && !elementName.isEmpty()) {
+                    return elementName;
+                }
+            }
+
+        } catch (NoSuchElementException e) {
+            // Log the exception and return the locator as fallback
+            LogHelper.logErrorStep("Element not found: " + locator.toString());
+        }
+
+        return locator.toString();
+    }
+
+    // Helper method to get the main element text
+    private static String getMainElementText(AppiumDriver driver,By locator) {
+        return driver.findElement(locator).getText();
+    }
+
+    // Helper method to get the child element text
+    private static String getChildElementText(AppiumDriver driver,By locator, String childXPath) {
+        try {
+            WebElement element = driver.findElement(locator);
+            return element.findElement(By.xpath(childXPath)).getText();
+        } catch (NoSuchElementException e) {
+            return null;
+        }
     }
 }

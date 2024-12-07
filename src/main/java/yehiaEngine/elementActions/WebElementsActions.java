@@ -58,8 +58,8 @@ public class WebElementsActions {
             if (driver instanceof AppiumDriver appiumDriver)
             {
                 getFluentWait(appiumDriver).until(f -> {
-                    new Actions(driver).moveToElement(driver.findElement(locator)).click().perform();
-                    driver.findElement(locator).click();
+                    new Actions(appiumDriver).moveToElement(appiumDriver.findElement(locator)).perform();
+                    appiumDriver.findElement(locator).click();
                     return true;
                 });
             }
@@ -72,7 +72,7 @@ public class WebElementsActions {
                 });
             }
             LogHelper.logInfoStep("Clicking on Element ["+elementName+"]");
-        }catch (ElementNotInteractableException e)
+        }catch (ElementNotInteractableException | TimeoutException e)
         //If Webdriver Click fails and fluent wait throw Timeout Exception, Try to click using JS
         {
             try {
@@ -88,13 +88,13 @@ public class WebElementsActions {
 
     //Pressing on Button or Link (By WebElement) & Log CLicking Action
     public WebElementsActions press(WebElement element) {
-        String elementName = element.getAccessibleName();
+        String elementName = element.getText();
         checkElementEnabled(element,elementName);
         try {
             if (driver instanceof AppiumDriver appiumDriver)
             {
                 getFluentWait(appiumDriver).until(f -> {
-                    new Actions(driver).moveToElement(element).click().perform();
+                    new Actions(appiumDriver).moveToElement(element).perform();
                     element.click();
                     return true;
                 });
@@ -108,7 +108,7 @@ public class WebElementsActions {
                 });
                 LogHelper.logInfoStep("Clicking on Element ["+elementName+"]");
             }
-        }catch (ElementNotInteractableException e)
+        }catch (ElementNotInteractableException | TimeoutException e)
         //If Webdriver Click fails and fluent wait throw Timeout Exception, Try to click using JS
         {
             try {

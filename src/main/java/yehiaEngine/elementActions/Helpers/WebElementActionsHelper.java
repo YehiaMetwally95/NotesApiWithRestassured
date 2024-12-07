@@ -82,7 +82,7 @@ public class WebElementActionsHelper {
                 return true;
             });
             //  Write Text using JavascriptExecutor in case of the data is not typed successfully
-            if (!driver.findElement(locator).getAttribute("value").equals(text)) {
+            if (driver.findElement(locator).getAttribute("value") != null && !driver.findElement(locator).getAttribute("value").equals(text)) {
                 ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', '" + text + "')",
                         driver.findElement(locator));
             }

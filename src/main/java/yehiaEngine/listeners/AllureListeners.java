@@ -2,11 +2,6 @@ package yehiaEngine.listeners;
 
 import io.qameta.allure.listener.FixtureLifecycleListener;
 import io.qameta.allure.model.FixtureResult;
-import org.testng.ITestResult;
-import org.testng.Reporter;
-import yehiaEngine.loggers.AllureReportLogger;
-
-import static yehiaEngine.loggers.LogHelper.logErrorStep;
 
 public class AllureListeners implements FixtureLifecycleListener {
 
@@ -33,7 +28,7 @@ public class AllureListeners implements FixtureLifecycleListener {
 
     @Override
     public void beforeFixtureStop(FixtureResult result) {
-        try{
+  /*      try{
             //Upload the Log Files to Allure Report
             ITestResult testResult = Reporter.getCurrentTestResult();
             String method = testResult.getMethod().getMethodName();
@@ -50,7 +45,7 @@ public class AllureListeners implements FixtureLifecycleListener {
                 AllureReportLogger.uploadLogFileIntoAllure("Configuration - " + method+"-"+testResult.getTestClass().getRealClass().getSimpleName()+"-"+MethodListeners.afterMethodInvocationCount);
         }catch (Exception e){
             logErrorStep("Failed to Upload Log Files to Allure Report",e);
-        }
+        }*/
 
     }
 
