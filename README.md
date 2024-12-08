@@ -9,9 +9,11 @@
   - Statically from Json Files createad for each test, containing static test data --> (usually requires update before test cases that needs unique data or test cases that write on test data)
   - Dynamically using TimeStamp "for Unique Data" and DataFaker "for Descriptive Data", for Generating Dynamic and Unique Test Data --> (doesn't require any updates for any tests)
 - Used Design Pattern
-  -	Builder Pattern for Constructing Request Pojo Class with input parameters step by step in fluent manner to build the Request Body
-  - Fluent Object Model Design Pattern in writing Test Script, thus chaining all Steps and different requests sent for the E2E scenario and all validations on recieved responses in One Line of Code
-  - Fluent Facade Design Pattern for abstracting/hiding unnecessary requests and encapsulate them into high level steps, thus making the script more short and readable for anyone
+  - Object Model Design by setting two Object Model Classes that hold actions on Request and Response of every Endpoint
+  - Builder Pattern for Constructing Request Pojo Class with input parameters step by step in fluent manner to build the Request Body
+  - Fluent Object Model in writing Test Script, Thus chaining all Steps, Sent Requests and Validations on Responses in One Line of Code for E2E Scenario
+  - Fluent Facade Design Pattern for abstracting/hiding unnecessary requests and encapsulate them into high level steps, thus making the script more short and readable for anyone 
+  - With Help of Facade, Execute the same Request several times (like Create Multiple Notes) in one line of code
 - Execute the same Request several times (like Create Multiple Notes) in one line of code with help of Fluent Facade Design	
 - Using APIManager Util that provide abstracted methods for sending all kind of requests and for different manipulations on API response
 - Allure Report for the Following:
