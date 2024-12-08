@@ -130,7 +130,7 @@ public class AppiumFactory {
 
         else if (executionType.equalsIgnoreCase("BrowserStack"))
         {
-            cap.setCapability("appium:platformName","android");
+            cap.setCapability("platformName","android");
             cap.setCapability("appium:platformVersion",platformVersion+".0");
             //Application Capabilities for Native App
             if (appType.equalsIgnoreCase("NativeAndroid"))

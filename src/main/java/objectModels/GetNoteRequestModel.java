@@ -7,6 +7,8 @@ import io.restassured.response.Response;
 import pojoClasses.GetNoteRequestPojo;
 import pojoClasses.GetNoteResponsePojo;
 
+import java.util.Map;
+
 import static yehiaEngine.managers.ApisManager.*;
 import static yehiaEngine.managers.PropertiesManager.getPropertiesValue;
 

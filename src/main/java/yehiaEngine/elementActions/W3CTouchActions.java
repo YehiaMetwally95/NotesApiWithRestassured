@@ -51,7 +51,6 @@ public class W3CTouchActions {
         String elementName = getElementName(driver, targetLocator);
         //Check if Element is Enabled on Page (Not Disabled)
         checkElementEnabled(driver, targetLocator, elementName);
-
         //Execute the Tap Action
         try {
             getFluentWait(driver).until(f -> {

@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="Test">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/GetNoteRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/GetNoteRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/LoginRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/LoginRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objectModels/UpdateNoteRequestModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,62 +56,62 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Batch.Open_Allure_Report.executor": "Run",
-    "Docker.resources.json-server: Compose Deployment.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TestNG.CreateNewNote.createNewNoteByDynamicRandomData.executor": "Run",
-    "TestNG.CreateNewNote.createNewNoteByStaticDataFromJsonFile.executor": "Run",
-    "TestNG.CreateNewNote.executor": "Run",
-    "TestNG.CreateNewNoteFacade.createMultipleNotesFacade.executor": "Run",
-    "TestNG.CreateNewNoteFacade.createNewNote.executor": "Run",
-    "TestNG.CreateNewNoteFacade.createNewNoteFacade.executor": "Run",
-    "TestNG.CreateNewNoteFacade.executor": "Run",
-    "TestNG.CreateNewUser.createNewUserByDynamicRandomData.executor": "Run",
-    "TestNG.CreateNewUser.createNewUserByStaticDataFromJsonFile.executor": "Run",
-    "TestNG.CreateNewUser.createNewUserThenLogin.executor": "Run",
-    "TestNG.CreateNewUserFacade.createNewUserWithDynamicRandomData.executor": "Run",
-    "TestNG.CreateNewUserFacade.createNewUserWithDynamicRandomDataFacade.executor": "Run",
-    "TestNG.CreateNote.createNewNode.executor": "Run",
-    "TestNG.CreateNote.createNewNodeWithFacadeDesign.executor": "Run",
-    "TestNG.Login.loginWithExistingUser.executor": "Run",
-    "TestNG.Login.loginWithExistingUserWithFacadeDesign.executor": "Run",
-    "TestNG.Register.registerNewUser.executor": "Run",
-    "TestNG.Register.registerNewUserByDynamicDataFromTimeStamp.executor": "Run",
-    "TestNG.Register.registerNewUserByStaticDataFromMockServer.executor": "Run",
-    "TestNG.Register.test.executor": "Run",
-    "TestNG.Test1.PostwithRequestBodyfromJsonObjectAsContentTypeIsJson.executor": "Run",
-    "TestNG.Test1.PostwithRequestBodyfromPojoAsContentTypeIsFormData.executor": "Run",
-    "TestNG.Test1.PostwithRequestBodyfromPojoAsContentTypeIsJson.executor": "Run",
-    "TestNG.Test1.testmethod1.executor": "Run",
-    "TestNG.Test1.testmethod2.executor": "Run",
-    "TestNG.UpdateNote.executor": "Run",
-    "TestNG.UpdateNote.updateExistingNote.executor": "Run",
-    "TestNG.UpdateNoteFacade.executor": "Run",
-    "TestNG.UpdateNoteFacade.updateExistingNote.executor": "Run",
-    "TestNG.UpdateNoteStatus.executor": "Run",
-    "TestNG.UpdateNoteStatus.updateNoteStatus.executor": "Run",
-    "TestNG.UpdateNoteStatus.updateNoteStatusWithFacadeDesign.executor": "Run",
-    "TestNG.UpdateUserPassword.changeUserPassword.executor": "Run",
-    "TestNG.UpdateUserPassword.executor": "Run",
-    "TestNG.UpdateUserPasswordFacade.executor": "Run",
-    "TestNG.UpdateUserPasswordFacade.updateUserPassword.executor": "Run",
-    "TestNG.UpdateUserPasswordFacade.updateUserPasswordFacade.executor": "Run",
-    "TestNG.test.test.executor": "Run",
-    "TestNG.tests.CreateNewNote.executor": "Run",
-    "TestNG.tests.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "F:/Automation Projects/NotesApiWithRestassured",
-    "onboarding.tips.debug.path": "C:/Users/Yehia.Metwally/OneDrive/yehia/Desktop/AutomatestProject/NotesAPI/src/main/java/io/github/YehiaMetwally95/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Batch.Open_Allure_Report.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.resources.json-server: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TestNG.CreateNewNote.createNewNoteByDynamicRandomData.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateNewNote.createNewNoteByStaticDataFromJsonFile.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateNewNote.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateNewNoteFacade.createMultipleNotesFacade.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateNewNoteFacade.createNewNote.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateNewNoteFacade.createNewNoteFacade.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateNewNoteFacade.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateNewUser.createNewUserByDynamicRandomData.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateNewUser.createNewUserByStaticDataFromJsonFile.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateNewUser.createNewUserThenLogin.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateNewUserFacade.createNewUserWithDynamicRandomData.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateNewUserFacade.createNewUserWithDynamicRandomDataFacade.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateNote.createNewNode.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateNote.createNewNodeWithFacadeDesign.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Login.loginWithExistingUser.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Login.loginWithExistingUserWithFacadeDesign.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Register.registerNewUser.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Register.registerNewUserByDynamicDataFromTimeStamp.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Register.registerNewUserByStaticDataFromMockServer.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Register.test.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Test1.PostwithRequestBodyfromJsonObjectAsContentTypeIsJson.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Test1.PostwithRequestBodyfromPojoAsContentTypeIsFormData.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Test1.PostwithRequestBodyfromPojoAsContentTypeIsJson.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Test1.testmethod1.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Test1.testmethod2.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.UpdateNote.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.UpdateNote.updateExistingNote.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.UpdateNoteFacade.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.UpdateNoteFacade.updateExistingNote.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.UpdateNoteStatus.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.UpdateNoteStatus.updateNoteStatus.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.UpdateNoteStatus.updateNoteStatusWithFacadeDesign.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.UpdateUserPassword.changeUserPassword.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.UpdateUserPassword.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.UpdateUserPasswordFacade.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.UpdateUserPasswordFacade.updateUserPassword.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.UpdateUserPasswordFacade.updateUserPasswordFacade.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.test.test.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.tests.CreateNewNote.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.tests.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Automation Projects/AutomationExerciseWithSelenium4&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Yehia.Metwally/OneDrive/yehia/Desktop/AutomatestProject/NotesAPI/src/main/java/io/github/YehiaMetwally95/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="objectModels" />
@@ -442,7 +445,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733622334114</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Test">
+      <option name="closed" value="true" />
+      <created>1733622447993</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1733622447993</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -49,7 +49,8 @@ public class LoginRequestModel {
     public LoginResponseModel sendLoginRequest() throws JsonProcessingException {
 
         response =
-                MakeRequest("Post", loginEndpoint, requestObject, "application/x-www-form-urlencoded");
+                MakeRequest("Post", loginEndpoint, requestObject,
+                        "application/x-www-form-urlencoded");
 
         responseBodyAsString = getResponseBody(response);
         mapper = new JsonMapper();

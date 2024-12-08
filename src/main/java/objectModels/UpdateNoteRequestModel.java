@@ -60,8 +60,8 @@ public class UpdateNoteRequestModel {
     public UpdateNoteResponseModel sendUpdateNoteRequest() throws JsonProcessingException {
 
         response =
-                MakeAuthRequest("Put", updateNoteEndpoint+noteID
-                        ,requestObject,"application/x-www-form-urlencoded","X-Auth-Token",
+                MakeAuthRequest("Put", updateNoteEndpoint+noteID,requestObject
+                        ,"application/x-www-form-urlencoded","X-Auth-Token",
                         null,null,token);
 
         responseBodyAsString = getResponseBody(response);
