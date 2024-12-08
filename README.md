@@ -22,3 +22,16 @@
 
 ## Application Under Test
 - Notes API https://practice.expandtesting.com/notes/api/api-docs/#/
+
+💥💥💥Videos:
+- Review Project Structure
+  https://lnkd.in/dcKGBJAi
+
+- Run Test of Update Note Class and Extract Allure Report
+  https://lnkd.in/dtqUpe6f
+
+- Run Regression Tests through Pipeline using GitHub Actions & Extracting Allure Reports for Facade Design Tests and Non-Facade Design Tests
+  https://lnkd.in/d966mURe
+
+- Allure Reports for Regression Tests Executed on CICD Pipeline
+  https://lnkd.in/dXPtxYvi

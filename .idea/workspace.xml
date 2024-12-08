@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/screenshots/SuccessfulTests/addProductToCartByDragAndDrop.png" afterDir="false" />
+    <list default="true" id="a270fe9f-c395-4917-8dd4-473b0ba92f34" name="Changes" comment="Test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/driverManager/AppiumFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/driverManager/AppiumFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/Helpers/NativeAndroidActionsHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/Helpers/NativeAndroidActionsHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/Helpers/WebElementActionsHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/Helpers/WebElementActionsHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/NativeAndroidActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/NativeAndroidActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/WebElementsActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/WebElementsActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/API.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/API.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/MobileApp.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/MobileApp.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/WebApp.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/WebApp.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +38,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/YehiaMetwally95/NotesApiWithRestassured&quot;,
-    &quot;accountId&quot;: &quot;8e0ad561-fc41-4f51-bc0c-601cdc47f971&quot;
+    &quot;accountId&quot;: &quot;654f9742-5c3f-4708-bc64-294b3e94f92d&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -111,7 +102,7 @@
     "TestNG.tests.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/AutomatestProject/NotesAPI/src/main/resources",
+    "last_opened_file_path": "F:/Automation Projects/NotesApiWithRestassured",
     "onboarding.tips.debug.path": "C:/Users/Yehia.Metwally/OneDrive/yehia/Desktop/AutomatestProject/NotesAPI/src/main/java/io/github/YehiaMetwally95/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -124,11 +115,11 @@
       <recent name="objectModels" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Automation Projects\NotesApiWithRestassured\src\main\resources\propertiesFiles" />
+      <recent name="F:\Automation Projects\NotesApiWithRestassured\src\main\java" />
       <recent name="D:\AutomatestProject\NotesAPI\src\main\resources" />
       <recent name="D:\AutomatestProject\NotesAPI\src\main\java" />
       <recent name="D:\AutomatestProject\NotesAPI\src\main" />
-      <recent name="D:\AutomatestProject\NotesAPI" />
-      <recent name="D:\AutomatestProject\NotesAPI\src\main\java\yehiaEngine" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\AutomatestProject\NotesAPI\src\test\resources\Test_Data_Json_Files" />
@@ -436,7 +427,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732180847052</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Test">
+      <option name="closed" value="true" />
+      <created>1733611536440</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1733611536440</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
