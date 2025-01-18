@@ -6,20 +6,24 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import pojoClasses.CreateNoteRequestPojo;
 import pojoClasses.CreateNoteResponsePojo;
+import pojoClasses.LoginResponsePojo;
+import pojoClasses.UpdateNoteRequestPojo;
+
 import java.util.Arrays;
 
-import static yehiaEngine.managers.ApisManager.MakeAuthRequest;
-import static yehiaEngine.managers.ApisManager.getResponseBody;
+import static yehiaEngine.managers.ApisManager.*;
 import static yehiaEngine.managers.PropertiesManager.getPropertiesValue;
 import static yehiaEngine.utilities.RandomDataGenerator.*;
+import static yehiaEngine.managers.ApisManager.ContentType.*;
+import static yehiaEngine.managers.ApisManager.MethodType.*;
+import static yehiaEngine.managers.ApisManager.AuthType.*;
+import static yehiaEngine.managers.ApisManager.ParameterType.*;
 
 public class CreateNoteRequestModel {
 
     //Variables
     String createNoteEndpoint = getPropertiesValue("baseUrlApi")+"notes/";
-    String responseBodyAsString;
     Response response;
-    JsonMapper mapper;
 
     String token;
 
@@ -34,9 +38,8 @@ public class CreateNoteRequestModel {
 
     @Step("Prepare CreateNote Request Statically from Json File")
     //Method to get Request Body inputs from Json File Statically
-    public CreateNoteRequestModel prepareCreateNoteRequestFromJsonFile(String noteData) throws JsonProcessingException {
-        mapper = new JsonMapper();
-        requestObject = mapper.readValue(noteData, CreateNoteRequestPojo.class);
+    public CreateNoteRequestModel prepareCreateNoteRequestFromJsonFile(String noteData) {
+        requestObject = mapJsonStringToPojoClass(noteData, CreateNoteRequestPojo.class);
         return this;
     }
 
@@ -53,17 +56,12 @@ public class CreateNoteRequestModel {
 
     @Step("Send CreateNote Request")
     //Method to Execute CreateNode Request
-    public CreateNoteResponseModel sendCreateNoteRequest() throws JsonProcessingException {
+    public CreateNoteResponseModel sendCreateNoteRequest() {
 
-        response =
-                MakeAuthRequest("Post", createNoteEndpoint,requestObject,
-                        "application/x-www-form-urlencoded","X-Auth-Token",
-                        null,null,token);
+        response = MakeAuthRequest(POST, createNoteEndpoint,requestObject,URLENCODED,
+                XAuthToken,token,null,null);
 
-        responseBodyAsString = getResponseBody(response);
-        mapper = new JsonMapper();
-
-        responseObject = mapper.readValue(responseBodyAsString, CreateNoteResponsePojo.class);
+        responseObject = mapResponseToPojoClass(response, CreateNoteResponsePojo.class);
 
         return new CreateNoteResponseModel(requestObject,responseObject,token);
     }
@@ -71,10 +69,11 @@ public class CreateNoteRequestModel {
     //Facade Method
     @Step("Create new Note")
     public UpdateNoteRequestModel createNewNote(String noteJsonObject,String title,
-                                                String description,String category,String noteStatus) throws JsonProcessingException {
+                                                String description,String category,String noteStatus) {
         return prepareCreateNoteRequestFromJsonFile(noteJsonObject)
                 .sendCreateNoteRequest()
                 .getNoteId()
+                .prepareGetNoteRequestWithNoteID()
                 .sendGetNoteRequest()
                 .validateTitleFromResponse(title)
                 .validateDescriptionFromResponse(description)
@@ -84,7 +83,7 @@ public class CreateNoteRequestModel {
     }
 
     @Step("Create new Note")
-    public UpdateNoteRequestModel createNewNoteWithDynamicRandomValues() throws JsonProcessingException {
+    public UpdateNoteRequestModel createNewNoteWithDynamicRandomValues() {
         return prepareCreateNoteRequestWithRandomValues()
                 .sendCreateNoteRequest()
                 .validateStatusFromResponse("200")
@@ -93,6 +92,7 @@ public class CreateNoteRequestModel {
                 .validateCategoryFromResponse()
                 .validateNoteStatusFromResponse()
                 .getNoteId()
+                .prepareGetNoteRequestWithNoteID()
                 .sendGetNoteRequest()
                 .validateStatusFromResponse("200")
                 .getNoteId();

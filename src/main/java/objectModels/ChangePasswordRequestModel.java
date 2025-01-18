@@ -6,12 +6,16 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import pojoClasses.ChangePasswordRequestPojo;
 import pojoClasses.ChangePasswordResponsePojo;
+import pojoClasses.CreateNoteResponsePojo;
 import pojoClasses.LoginRequestPojo;
 
-import static yehiaEngine.managers.ApisManager.MakeAuthRequest;
-import static yehiaEngine.managers.ApisManager.getResponseBody;
+import static yehiaEngine.managers.ApisManager.*;
 import static yehiaEngine.managers.PropertiesManager.getPropertiesValue;
 import static yehiaEngine.utilities.RandomDataGenerator.generateStrongPassword;
+import static yehiaEngine.managers.ApisManager.ContentType.*;
+import static yehiaEngine.managers.ApisManager.MethodType.*;
+import static yehiaEngine.managers.ApisManager.AuthType.*;
+import static yehiaEngine.managers.ApisManager.ParameterType.*;
 
 public class ChangePasswordRequestModel {
     //Variables
@@ -49,23 +53,19 @@ public class ChangePasswordRequestModel {
 
     @Step("Send ChangePassword Request")
     //Method to Execute ChangePassword Request
-    public ChangePasswordResponseModel sendChangePasswordRequest() throws JsonProcessingException {
+    public ChangePasswordResponseModel sendChangePasswordRequest() {
 
-        response =
-                MakeAuthRequest("Post", changePasswordEndpoint,requestObject,
-                        "application/json","X-Auth-Token",
-                        null,null,token);
-        responseBodyAsString = getResponseBody(response);
-        mapper = new JsonMapper();
+        response = MakeAuthRequest(POST,changePasswordEndpoint,requestObject,URLENCODED,
+                XAuthToken,token,null,null);
 
-        responseObject = mapper.readValue(responseBodyAsString, ChangePasswordResponsePojo.class);
+        responseObject = mapResponseToPojoClass(response, ChangePasswordResponsePojo.class);
 
         return new ChangePasswordResponseModel(requestObject, responseObject,userEmail);
     }
 
     //Facade Method
     @Step("Change User Password")
-    public LoginRequestPojo changeUserPassword() throws JsonProcessingException {
+    public LoginRequestPojo changeUserPassword() {
         return prepareChangePasswordRequestWithRandomPassword()
                 .sendChangePasswordRequest()
                 .validateStatusFromResponse("200")

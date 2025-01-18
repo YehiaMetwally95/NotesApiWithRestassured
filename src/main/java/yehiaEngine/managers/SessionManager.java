@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import yehiaEngine.browserActions.WindowManager;
 import yehiaEngine.loggers.LogHelper;
 
-import java.io.IOException;
 import java.util.Date;
 
 import static yehiaEngine.managers.CookiesManager.addCookie;
@@ -51,7 +50,7 @@ public class SessionManager {
     }
 
     // Store Cookies Data in Json File If login success for each time
-    public void storeSessionCookies(String userName) throws IOException {
+    public void storeSessionCookies(String userName) {
         try {
             JsonObject sessionObj = new JsonObject();
             sessionObj.addProperty("username", userName);
@@ -65,7 +64,7 @@ public class SessionManager {
     }
 
     //Apply the Stored Cookies Data on Json File to the Current Session
-    public void applyCookiesToCurrentSession() throws IOException {
+    public void applyCookiesToCurrentSession() {
         try {
             //Delete All Cookies
             deleteAllCookies(driver);

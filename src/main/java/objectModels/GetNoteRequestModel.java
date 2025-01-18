@@ -6,7 +6,13 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import pojoClasses.GetNoteRequestPojo;
 import pojoClasses.GetNoteResponsePojo;
+import pojoClasses.LoginResponsePojo;
+import pojoClasses.UpdateNoteRequestPojo;
 
+import static yehiaEngine.managers.ApisManager.ContentType.*;
+import static yehiaEngine.managers.ApisManager.MethodType.*;
+import static yehiaEngine.managers.ApisManager.AuthType.*;
+import static yehiaEngine.managers.ApisManager.ParameterType.*;
 import java.util.Map;
 
 import static yehiaEngine.managers.ApisManager.*;
@@ -15,10 +21,8 @@ import static yehiaEngine.managers.PropertiesManager.getPropertiesValue;
 public class GetNoteRequestModel {
 
     //Variables
-    String getNoteEndpoint = getPropertiesValue("baseUrlApi")+"notes/";
-    String responseBodyAsString;
+    String getNoteEndpoint = getPropertiesValue("baseUrlApi")+"notes/{id}";
     Response response;
-    JsonMapper mapper;
 
     String noteID;
     String token;
@@ -34,18 +38,23 @@ public class GetNoteRequestModel {
     GetNoteRequestPojo requestObject;
     GetNoteResponsePojo responseObject;
 
+    @Step("Prepare Get Note Request With Note ID")
+    //Method to get Request Body inputs from Json File Statically
+    public GetNoteRequestModel prepareGetNoteRequestWithNoteID() {
+        requestObject = GetNoteRequestPojo.builder()
+                .id(noteID)
+                .build();
+        return this;
+    }
+
     @Step("Send GetNote Request")
     //Method to Execute Get Note Request
-    public GetNoteResponseModel sendGetNoteRequest() throws JsonProcessingException {
+    public GetNoteResponseModel sendGetNoteRequest() {
 
-        response =
-                GetAuthRequest(getNoteEndpoint+noteID,null,
-                        "X-Auth-Token",null,null,token);
+        response = GetAuthRequest(getNoteEndpoint,PATH,requestObject,
+                XAuthToken,token,null,null);
 
-        responseBodyAsString = getResponseBody(response);
-        mapper = new JsonMapper();
-
-        responseObject = mapper.readValue(responseBodyAsString, GetNoteResponsePojo.class);
+        responseObject = mapResponseToPojoClass(response, GetNoteResponsePojo.class);
 
         return new GetNoteResponseModel(requestObject,responseObject,token);
     }

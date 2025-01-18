@@ -81,11 +81,28 @@ public class WebElementActionsHelper {
                 driver.findElement(locator).sendKeys(text);
                 return true;
             });
+            LogHelper.logInfoStep("Typing ["+text+"] on Element ["+elementName+"]");
             //  Write Text using JavascriptExecutor in case of the data is not typed successfully
-            if (driver.findElement(locator).getAttribute("value") != null && !driver.findElement(locator).getAttribute("value").equals(text)) {
+            if (driver.findElement(locator).getDomAttribute("value") != null && !driver.findElement(locator).getAttribute("value").equals(text)) {
                 ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', '" + text + "')",
                         driver.findElement(locator));
+                LogHelper.logInfoStep("Typing ["+text+"] on Element ["+elementName+"] Using JS");
             }
+
+        }catch (Exception e)
+        {
+            LogHelper.logErrorStep("Failed to Type ["+text+"] on Element ["+elementName+"]",e);
+        }
+    }
+
+    public static void writeTextDateTime(WebDriver driver,By locator, String elementName, String text)
+    {
+        // Write Text on TextBox Element using the Selenium sendKeys method
+        try{
+            WaitsManager.getFluentWait(driver).until(f -> {
+                driver.findElement(locator).sendKeys(text);
+                return true;
+            });
             LogHelper.logInfoStep("Typing ["+text+"] on Element ["+elementName+"]");
 
         }catch (Exception e)
@@ -102,9 +119,15 @@ public class WebElementActionsHelper {
                 return true;
             });
             LogHelper.logInfoStep("Clearing the Text on Element ["+elementName+"]");
-        }catch (Exception e)
+        }catch (InvalidElementStateException e)
         {
-            LogHelper.logErrorStep("Failed to Clear the Text on Element ["+elementName+"]",e);
+            try{
+                ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', '')",
+                        driver.findElement(locator));
+                LogHelper.logInfoStep("Clearing the Text on Element ["+elementName+"] Using JS");
+            }catch (Exception f){
+                LogHelper.logErrorStep("Failed to Clear the Text on Element ["+elementName+"]",e);
+            }
         }
     }
 }

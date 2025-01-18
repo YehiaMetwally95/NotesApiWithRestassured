@@ -20,7 +20,7 @@ import java.net.URL;
 public class BrowserFactory {
     private static final ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();;
 
-    private static final String browserType = System.getProperty("browserType");
+    private static String browserType = System.getProperty("browserType");
     private static final String executionType = System.getProperty("executionType");
     private static final String remoteExecutionHost = System.getProperty("remoteExecutionHost");
     private static final String remoteExecutionPort = System.getProperty("remoteExecutionPort");
@@ -28,23 +28,24 @@ public class BrowserFactory {
     public static ThreadLocal<RemoteWebDriver> openBrowser() throws MalformedURLException {
         ITestResult result = Reporter.getCurrentTestResult();
         ITestContext context = result.getTestContext();
+
         if (executionType.equalsIgnoreCase("Local") || executionType.equalsIgnoreCase("LocalHeadless"))
         {
-            switch (browserType)
+            switch (BrowserFactory.browserType)
             {
                 case "Chrome" :
                     driver.set(new ChromeDriver(getChromeOptions()));
-                    LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
+                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
                     break;
 
                 case "Firefox" :
                     driver.set(new FirefoxDriver(getFireFoxOptions()));
-                    LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
+                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
                     break;
 
                 case "Edge" :
                     driver.set(new EdgeDriver(getEdgeOptions()));
-                    LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
+                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
                     break;
                 default:
                     LogHelper.logErrorStep("Failed to Start Browser, The Input Browser Name is Incorrect");
@@ -53,14 +54,14 @@ public class BrowserFactory {
 
         else if (executionType.equalsIgnoreCase("Remote"))
         {
-            switch (browserType)
+            switch (BrowserFactory.browserType)
             {
                 case "Chrome" :
                     driver.set(new RemoteWebDriver(
                             new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
                             ,getChromeOptions()));
                     driver.get().setFileDetector(new LocalFileDetector());
-                    LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
+                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
                     break;
 
                 case "Firefox" :
@@ -68,7 +69,7 @@ public class BrowserFactory {
                             new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
                             ,getFireFoxOptions()));
                     driver.get().setFileDetector(new LocalFileDetector());
-                    LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
+                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
                     break;
 
                 case "Edge" :
@@ -76,7 +77,7 @@ public class BrowserFactory {
                             new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
                             ,getEdgeOptions()));
                     driver.get().setFileDetector(new LocalFileDetector());
-                    LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
+                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
                     break;
                 default:
                     LogHelper.logErrorStep("Failed to Start Browser, The Input Browser Name is Incorrect");
@@ -88,11 +89,79 @@ public class BrowserFactory {
         return driver;
     }
 
+    public static ThreadLocal<RemoteWebDriver> openBrowser(String browserType) throws MalformedURLException {
+        ITestResult result = Reporter.getCurrentTestResult();
+        ITestContext context = result.getTestContext();
+        if (browserType != null && !browserType.isEmpty())
+            BrowserFactory.browserType = browserType;
+
+        if (executionType.equalsIgnoreCase("Local") || executionType.equalsIgnoreCase("LocalHeadless"))
+        {
+            switch (BrowserFactory.browserType)
+            {
+                case "Chrome" :
+                    driver.set(new ChromeDriver(getChromeOptions()));
+                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
+                    break;
+
+                case "Firefox" :
+                    driver.set(new FirefoxDriver(getFireFoxOptions()));
+                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
+                    break;
+
+                case "Edge" :
+                    driver.set(new EdgeDriver(getEdgeOptions()));
+                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
+                    break;
+                default:
+                    LogHelper.logErrorStep("Failed to Start Browser, The Input Browser Name is Incorrect");
+            }
+        }
+
+        else if (executionType.equalsIgnoreCase("Remote"))
+        {
+            switch (BrowserFactory.browserType)
+            {
+                case "Chrome" :
+                    driver.set(new RemoteWebDriver(
+                            new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
+                            ,getChromeOptions()));
+                    driver.get().setFileDetector(new LocalFileDetector());
+                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
+                    break;
+
+                case "Firefox" :
+                    driver.set(new RemoteWebDriver(
+                            new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
+                            ,getFireFoxOptions()));
+                    driver.get().setFileDetector(new LocalFileDetector());
+                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
+                    break;
+
+                case "Edge" :
+                    driver.set(new RemoteWebDriver(
+                            new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
+                            ,getEdgeOptions()));
+                    driver.get().setFileDetector(new LocalFileDetector());
+                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
+                    break;
+                default:
+                    LogHelper.logErrorStep("Failed to Start Browser, The Input Browser Name is Incorrect");
+            }
+        }
+        //Set the Logger Classes with the driver
+        context.setAttribute("isolatedWebDriver",driver);
+
+        return driver;
+    }
+
+
     private static ChromeOptions getChromeOptions()
     {
         ChromeOptions option = new ChromeOptions();
         option.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         option.addArguments("--start-maximized");
+        option.setAcceptInsecureCerts(true);
         if (executionType.equalsIgnoreCase("LocalHeadless") || executionType.equalsIgnoreCase("Remote"))
             option.addArguments("--headless");
 
@@ -104,6 +173,7 @@ public class BrowserFactory {
         EdgeOptions option = new EdgeOptions();
         option.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         option.addArguments("--start-maximized");
+        option.setAcceptInsecureCerts(true);
         if (executionType.equalsIgnoreCase("LocalHeadless") || executionType.equalsIgnoreCase("Remote"))
             option.addArguments("--headless");
 
@@ -114,6 +184,7 @@ public class BrowserFactory {
     {
         FirefoxOptions option = new FirefoxOptions();
         option.addArguments("--start-minimized");
+        option.setAcceptInsecureCerts(true);
         if (executionType.equalsIgnoreCase("LocalHeadless") || executionType.equalsIgnoreCase("Remote"))
             option.addArguments("--headless");
 

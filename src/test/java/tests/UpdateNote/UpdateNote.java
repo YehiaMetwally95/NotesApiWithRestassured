@@ -31,6 +31,7 @@ public class UpdateNote {
 
                 //Get Note ID from CreateNote Request to Pass it & Prepare GetNote Request then Send it
                 .getNoteId()
+                .prepareGetNoteRequestWithNoteID()
                 .sendGetNoteRequest()
 
                 //Get Note ID from GetNote Request to Pass it & Prepare UpdateNote Request then Send it
@@ -45,6 +46,7 @@ public class UpdateNote {
 
                 //Get Note ID from UpdateNote Request to Pass it & Prepare GetNote Request then Send it
                 .getNoteID()
+                .prepareGetNoteRequestWithNoteID()
                 .sendGetNoteRequest()
 
                 //Validate Note Data are Updated Correctly

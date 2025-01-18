@@ -10,6 +10,7 @@ import yehiaEngine.loggers.LogHelper;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static yehiaEngine.elementActions.Helpers.WaitsManager.getExplicitWait;
 import static yehiaEngine.elementActions.Helpers.WaitsManager.getFluentWait;
 import static yehiaEngine.elementActions.Helpers.WebElementActionsHelper.*;
 
@@ -42,6 +43,22 @@ public class WebElementsActions {
         return this;
     }
 
+    // Clear TextBox then Typing on it & Log Typing Action
+    public WebElementsActions typeDateTime (By locator , String text) {
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,locator);
+        //Check if Element is Displayed and Visible on Page
+        checkElementDisplayed(driver,locator);
+        //Get Element AccessibleName
+        String elementName = getElementName(driver,locator);
+        //Check if Element is Enabled on Page (Not Disabled)
+        checkElementEnabled(driver,locator,elementName);
+        //Take Action on Element
+        clearText(driver,locator,elementName);
+        writeTextDateTime(driver,locator,elementName,text);
+        return this;
+    }
+
     //Pressing on Button or Link & Log CLicking Action
     public WebElementsActions press(By locator) {
         //Locate Element and Check if its present on DOM
@@ -55,7 +72,7 @@ public class WebElementsActions {
         //Take Action on Element
         try {
             getFluentWait(driver).until(f -> {
-                new Actions(driver).moveToElement(driver.findElement(locator)).perform();
+              //  new Actions(driver).moveToElement(driver.findElement(locator)).perform();
                 driver.findElement(locator).click();
                 return true;
             });
@@ -151,6 +168,37 @@ public class WebElementsActions {
             return false;
         }
         return true;
+    }
+
+    //Verify Element is Displayed on Page
+    public boolean isElementDisplayedWithoutWait(By locator){
+        try{
+            //Wait until Element is Displayed on Page
+            getExplicitWait(driver).until(f -> driver.findElement(locator).isDisplayed());
+            //Get Element Accessible Name
+            String elementName = getElementName(driver,locator);
+            LogHelper.logInfoStep("The Element [" + elementName + "] is Displayed");
+
+        }catch(TimeoutException e){
+            LogHelper.logInfoStep("The Element located by [" + locator.toString() + "] is not Displayed");
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isElementNotDisplayedWithoutWait(By locator){
+        try{
+            //Wait until Element is Displayed on Page
+            getExplicitWait(driver).until(f -> driver.findElement(locator).isDisplayed());
+            //Get Element Accessible Name
+            String elementName = getElementName(driver,locator);
+            LogHelper.logInfoStep("The Element [" + elementName + "] is Displayed");
+
+        }catch(TimeoutException e){
+            LogHelper.logInfoStep("The Element located by [" + locator.toString() + "] is not Displayed");
+            return true;
+        }
+        return false;
     }
 
     //Get Text from Element (with Locator) & Log the Text
@@ -252,48 +300,91 @@ public class WebElementsActions {
         }
     }
 
+    //Press on Keyboard Keys
+    public WebElementsActions pressOnKey(By locator,CharSequence... keys)
+    {
+        new Actions(driver).sendKeys(driver.findElement(locator),keys).perform();
+        return this;
+    }
+
     /**
      * *********************************  Interactions with DropDowns  *************************************
      */
     public WebElementsActions selectFromDropdownByValue(By dropdownLocator , String value)
     {
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,dropdownLocator);
+        //Check if Element is Displayed and Visible on Page
+        checkElementDisplayed(driver,dropdownLocator);
+        //Get Element Name
         String elementName = getElementName(driver,dropdownLocator);
+        //Check if Element is Enabled on Page (Not Disabled)
+        checkElementEnabled(driver,dropdownLocator,elementName);
         try {
             dropDownElement(dropdownLocator).selectByValue(value);
-            LogHelper.logInfoStep("Selecting ["+ value +"] from" + elementName);
-        }catch (Exception e){
-            LogHelper.logErrorStep("Failed to Select ["+ value +"] from" + elementName,e);
+            LogHelper.logInfoStep("Selecting ["+ value +"] from " + elementName);
+        }catch (ElementNotInteractableException e){
+            try {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].value='" + value + "';", driver.findElement(dropdownLocator));
+                LogHelper.logInfoStep("Selecting ["+ value +"] from " + elementName + " Using JS");
+            }catch (Exception f){
+                LogHelper.logErrorStep("Failed to Select ["+ value +"] from " + elementName,e);
+            }
         }
         return this;
     }
 
     public WebElementsActions selectFromDropdownByIndex(By dropdownLocator , int index)
     {
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,dropdownLocator);
+        //Check if Element is Displayed and Visible on Page
+        checkElementDisplayed(driver,dropdownLocator);
+        //Get Element Name
         String elementName = getElementName(driver,dropdownLocator);
+        //Check if Element is Enabled on Page (Not Disabled)
+        checkElementEnabled(driver,dropdownLocator,elementName);
+        //Perform Dropdown Action
         try {
             dropDownElement(dropdownLocator).selectByIndex(index);
-            LogHelper.logInfoStep("Selecting ["+ index +"] from" + elementName);
+            LogHelper.logInfoStep("Selecting ["+ index +"] from " + elementName);
         }catch (Exception e){
-            LogHelper.logErrorStep("Failed to Select ["+ index +"] from" + elementName,e);
+            LogHelper.logErrorStep("Failed to Select ["+ index +"] from " + elementName,e);
         }
         return this;
     }
 
     public WebElementsActions selectFromDropdownByText(By dropdownLocator , String text)
     {
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,dropdownLocator);
+        //Check if Element is Displayed and Visible on Page
+        checkElementDisplayed(driver,dropdownLocator);
+        //Get Element Name
         String elementName = getElementName(driver,dropdownLocator);
+        //Check if Element is Enabled on Page (Not Disabled)
+        checkElementEnabled(driver,dropdownLocator,elementName);
+        //Perform Dropdown Action
         try {
             dropDownElement(dropdownLocator).selectByVisibleText(text);
-            LogHelper.logInfoStep("Selecting ["+ text +"] from" + elementName);
+            LogHelper.logInfoStep("Selecting ["+ text +"] from " + elementName);
         }catch (Exception e){
-            LogHelper.logErrorStep("Failed to Select ["+ text +"] from" + elementName,e);
+            LogHelper.logErrorStep("Failed to Select ["+ text +"] from " + elementName,e);
         }
         return this;
     }
 
     public List<String> getAllOptionsAsString(By dropdownLocator)
     {
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,dropdownLocator);
+        //Check if Element is Displayed and Visible on Page
+        checkElementDisplayed(driver,dropdownLocator);
+        //Get Element Name
         String elementName = getElementName(driver,dropdownLocator);
+        //Check if Element is Enabled on Page (Not Disabled)
+        checkElementEnabled(driver,dropdownLocator,elementName);
+        //Perform Dropdown Action
         try {
             List<WebElement> options = dropDownElement(dropdownLocator).getOptions();
             LogHelper.logInfoStep("Retrieving All Options from List of " + elementName);
@@ -306,7 +397,15 @@ public class WebElementsActions {
 
     public String getSelectedOption(By dropdownLocator)
     {
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,dropdownLocator);
+        //Check if Element is Displayed and Visible on Page
+        checkElementDisplayed(driver,dropdownLocator);
+        //Get Element Name
         String elementName = getElementName(driver,dropdownLocator);
+        //Check if Element is Enabled on Page (Not Disabled)
+        checkElementEnabled(driver,dropdownLocator,elementName);
+        //Perform Dropdown Action
         try {
             String text = dropDownElement(dropdownLocator).getFirstSelectedOption().getText();
             LogHelper.logInfoStep("Retrieving Selected Option ["+text+"] from List of " + elementName);
@@ -319,7 +418,16 @@ public class WebElementsActions {
 
     public WebElementsActions deselectAllOptions(By dropdownLocator)
     {
+        //Locate Element and Check if its present on DOM
+        locateElement(driver,dropdownLocator);
+        //Check if Element is Displayed and Visible on Page
+        checkElementDisplayed(driver,dropdownLocator);
+        //Get Element Name
         String elementName = getElementName(driver,dropdownLocator);
+        //Check if Element is Enabled on Page (Not Disabled)
+        checkElementEnabled(driver,dropdownLocator,elementName);
+        //Perform Dropdown Action
+
         try {
             dropDownElement(dropdownLocator).deselectAll();
             LogHelper.logInfoStep("Deselecting All Options from List of " + elementName);
@@ -331,14 +439,6 @@ public class WebElementsActions {
 
     private Select dropDownElement(By dropdownLocator)
     {
-        //Locate Element and Check if its present on DOM
-        locateElement(driver,dropdownLocator);
-        //Check if Element is Displayed and Visible on Page
-        checkElementDisplayed(driver,dropdownLocator);
-        //Get Element AccessibleName
-        String elementName = getElementName(driver,dropdownLocator);
-        //Check if Element is Enabled on Page (Not Disabled)
-        checkElementEnabled(driver,dropdownLocator,elementName);
         return new Select(driver.findElement(dropdownLocator));
     }
 

@@ -8,7 +8,6 @@ import yehiaEngine.loggers.LogHelper;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,12 +25,15 @@ public class JsonManager {
     //Method to Get JsonData as String using JsonPath Expression
     public String getData(String jsonPath) {
         try {
-            String data;
+            String data = null;
         Object result = JsonPath.parse(new File(filePath)).read(jsonPath);
-        if (result.toString().contains("{"))
-            data = JsonPath.parse(result).jsonString();
-        else
-            data = result.toString();
+        if (result != null)
+        {
+            if (result.toString().contains("{"))
+                data = JsonPath.parse(result).jsonString();
+            else
+                data = result.toString();
+        }
 
         LogHelper.logInfoStep("Getting Test Data ["+data+"] by Json Path ["+jsonPath+"]");
         return data;
@@ -43,7 +45,7 @@ public class JsonManager {
     }
 
     //Method to Get JsonData as Object using JsonPath Expression
-    public Object getDataAsJson(String jsonPath) {
+    public Object getDataAsObject(String jsonPath) {
        try {
            Object data;
            Object result = JsonPath.parse(new File(filePath)).read(jsonPath);
@@ -57,6 +59,18 @@ public class JsonManager {
            LogHelper.logErrorStep("Failed to Read Test Data by Json Path ["+jsonPath+"]",e);
            return null;
        }
+    }
+
+    //Method to Get JsonData as List Of Objects using JsonPath Expression
+    public List<Object> getDataAsListOfObjects(String jsonPath) {
+        try {
+            List<Object> list = JsonPath.parse(new File(filePath)).read(jsonPath);
+            LogHelper.logInfoStep("Getting Test Data ["+list+"] by Json Path ["+jsonPath+"]");
+            return list;
+        }catch (Exception e){
+            LogHelper.logErrorStep("Failed to Get Test Data by Json Path ["+jsonPath+"]",e);
+            return null;
+        }
     }
 
     //Method to Get JsonData as JsonArray using JsonPath Expression
@@ -74,7 +88,7 @@ public class JsonManager {
     }
 
     //Method to Set Key expressed in JsonPath with new value
-    public JsonManager setData(String jsonPath, String value) throws IOException {
+    public JsonManager setData(String jsonPath, String value) {
         try {
             // Read the Json File and convert it to Json String
             String jsonString = readJsonFile(filePath).toString();
@@ -139,13 +153,37 @@ public class JsonManager {
         return gson.fromJson(jsonString,JsonObject.class);
     }
 
-    //Method to Convert Object to Map
+    //Method to Convert Json Object to Map
+    public static Map<String,Object> convertJsonObjectToMap(JsonObject jsonObject) {
+        Gson gson = new Gson();
+        Map<String, Object> map = gson.fromJson(jsonObject, new TypeToken<Map<String, Object>>(){}.getType());
+        return map;
+    }
+
+    //Method to Convert JsonString to Map
     public static  Map<String, Object> convertJsonStringToMap(Object object) {
         Gson gson = new Gson();
         String jsonString = gson.toJson(object);
         Map<String, Object> map =
                 gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {}.getType());
         return map;
+    }
+
+    //Method to Convert JsonString to JsonObject
+    public static  JsonObject convertJsonStringToJsonObject(String jsonString) {
+        JsonObject jsonObject = JsonParser.parseString(jsonString).getAsJsonObject();
+        return jsonObject;
+    }
+
+    public static boolean isJsonString(String input) {
+        try {
+            JsonElement jsonElement = JsonParser.parseString(input);
+            // Successfully parsed
+            return true;
+        } catch (JsonSyntaxException e) {
+            // Failed to parse
+            return false;
+        }
     }
 }
 

@@ -3,17 +3,19 @@ package yehiaEngine.driverManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.InteractsWithApps;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import yehiaEngine.loggers.LogHelper;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Set;
 
-import static yehiaEngine.loggers.LogHelper.logErrorStep;
-import static yehiaEngine.loggers.LogHelper.logInfoStep;
+import static yehiaEngine.loggers.LogHelper.*;
 
 public class AppiumFactory {
     private static final ThreadLocal<AppiumDriver> driver = new ThreadLocal<>();
@@ -80,8 +82,9 @@ public class AppiumFactory {
         cap.setCapability("appium:deviceName",deviceName);
         cap.setCapability("appium:udid",deviceUdid);
 
-            //Platform Capabilities
+            //Driver Capabilities
         cap.setCapability("appium:automationName",nativeAutomationDriver);
+        cap.setCapability("appium:chromedriverAutodownload","true");
 
         if (executionType.equalsIgnoreCase("Local"))
         {
@@ -98,7 +101,6 @@ public class AppiumFactory {
             //Browser Capabilities for Web-Based App
             else if (appType.equalsIgnoreCase("WebAppAndroid"))
             {
-                cap.setCapability("appium:chromedriverAutodownload","true");
                 cap.setCapability("appium:autoWebview","false");
                 cap.setCapability(CapabilityType.BROWSER_NAME,browserName);
                 cap.setCapability(CapabilityType.BROWSER_VERSION,browserVersion);
@@ -120,7 +122,6 @@ public class AppiumFactory {
             //Browser Capabilities for Web-Based App
             else if (appType.equalsIgnoreCase("WebAppAndroid"))
             {
-                cap.setCapability("appium:chromedriverAutodownload","true");
                 cap.setCapability("appium:autoWebview","false");
                 cap.setCapability(CapabilityType.BROWSER_NAME,browserName);
                 cap.setCapability(CapabilityType.BROWSER_VERSION,browserVersion);
@@ -142,7 +143,6 @@ public class AppiumFactory {
             //Browser Capabilities for Web-Based App
             else if (appType.equalsIgnoreCase("WebAppAndroid"))
             {
-                cap.setCapability("appium:chromedriverAutodownload","true");
                 cap.setCapability("appium:autoWebview","false");
                 cap.setCapability(CapabilityType.BROWSER_NAME,browserName);
                 cap.setCapability(CapabilityType.BROWSER_VERSION,browserVersion);
@@ -261,6 +261,83 @@ public class AppiumFactory {
     private static URL getAppiumServerURL () throws MalformedURLException {
         return new URL(appiumURL);
     }
+
+    public static Set<String> getAllAvailableContexts (AppiumDriver driver) {
+            // Switch to WebView
+        logInfoStep("Available Contexts are: ");
+        if (driver instanceof IOSDriver myDriver)
+        {
+            try {
+                Set<String> contexts = myDriver.getContextHandles();
+                contexts.forEach(LogHelper::logInfoStep);
+                return contexts;
+
+            }catch (Exception e){
+                logErrorStep("Failed to Get All Available Contexts",e);
+                return null;
+            }
+        }
+
+        else if (driver instanceof AndroidDriver myDriver)
+        {
+            try {
+                Set<String> contexts = myDriver.getContextHandles();
+                contexts.forEach(LogHelper::logInfoStep);
+                return contexts;
+
+            }catch (Exception e){
+                logErrorStep("Failed to Get All Available Contexts",e);
+                return null;
+            }
+        }
+        else
+            return null;
+    }
+
+    public static void switchToWebView (AppiumDriver driver, String webViewName) {
+        if (driver instanceof IOSDriver myDriver)
+        {
+            try {
+                myDriver.context(webViewName);
+                logWarningStep("Switched to WebView");
+            }catch (Exception e){
+                logErrorStep("Failed to switch to Web View",e);
+            }
+        }
+
+        else if (driver instanceof AndroidDriver myDriver)
+        {
+            try {
+                myDriver.context(webViewName);
+                logWarningStep("Switched to WebView");
+            }catch (Exception e){
+                logErrorStep("Failed to switch to Web View",e);
+            }
+        }
+    }
+
+    public static void switchToNativeView (AppiumDriver driver, String nativeViewName) {
+        if (driver instanceof IOSDriver myDriver)
+        {
+            try {
+                myDriver.context(nativeViewName);
+                logWarningStep("Switched to Native View");
+            }catch (Exception e){
+                logErrorStep("Failed to switch to Native View",e);
+            }
+        }
+
+        else if (driver instanceof AndroidDriver myDriver)
+        {
+            try {
+                myDriver.context(nativeViewName);
+                logWarningStep("Switched to Native View");
+            }catch (Exception e){
+                logErrorStep("Failed to switch to Native View",e);
+            }
+        }
+    }
+
 
     //ThreadLocal Driver
     public static AppiumDriver getDriver(ThreadLocal<AppiumDriver> isolatedDriver)

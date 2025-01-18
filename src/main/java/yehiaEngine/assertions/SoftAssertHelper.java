@@ -39,6 +39,8 @@ public class SoftAssertHelper extends SoftAssert {
 
         else if (appiumDriver != null)
             Screenshot.captureSoftFailure(AppiumFactory.getDriver(appiumDriver), assertCommand, errorMessage);
+        else
+            LogHelper.logWarningStep(errorMessage);
         errors.get().add(errorMessage); // Add error to the ThreadLocal list for this thread
     }
 

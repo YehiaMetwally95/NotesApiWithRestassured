@@ -6,18 +6,22 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import pojoClasses.LoginRequestPojo;
 import pojoClasses.LoginResponsePojo;
+import yehiaEngine.managers.ApisManager;
 
-import static yehiaEngine.managers.ApisManager.MakeRequest;
-import static yehiaEngine.managers.ApisManager.getResponseBody;
+import static yehiaEngine.loggers.LogHelper.logInfoStep;
+import static yehiaEngine.managers.ApisManager.*;
+import static yehiaEngine.managers.ApisManager.ContentType.*;
+import static yehiaEngine.managers.ApisManager.MethodType.*;
+import static yehiaEngine.managers.ApisManager.AuthType.*;
+import static yehiaEngine.managers.ApisManager.ParameterType.*;
+
 import static yehiaEngine.managers.PropertiesManager.getPropertiesValue;
 
 public class LoginRequestModel {
 
     //Variables
     String loginEndpoint = getPropertiesValue("baseUrlApi")+"users/login";
-    String responseBodyAsString;
     Response response;
-    JsonMapper mapper;
 
     //Variables from RegisterModel
     String userEmail;
@@ -46,23 +50,18 @@ public class LoginRequestModel {
 
     @Step("Send Login Request")
     //Method to Execute Login Request
-    public LoginResponseModel sendLoginRequest() throws JsonProcessingException {
+    public LoginResponseModel sendLoginRequest() {
 
-        response =
-                MakeRequest("Post", loginEndpoint, requestObject,
-                        "application/x-www-form-urlencoded");
+        response = MakeRequest(POST, loginEndpoint, requestObject,URLENCODED);
 
-        responseBodyAsString = getResponseBody(response);
-        mapper = new JsonMapper();
-
-        responseObject = mapper.readValue(responseBodyAsString, LoginResponsePojo.class);
+        responseObject = mapResponseToPojoClass(response,LoginResponsePojo.class);
 
         return new LoginResponseModel(requestObject, responseObject);
     }
 
    //Facade Method
     @Step("Login With Existing User")
-    public LoginResponseModel loginWithExistingUser() throws JsonProcessingException {
+    public LoginResponseModel loginWithExistingUser() {
         return
                 new LoginRequestModel(userEmail,userPassword)
                         .prepareLoginRequest()

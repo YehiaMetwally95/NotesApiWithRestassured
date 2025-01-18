@@ -8,18 +8,19 @@ import pojoClasses.*;
 
 import java.util.Arrays;
 
-import static yehiaEngine.managers.ApisManager.MakeAuthRequest;
-import static yehiaEngine.managers.ApisManager.getResponseBody;
+import static yehiaEngine.managers.ApisManager.*;
 import static yehiaEngine.managers.PropertiesManager.getPropertiesValue;
 import static yehiaEngine.utilities.RandomDataGenerator.*;
+import static yehiaEngine.managers.ApisManager.ContentType.*;
+import static yehiaEngine.managers.ApisManager.MethodType.*;
+import static yehiaEngine.managers.ApisManager.AuthType.*;
+import static yehiaEngine.managers.ApisManager.ParameterType.*;
 
 public class UpdateNoteRequestModel {
 
     //Variables
     String updateNoteEndpoint = getPropertiesValue("baseUrlApi")+"notes/";
-    String responseBodyAsString;
     Response response;
-    JsonMapper mapper;
 
     String token;
     String noteID;
@@ -37,15 +38,18 @@ public class UpdateNoteRequestModel {
 
     @Step("Prepare UpdateNote Request Statically from Json File")
     //Method to get Request Body inputs from Json File Statically
-    public UpdateNoteRequestModel prepareUpdateNoteRequestFromJsonFile(String noteData) throws JsonProcessingException {
-        mapper = new JsonMapper();
-        requestObject = mapper.readValue(noteData, UpdateNoteRequestPojo.class);
+    public UpdateNoteRequestModel prepareUpdateNoteRequestFromJsonFile(String noteData) {
+        updateNoteEndpoint = updateNoteEndpoint+noteID;
+
+        requestObject = mapJsonStringToPojoClass(noteData,UpdateNoteRequestPojo.class);
         return this;
     }
 
     @Step("Prepare UpdateNote Request Dynamically With Random Values")
     //Method to set Request Body inputs from TimeStamp Dynamically
     public UpdateNoteRequestModel prepareUpdateNoteRequestWithRandomValues(){
+        updateNoteEndpoint = updateNoteEndpoint+noteID;
+
         requestObject = UpdateNoteRequestPojo.builder()
                 .title(generateUniqueName())
                 .description(generateDescription())
@@ -57,17 +61,12 @@ public class UpdateNoteRequestModel {
 
     @Step("Send UpdateNote Request")
     //Method to Execute UpdateNote Request
-    public UpdateNoteResponseModel sendUpdateNoteRequest() throws JsonProcessingException {
+    public UpdateNoteResponseModel sendUpdateNoteRequest() {
 
-        response =
-                MakeAuthRequest("Put", updateNoteEndpoint+noteID,requestObject
-                        ,"application/x-www-form-urlencoded","X-Auth-Token",
-                        null,null,token);
+        response =MakeAuthRequest(PUT, updateNoteEndpoint,requestObject,URLENCODED
+                ,XAuthToken,token,null,null);
 
-        responseBodyAsString = getResponseBody(response);
-        mapper = new JsonMapper();
-
-        responseObject = mapper.readValue(responseBodyAsString, UpdateNoteResponsePojo.class);
+        responseObject = mapResponseToPojoClass(response,UpdateNoteResponsePojo.class);
 
         return new UpdateNoteResponseModel(requestObject,responseObject,token);
     }
@@ -80,6 +79,7 @@ public class UpdateNoteRequestModel {
                 .sendUpdateNoteRequest()
                 .validateStatusFromResponse("200")
                 .getNoteID()
+                .prepareGetNoteRequestWithNoteID()
                 .sendGetNoteRequest()
                 .validateStatusFromResponse("200")
                 .validateTitleFromResponse(title)
@@ -91,7 +91,7 @@ public class UpdateNoteRequestModel {
     }
 
     @Step("Don't Update The Note")
-    public CreateNoteRequestModel noUpdate() throws JsonProcessingException {
+    public CreateNoteRequestModel noUpdate() {
         return new CreateNoteRequestModel(token);
     }
 }

@@ -5,16 +5,14 @@ import com.google.gson.JsonObject;
 import com.mysql.cj.jdbc.Driver;
 import yehiaEngine.loggers.LogHelper;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class JDBCManager {
     // Retrieve DB records and represent them as Array of JsonObjects with one Nested Key to the whole JsonArray
     public static JsonObject setJsonObjectFromDBAsNestedArrayOfJsonObjects(String query ,
-                                                                           String[] jsonKeys, String jsonMainKey) throws SQLException, IOException {
+                                                                           String[] jsonKeys, String jsonMainKey) {
         try {
             //Register Driver Classs for the Database
             DriverManager.registerDriver(new Driver());
@@ -51,7 +49,7 @@ public class JDBCManager {
 
     // Retrieve DB records and represent them as JsonObjects with Nested Key for every JsonObject
     public static JsonObject setJsonObjectFromDBAsNestedJsonObjects(String query ,
-                                                                    String[] jsonKeys, String[] jsonMainKeys) throws SQLException, IOException {
+                                                                    String[] jsonKeys, String[] jsonMainKeys) {
         try{
         //Register Driver Classs for the Database
         DriverManager.registerDriver(new Driver());
@@ -89,7 +87,7 @@ public class JDBCManager {
 
     // Retrieve DB records and Write them on JsonFile that represent them as Array of JsonObjects with one Nested Key to the whole JsonArray
     public static void setJsonFileFromDBAsNestedArrayOfJsonObjects(String query, String jsonFilePath, String[] jsonKeys,
-                                                                   String jsonMainKey) throws SQLException, IOException {
+                                                                   String jsonMainKey) {
         try {
             //Read the object1 for data retrieved from Database
             JsonObject object1 = setJsonObjectFromDBAsNestedArrayOfJsonObjects(query, jsonKeys, jsonMainKey);
@@ -108,7 +106,7 @@ public class JDBCManager {
 
     // Retrieve DB records and Write them on JsonFile that represent them as JsonObjects with Nested Key for every JsonObject
     public static void setJsonFileFromDBForNestedJsonObjects(String query, String jsonFilePath,
-                                                                         String[] jsonKeys,String[] jsonMainKeys) throws SQLException, IOException {
+                                                                         String[] jsonKeys,String[] jsonMainKeys) {
         try{
         //Read the object1 for data retrieved from Database
         JsonObject object1 = setJsonObjectFromDBAsNestedJsonObjects(query,jsonKeys,jsonMainKeys);
@@ -128,7 +126,7 @@ public class JDBCManager {
     //**********************************************************************************************************************//
 
     //Insert New Record to Database
-    public static void insertNewRecordToDatabase(String query) throws IOException, SQLException {
+    public static void insertNewRecordToDatabase(String query) {
        try{
         //Register Driver Classs for the Database
         DriverManager.registerDriver(new Driver());

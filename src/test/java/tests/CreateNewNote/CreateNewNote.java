@@ -35,6 +35,7 @@ public class CreateNewNote {
 
                 //Get Note ID from CreateNote Request to Pass it & Prepare GetNote Request then Send it
                 .getNoteId()
+                .prepareGetNoteRequestWithNoteID()
                 .sendGetNoteRequest()
 
                 //Validations on GetNote Response
